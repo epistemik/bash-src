@@ -1,0 +1,97 @@
+
+MAIN:
+	codes = \\Phoenix\users\mhsatto\Backup\passcode.rtf
+	words = \\Phoenix\users\mhsatto\Backup\pswd.pki.zip
+
+
+DISTRIBUTION:
+
+	\\Local Disk(C:)\Documents and Settings\mhsatto\My Documents\SysFiles\ARK\
+	\\Phoenix\users\mhsatto\Sun\refer\hist\
+	\\Phoenix\users\mhsatto\Sun\bin\bak\
+
+	passcode.txt : \\XXX (home-nfs.sigint.cse)\mhsatto\dev\hist\
+			    \\XXX (home-nfs.sigint.cse)\mhsatto\bin\bak\
+
+###################################################################
+
+ Chinook/Corp/Red [LDAP/IntelliWiki/PeopleSoft] = 27.x (Sep16,10)
+
+ Sabre/Black = 29.x (Sep16,10)
+
+ xxxPeopleSoft = 24.y (Oct7,09)
+
+###################################################################
+
+  HPC
+
+ NIS[mustang.sigint.cse] = cse3
+ CRAC[snowman.silint.cse] = 5cse3
+
+ cvs.sigint.cse = greek
+ creighton.central.cse = greek
+ tristar.silint.cse = cse5
+ nova.silint.cse = cse3
+
+ pulsar.silint.cse = CRAC
+ constance.central.cse = NIS
+ gascon.central.cse = NIS
+ diavik.central.cse = NIS
+ ekati.central.cse = NIS
+ savuka.central.cse = NIS
+
+ Netezza admin = tfihen4h2
+ Netezza/NZSQL uid = uid1
+ egret.cray.com = aeBe$u7A
+ mguser = mgu53r
+ mtgluser = mtglu53r
+
+#####################################################
+
+Entrust PKI (Corp/Red) = ( CAPS + 1.7 )
+
+	PGP (Sabre/Black) 	= Entrust PKI
+
+	Secret Agent (Corp/Red)	= Entrust PKI
+
+	WinZip Encrypted (ALL)	= Entrust PKI
+
+#####################################################
+
+ Annex E
+
+ Surf     = 11.9
+ Perforce = (num)11.9
+ 
+ Linux VM = perseus(user)/2.7 
+		root/1.7
+
+ Win VM's = perseus.SURF
+		<compName>Admin/1.7
+
+#####################################################
+
+ keg.cse (doesn't change) = 1.7
+ ganesha = 1.7
+ kerberos (ganesha:usr/local/bin/kpasswd) = 1.7/2.7 ?
+ CRAC 0046/0164 = 1.7
+
+#####################################################
+
+ love.e.cse (Signis domain) = 1.7
+ CHEESECAKE net = 1.7
+
+#####################################################
+
+  TELEPHONES 
+ 
+ 6562 [ip] = 52365236 (8 Sep 2010) [mail=6000]
+		 [47896321\login]
+ 
+ A210
+    991-7130 [black] = 52365236 (8 Sep 2010) [mail=4000]
+    347-2800 [cell]  = 99.3 (secure)
+ 
+ Annex E
+    949-2661 [black] = xxxx
+    597-2252 [emerg] = 99.4 (secure)

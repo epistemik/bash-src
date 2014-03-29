@@ -1,0 +1,194 @@
+#
+################################################################################
+#
+# mhsatto@cse-cst.gc.ca
+# $Id: dircolors,v 1.2 2010/10/15 16:55:59 mhsatto Exp $
+#
+################################################################################
+
+# Configuration file for the color ls utility
+#
+# This file goes in the /etc directory, and must be world readable.
+# You can copy this file to .dir_colors in your $HOME directory to override
+# the system defaults.
+
+# COLOR needs one of these arguments: 'tty' colorizes output to ttys, but not
+# pipes. 'all' adds color characters to all output. 'none' shuts colorization
+# off.
+COLOR all
+
+# Extra command line options for ls go here.
+# Basically these ones are:
+#  -F = show '/' for dirs, '*' for executables, etc.
+#  -T 0 = don't trust tab spacing when formatting ls output.
+OPTIONS -F -T 0
+
+# Below, there should be one TERM entry for each termtype that is colorizable
+TERM linux
+TERM linux-c
+TERM console
+TERM con132x25
+TERM con132x30
+TERM con132x43
+TERM con132x60
+TERM con80x25
+TERM con80x28
+TERM con80x30
+TERM con80x43
+TERM con80x50
+TERM con80x60
+TERM gnome
+TERM mach-color
+TERM rxvt
+TERM screen
+TERM screen-w
+TERM vt100
+TERM vt102
+TERM xterm
+TERM xterm-debian
+TERM iterm
+
+# EIGHTBIT, followed by '1' for on, '0' for off. (8-bit output)
+EIGHTBIT 1
+
+# Below are the color init strings for the basic file types. A color init
+# string consists of one or more of the following numeric codes:
+#
+# Attribute codes:
+# 00=none / 01=bold / 02=faint / 04=underscore / 05=blink / 07=reverse / 08=concealed
+# Cancel codes:
+# 22 = 01 & 02 OFF / 24 = 04 OFF / 25 = 05 OFF / 27 = 07 OFF / 28 = 08 OFF
+# Text color codes:
+# 30=black / 31=red / 32=green / 33=yellow / 34=blue / 35=magenta / 36=cyan / 37=white
+# Background color codes:
+# 40=black / 41=red / 42=green / 43=yellow / 44=blue / 45=magenta / 46=cyan / 47=white
+
+NORMAL 00       # global default, although everything should be something.
+FILE   00       # normal file
+DIR    01;34    # directory			            (bold blue)
+LINK   00;36    # symbolic link			        (cyan)
+SOCK   41;36    # socket			            (cyan on red)
+DOOR   41;36    # door				            (cyan on red)
+FIFO   40;33    # pipe				            (yellow on black)
+BLK    40;33    # block device driver		    (yellow on black)
+CHR    40;33    # character device driver	    (yellow on black)
+ORPHAN 31;05    # symlink to nonexistent file	(blink red)
+
+# This is for files with execute permission (bold green):
+EXEC 01;32
+
+# List any file extensions like '.gz' or '.tar' that you would like ls
+# to colorize below. Put the extension, a space, and the color init string.
+# (and any comments you want to add after a '#')
+
+# shell/scripts (green)
+.sh     00;32
+.csh    00;32
+.ksh    00;32
+.tcsh   00;32
+.bash   00;32
+.bashrc 00;32
+.pl     00;32
+.pm     00;32
+.bat    00;32
+.btm    00;32
+.cmd    00;32
+.py     00;32
+.als    00;32
+.alias  00;32
+.fxn    00;32
+
+# libs, objects, etc (red)
+.a      00;31
+.ar     00;31
+.o      00;31
+.so     00;31
+.lib    00;31
+.dll    00;31
+.class  00;31
+.plg    00;31
+.pyc    00;31
+.pyo    00;31
+
+# header/make files or similar (magenta)
+.h      00;35
+.hh     00;35
+.hpp    00;35
+.mk     00;35
+.mak    00;35
+.make   00;35
+
+# source code or similar (bold magenta)
+.c      01;35
+.cc     01;35
+.cpp    01;35
+.C      01;35
+.s      01;35
+.asm    01;35
+.java   01;35
+.pas    01;35
+.pro    01;35
+.sml    01;35
+.st     01;35
+.cs     01;35
+
+# archives or compressed (white on blue)
+.tar    37;44
+.tbz    37;44
+.tgz    37;44
+.rpm    37;44
+.deb    37;44
+.arj    37;44
+.taz    37;44
+.lzh    37;44
+.zip    37;44
+.zoo    37;44
+.z      37;44
+.Z      37;44
+.gz     37;44
+.bz2    37;44
+.tb2    37;44
+.tz2    37;44
+.tbz2   37;44
+.bz     37;44
+.z7     37;44
+.Z7     37;44
+.cab    37;44
+
+# image formats (bold yellow)
+.htm    01;33
+.html   01;33
+.xml    01;33
+.xsl    01;33
+.xsd    01;33
+.dtd    01;33
+.avi    01;33
+.bmp    01;33
+.fli    01;33
+.gif    01;33
+.jpg    01;33
+.jpeg   01;33
+.mng    01;33
+.mov    01;33
+.mpg    01;33
+.pcx    01;33
+.pbm    01;33
+.pgm    01;33
+.png    01;33
+.ppm    01;33
+.tga    01;33
+.tif    01;33
+.xbm    01;33
+.xpm    01;33
+.dl     01;33
+.gl     01;33
+.wmv    01;33
+
+# sound formats (yellow)
+.aiff   00;33
+.au     00;33
+.mid    00;33
+.mp3    00;33
+.ogg    00;33
+.voc    00;33
+.wav    00;33

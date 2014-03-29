@@ -1,0 +1,29 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2010.02.02.20.06.10;	author mhsatto;	state Exp;
+branches;
+next	;
+
+
+desc
+@default parameters for ex and vi
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@set number
+set showmode
+set ts=3
+set ignorecase
+
+@

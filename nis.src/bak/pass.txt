@@ -1,0 +1,69 @@
+
+MAIN:	\\Phoenix\users\mhsatto\Docs\Backup\pass.rtf
+		\\Phoenix\users\mhsatto\Docs\Backup\passcode.pki.zip
+
+
+DISTRIBUTION:
+
+		\\Phoenix\users\mhsatto\Sun\refer\hist\
+		\\Phoenix\users\mhsatto\Sun\bin\bak\
+		\\Local Disk (C:)\Documents and Settings\mhsatto\My Documents\SysFiles\ARK\  [K2 & K1]
+		pass.txt : \\nfscluster-samba-test (Samba 2.2.x) (home-nfs.sigint.cse)\mhsatto\refer\hist\
+		pass.txt : \\nfscluster-samba-test (Samba 2.2.x) (home-nfs.sigint.cse)\mhsatto\bin\bak\
+
+#####################################################
+
+keg.cse (doesn't change) = 1.7
+
+ganesha = 1.7
+
+kerberos (ganesha:usr/local/bin/kpasswd) = 1.7/2.7 ?
+
+CRAC 0046/0164 = 1.7
+
+#####################################################
+
+love.e.cse (Signis domain) = 1.7
+
+CHEESECAKE net = 1.7
+
+#####################################################
+
+LDAP (lds/nuad & edit person) = 1.7
+
+PeopleSoft = 14.9 (9 Feb 2008)
+
+#####################################################
+
+Entrust PKI (Corp/Red) = ( CAPS + 1.7 )
+
+PGP (Sabre/Black) = Entrust PKI
+
+Secret Agent (Corp/Red) = Entrust PKI
+
+WinZip Encrypted (ALL) = Entrust PKI
+
+#####################################################
+
+Corp/Red Access = 14.9 (8 Feb 2008)
+
+Sabre/Black Access = 14.9 (8 Feb 2008)
+
+Surf (Annex E) = 11.9
+
+Linux VM (Annex E) = perseus(user)/2.7 & root/1.7
+
+#####################################################
+
+ TELEPHONES 
+
+A210
+        7582 [green] = 232323 (22 Nov 2007)
+    991-7130 [black] = 565656 (11 Mar 2008)
+    347-2800 [cell]  = 99.3 (secure)
+   
+Annex E
+        6562 [ip]  = 47896321(login) / 23232323 (12 Dec 2007)
+  [ 949-6327 [blk] = 321321 (5 Dec 2006) ]
+    949-2661 [blk] = 
+    597-2252 [extern] = 99.3 (secure)

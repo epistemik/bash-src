@@ -1,0 +1,6 @@
+#!/bin/ksh
+
+#get return value 
+
+echo "Return value is $?" 
+

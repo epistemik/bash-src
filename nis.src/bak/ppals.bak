@@ -1,0 +1,54 @@
+# FILE LISTING
+alias	la	'ls -a'
+alias	lal	'ls -al \!* |more '
+alias	ll	'ls -l \!* |more '
+alias	lt	'ls -lt \!* |more '
+alias	lg	'ls -dlt \!* |more '
+alias	le	'lt *.\!* |more '
+alias	lsd	'll | grep ^dr |more '
+alias	lsz	'll | sort -r -n +4 |more '
+alias	lct	'\ls |wc -w '
+alias	lscc	'lt *.cc *.cpp *.C |grep -v ',' |more '
+alias	lsh	'lt *.h *.hpp *.hh |grep -v ',' |more '
+alias	lsrc	'lscc > .lsrctemp; lsh >> .lsrctemp; m .lsrctemp |sort +8 |grep -v ','; rm .lsrctemp'
+alias	lso	'date; lt *.o *.obj |more '
+alias	lsx	'date; lt | grep -e -rwx |more '
+# FOLDER NAVIGATION
+alias	up	'cd ..'
+alias	upp	'cd ../..'
+alias	uppp	'cd ../../..'
+alias	upppp	'cd ../../../..'
+alias	ppcode	'cd /spare6/rtm_tmp/passport/bv/p7RTM_h.1; ls '
+alias	ppdocs	'cd /spare6/passport_documentation; ls '
+alias	ppbld	'cd ~mhsatto/build; lt '
+alias	ppobj	'cd ~mhsatto/build/obj '
+alias	ppout	'cd ~mhsatto/build/out '
+alias	ppcs	'cd ~mhsatto/build/cryptserver '
+alias	ppcwr	'cd ~mhsatto/build/collwithrules '
+alias	ppex	'cd ~mhsatto/build/exfil '
+alias	ppedge	'cd ~mhsatto/build/edgefh '
+alias	ppmsg	'cd ~mhsatto/build/msgsend '
+alias	ppcoll	'cd ~mhsatto/build/collector '
+alias	pputil	'cd ~mhsatto/build/utils '
+alias	chbld	'cd ~mhsatto/cheesecake/src/lib; lt '
+alias	chinc	'cd ~mhsatto/cheesecake/include '
+alias	chbin	'cd ~mhsatto/cheesecake/bin '
+alias	chcoll	'cd ~mhsatto/cheesecake/src/lib/collector '
+alias	chutil	'cd ~mhsatto/cheesecake/src/lib/utils '
+# EDITING
+alias	xe	'xterm -j -rw -geometry 109x61 -title "vi \!*" -e vi \!* '
+alias	grep	/usr/xpg4/bin/grep
+# LANDSCAPE 2-PAGE PRINTING
+alias	lpga	'mp -l -o \!* | lp -s '
+# PROCESSES
+alias	pm	'ps -fu mhsatto |more '
+alias	socsh	'source ~mhsatto/.cshrc '
+#PACKETS
+alias	png	'ping -I 2'
+# PROTECTED FILE DELETION
+alias	del	'rm -i'
+# PROGRAMMING
+alias	mk	'make -r -f \!*; date; lso '
+# ENV VARIABLE VIEWING
+alias	EC	echo
+alias	SETENV	setenv

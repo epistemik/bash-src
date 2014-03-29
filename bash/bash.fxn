@@ -1,0 +1,146 @@
+#!/bin/bash
+################################################################################
+#
+# mhsatto@cse-cst.gc.ca
+#
+# $Id: //depot/src/bash/bash.fxn#4 $
+#
+################################################################################
+
+# Functions (and some related aliases)
+
+list ()
+{
+	echo "$1" |tr ':' '\n'
+}
+
+# PATH
+bp ()
+{
+	list $PATH
+}
+
+# LIBPATH
+libpath ()
+{
+  echo " LD_LIBRARY_PATH:"
+	list $LD_LIBRARY_PATH
+}
+
+# DIRECTORIES
+le ()
+{
+    ls -Adlh "$1"* | more
+}
+
+target ()
+{
+  target=`ls -A | wc -w`
+  if (( target <= ($LINES-2) ))
+  then
+      ls -Alh
+  elif (( target <= (2*($LINES-2)) ))
+  then
+      ls -A
+  else
+      echo "$target files in this directory"
+  fi
+}
+
+go ()
+{
+	if [[ $1 ]] ; then
+	  pushd "$1"
+	else
+	  pushd
+	fi
+  target ;
+}
+alias GO=go
+
+rt ()
+{
+	if [[ $1 ]] ; then
+	  popd "$1"
+	else
+	  popd
+	fi
+  target ;
+}
+alias rtt='popd;rt'
+alias rttt='popd;rtt'
+alias rtttt='popd;rttt'
+alias rttttt='popd;rtttt'
+
+to ()
+{
+	pushd $1
+	pwd
+}
+
+rto ()
+{
+	popd $1
+	pwd
+}
+
+# MISC
+fn ()
+{
+	find "$1" -name "$2"
+}
+
+xxl ()
+{
+	if [ $2 ]
+    then
+        xxd -c"$1" "$2" | less
+    else
+        xxd -c16 "$1" | less
+    fi
+}
+
+hist ()
+{
+	if [ $1 ]
+    then
+        history "$1"
+    else
+        history 32
+    fi
+}
+
+hd ()
+{
+    if [ $2 ]
+    then
+        head -n "$1" "$2"
+    else
+        head -n 16 "$1"
+    fi
+}
+
+xt ()
+{
+	xterm -name "$1 $2 $3 $4 $5 $6"
+}
+alias XT=xt
+
+eng ()
+{
+    env | grep "$1" | more
+}
+alias ENG=eng
+engl ()
+{
+    env | grep "$1" | less
+}
+alias ENGL=engl
+
+########################################
+# END OF SCRIPT
+BASHFXN_LOADED='TRUE'
+echo "LOADED bash.fxn"
+# END OF SCRIPT
+########################################
+

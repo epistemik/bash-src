@@ -1,0 +1,180 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2010.10.14.19.51.49;	author mhsatto;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.10.14.18.12.32;	author mhsatto;	state Exp;
+branches;
+next	;
+
+
+desc
+@Xresources configuration
+@
+
+
+1.2
+log
+@ put active resources at top
+other slight modifications
+@
+text
+@!
+! mhsatto@@cse-cst.gc.ca
+!
+! $Id: bash.als,v 1.1 2010/10/14 18:09:50 mhsatto Exp mhsatto $
+!
+! Xdefaults
+!
+nedit.remapDeleteKey:	False
+!
+XTerm*background:	    lightyellow
+XTerm*foreground:	    black
+XTerm*jumpScroll:	    True
+XTerm*saveLines:	    4000
+XTerm*scrollBar:	    True
+XTerm*cursorColor:	    red
+XTerm*visualBell:	    True
+XTerm*pointerColor:	    green
+XTerm*scrollKey:	    True
+XTerm*eightBitInput:	True
+!
+emacs.background:	    skyblue
+emacs.foreground:	    black
+emacs.title:		    Emacs Cipher Editor
+emacs.cursorColor:	    red
+emacs.pointerColor:	    blue
+emacs.geometry:		    81x67+654+0
+emacs.iconName:		    "CE"
+emacs:	                bitmapIcon:	on
+!
+*BitmapFilePath:	    /usr/local/include/bitmaps
+*basicLocale:		    C
+*displayLang:		    C
+*inputLang:		        C
+*numeric:		        C
+*timeFormat:		    C
+!
+Xcolors*font:		    *-8-*
+Xcolors*borderWidth:	5
+Text.EnableScrollbar:	True
+Text.LineBreak:		    Wrap_char
+!
+Dtterm*cursorColor:	    red
+Dtterm*saveLines:	    900s
+Dtwm*frameBorderWidth:	8
+Dtwm*resizeBorderWidth:	10
+##Dtwm*windowMenu:	    NewWindowMenu
+##Dtwm*buttonBindings:	NewButtonBindings
+##Dtwm*keyBindings:	    NewKeyBindings
+Dtpad*statusLine:	    true
+##Dtpad*wrapToFit:	    true
+Dtpad*geometry:		    109x49
+Dtpad*filter:		    '*'
+!
+OpenWindows.WorkspaceColor:	    #8490b4
+OpenWindows.WindowColor:	    #e5b7b7
+OpenWindows.IconLocation:	    bottom
+OpenWindows.DragRightDistance:	100
+OpenWindows.SelectDisplaysMenu:	True
+OpenWindows.SetInput:		    followmouse
+OpenWindows.Beep:		        never
+OpenWindows.ScrollbarPlacement:	left
+OpenWindows.PopupJumpCursor:	True
+OpenWindows.MultiClickTimeout:	4
+OpenWindows.Font:		        10x20
+!
+olvwm.AllowMoveIntoDesktop:	    true
+olvwm.AutoShowRootMenu:		    false
+olvwm.VirtualDesktop:		    3x2
+olvwm.PannerScale:		        10
+olvwm.ShowResizeGeometry:	    true
+olvwm.VirtualIconic:		    true
+olvwm.ShowMoveGeometry:		    true
+olvwm.PaintWorkspace:		    true
+olvwm.RefreshRecursively:	    false
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 37
+a37 11
+olvwm.AllowMoveIntoDesktop:	true
+olvwm.AutoShowRootMenu:		false
+olvwm.VirtualDesktop:		3x2
+olvwm.PannerScale:		10
+olvwm.ShowResizeGeometry:	true
+olvwm.VirtualIconic:		true
+olvwm.ShowMoveGeometry:		true
+olvwm.PaintWorkspace:		true
+olvwm.RefreshRecursively:	false
+#
+Xcolors*font:		*-8-*
+d40 17
+a56 25
+Text.LineBreak:		Wrap_char
+#
+XTerm*background:	lightgray
+XTerm*foreground:	black
+XTerm*jumpScroll:	True
+XTerm*saveLines:	1000
+XTerm*scrollBar:	True
+XTerm*cursorColor:	red
+XTerm*visualBell:	True
+XTerm*pointerColor:	green
+XTerm*scrollKey:	True
+XTerm*eightBitInput:	True
+#
+emacs.background:	skyblue
+emacs.foreground:	black
+emacs.title:		Emacs Cipher Editor
+emacs.cursorColor:	red
+emacs.pointerColor:	blue
+emacs.geometry:		81x67+654+0
+emacs.iconName:		"CE"
+emacs:	bitmapIcon:	on
+#
+OpenWindows.WorkspaceColor:	#8490b4
+OpenWindows.WindowColor:	#e5b7b7
+OpenWindows.IconLocation:	bottom
+d59 2
+a60 2
+OpenWindows.SetInput:		followmouse
+OpenWindows.Beep:		never
+d64 11
+a74 22
+OpenWindows.Font:		10x20
+#
+*BitmapFilePath:	/usr/local/include/bitmaps
+*basicLocale:		C
+*displayLang:		C
+*inputLang:		C
+*numeric:		C
+*timeFormat:		C
+#
+Dtterm*cursorColor:	red
+Dtterm*saveLines:	900s
+Dtwm*frameBorderWidth:	8
+Dtwm*resizeBorderWidth:	10
+##Dtwm*windowMenu:	NewWindowMenu
+##Dtwm*buttonBindings:	NewButtonBindings
+##Dtwm*keyBindings:	NewKeyBindings
+Dtpad*statusLine:	true
+##Dtpad*wrapToFit:	true
+Dtpad*geometry:		109x49
+Dtpad*filter:		'*'
+#
+nedit.remapDeleteKey:	False
+@

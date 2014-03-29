@@ -1,0 +1,143 @@
+###############################################################################
+#
+#     cfamily.dt (taken from /usr/dt/appconfig/types/C/develop.dt)
+#
+#	- set .c & .h files to use nedit as the editor app
+#	- restrict CPLUSPLUS_SRC to .C & leave .cc as a data type in nEdit.dt
+#
+#     Action and DataType definitions for the Common Desktop Environment
+#     (CDE) components.  This file contains common datatypes for developers.
+#
+#    (c) Copyright 1993, 1994, 1995 Hewlett-Packard Company
+#    (c) Copyright 1993, 1994, 1995 International Business Machines Corp.
+#    (c) Copyright 1993, 1994, 1995 Sun Microsystems, Inc.
+#    (c) Copyright 1993, 1994, 1995 Novell, Inc.
+#
+#    $XConsortium: develop.dt.src /main/cde1_maint/4 1995/10/31 11:18:45 rcs $
+#
+###############################################################################
+set DtDbVersion=1.0
+
+###############################################################################
+#
+# WARNING:  This file may be overwritten in subsequent installations of
+#     the Common Desktop Environment (CDE).  Consequently, any system wide
+#     changes should be made to an equivalent database file in
+#     /etc/dt/appconfig/types/<locale> and not in this file.
+#
+###############################################################################
+
+###################################################################
+#
+# Data Attributes
+#
+###################################################################
+DATA_ATTRIBUTES C_SRC
+{
+        ACTIONS         Open,Make,Print
+        ICON		DtdotC
+        IS_TEXT		true
+        NAME_TEMPLATE	%s.c
+        MIME_TYPE	text/x-sun-c-file
+        SUNV3_TYPE      c-file
+	DESCRIPTION	This file is a source file in the C \
+                        programming language.  Its data type is named \
+                        C_SRC.  C_SRC files have names ending with '.c'.
+        TYPE_LABEL      C_SRC
+}
+DATA_CRITERIA C_SRC1
+{
+	DATA_ATTRIBUTES_NAME C_SRC
+        MODE            f
+	NAME_PATTERN	*.c
+}
+ACTION Open
+{
+        LABEL           Open
+        TYPE            COMMAND
+        ARG_TYPE        C_SRC
+        WINDOW_TYPE     NO_STDIO
+        EXEC_STRING     /home/mhsatto/bin/nedit "%(File)Arg_1%"
+        DESCRIPTION     The Open command for C_SRC files uses the \
+                        nEdit application to open the file.
+}
+ACTION Make
+{
+        LABEL           Make
+        TYPE            COMMAND
+        ARG_TYPE        C_SRC
+        WINDOW_TYPE     PERM_TERMINAL
+        EXEC_STRING     sh -c ' \
+            make `basename "%(File)Arg_1%" .c`.o 2>&1 | \${PAGER:-more}; \
+            echo "\\n*** Select Close or Exit from the window menu to close this window ***"'
+        DESCRIPTION     The Make command for C_SRC files uses the Unix \
+                        'make' command to make the associated object file.
+}
+
+############################################################
+
+DATA_ATTRIBUTES CPLUSPLUS_SRC
+{
+        ACTIONS         Open,Make,Print
+        ICON            DtC++
+        IS_TEXT         true
+        NAME_TEMPLATE	%s.C
+        MIME_TYPE	text/plain
+        DESCRIPTION     This is a a source file in the C++ programming \
+                        language.  Its data type is named CPLUSPLUS_SRC. \
+                        CPLUSPLUS_SRC files have names ending with '.C'.
+        TYPE_LABEL      CPLUSPLUS_SRC
+}
+DATA_CRITERIA C_PLUSPLUS1
+{
+        DATA_ATTRIBUTES_NAME CPLUSPLUS_SRC
+        MODE            f
+        NAME_PATTERN    *.C
+}
+ACTION Make
+{
+        LABEL           Make
+        TYPE            COMMAND
+        ARG_TYPE        CPLUSPLUS_SRC
+        WINDOW_TYPE     PERM_TERMINAL
+        EXEC_STRING     sh -c ' \
+               make `basename "%(File)Arg_1%" .C`.o 2>&1 | \${PAGER:-more}; \
+               echo "\\n*** Select Close or Exit from the window menu to close this window ***"'
+        DESCRIPTION     The Make command for CPLUSPLUS_SRC files uses \
+                        the Unix 'make' command to make the associated \
+                        object file.
+}
+
+############################################################
+
+DATA_ATTRIBUTES H_SRC
+{
+        ACTIONS         Open,Print
+        ICON		DtdotH
+        IS_TEXT		true
+        NAME_TEMPLATE	%s.h
+        MIME_TYPE	text/x-sun-h-file
+        SUNV3_TYPE      h-file
+	DESCRIPTION	This is a C-language program header file. Its \
+                        data type is named H_SRC.  H_SRC files have names \
+                        ending with *.h.
+        TYPE_LABEL      H_SRC
+}
+DATA_CRITERIA H_SRC1
+{
+	DATA_ATTRIBUTES_NAME H_SRC
+        MODE            f
+	NAME_PATTERN	*.h
+}
+ACTION Open
+{
+        LABEL           Open
+        TYPE            COMMAND
+        ARG_TYPE        H_SRC
+        WINDOW_TYPE     NO_STDIO
+        EXEC_STRING     /home/mhsatto/bin/nedit "%(File)Arg_1%"
+        DESCRIPTION     The Open command for H_SRC files uses the \
+                        nEdit application to open the file.
+}
+
+########################### EOF ##############################################

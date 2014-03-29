@@ -1,0 +1,340 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2010.10.15.16.34.58;	author mhsatto;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.10.14.19.53.06;	author mhsatto;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.10.14.18.10.11;	author mhsatto;	state Exp;
+branches;
+next	;
+
+
+desc
+@bash functions
+@
+
+
+1.3
+log
+@use LINES in tests for go and rt, and add an extra condition for very long directories
+remove unneeded extpath functions
+@
+text
+@#!/bin/bash
+################################################################################
+#
+# mhsatto@@cse-cst.gc.ca
+# $Id: bash.fxn,v 1.2 2010/10/14 19:53:06 mhsatto Exp mhsatto $
+#
+################################################################################
+
+# Functions (and some related aliases)
+
+function display
+{
+	echo $DISPLAY
+}
+
+# PATH
+function path 
+{
+	echo $PATH |tr ':' '\n'
+}
+function origpath
+{
+    echo $ORIGPATH |tr ':' '\n'
+}
+function mypath
+{
+    echo $MYPATH |tr ':' '\n'
+}
+function cleanpath
+{
+    export PATH=$ORIGPATH
+}
+function resetpath
+{
+    export PATH=$MYPATH:$ORIGPATH
+}
+function setmypath
+{
+    export MYPATH="$1"
+}
+
+# LIBPATH
+function libpath
+{
+    echo " LD_LIBRARY_PATH:"
+	echo $LD_LIBRARY_PATH |tr ':' '\n'
+}
+function origlibpath
+{
+    echo " ORIGLIBPATH:"
+	echo $ORIGLIBPATH |tr ':' '\n'
+}
+function cleanlibpath
+{
+    export LD_LIBRARY_PATH=$ORIGLIBPATH
+}
+
+# MANPATH
+function manpath 
+{
+    echo " MANPATH:"
+	echo $MANPATH |tr ':' '\n'
+}
+# INFOPATH
+function infopath
+{
+    echo " INFOPATH:"
+	echo $INFOPATH |tr ':' '\n'
+}
+# PKGPATH
+function pkgpath
+{
+    echo " PKG_CONFIG_PATH:"
+	echo $PKG_CONFIG_PATH |tr ':' '\n'
+}
+# MODULEPATH
+function modpath
+{
+    echo " MODULEPATH:"
+	echo $MODULEPATH |tr ':' '\n'
+}
+alias modlist=lsmod
+
+# DIRECTORIES
+function list
+{
+	echo "$1" |tr ':' '\n'
+}
+
+function lfm 
+{
+	ls -Al "$1" | more
+}
+
+function le
+{
+    ls -Al "$1"* | more
+}
+
+function go 
+{
+	pushd $1
+	pwd
+    target=`ls -Al | wc -l`
+    if (( target <= ($LINES-2) ))
+    then
+        ls -Al
+    elif (( target <= (2*($LINES-2)) ))
+    then
+        ls -A
+    else
+        echo " $target files in this directory"
+    fi
+}
+alias GO=go
+
+function rt
+{
+	popd $1
+	pwd
+    target=`ls -Al | wc -l`
+    if (( target <= ($LINES-2) ))
+    then
+        ls -Al
+    elif (( target <= (2*($LINES-2)) ))
+    then
+        ls -A
+    else
+        echo " $target files in this directory"
+    fi
+}
+alias rtt='popd;rt'
+alias rttt='popd;rtt'
+alias rtttt='popd;rttt'
+alias rttttt='popd;rtttt'
+
+function to 
+{
+	pushd $1
+	pwd
+}
+
+function rto
+{
+	popd $1
+	pwd
+}
+
+# MISC
+function fn
+{
+	find "$1" -name "$2"
+}
+
+function xxl
+{
+	if [ $2 ]
+    then
+        xxd -c"$1" "$2" | less
+    else
+        xxd -c16 "$1" | less
+    fi
+}
+
+function h
+{
+	if [ $1 ]
+    then
+        history "$1"
+    else
+        history 32
+    fi
+}
+
+function hd
+{
+    if [ $2 ]
+    then
+        head -n "$1" "$2"
+    else
+        head -n 16 "$1"
+    fi
+}
+
+function xt
+{
+	xterm -name "$1 $2 $3 $4 $5 $6"
+}
+alias XT=xt
+
+function eng
+{
+    env | grep "$1" | more
+}
+alias ENG=eng
+function engl
+{
+    env | grep "$1" | less
+}
+alias ENGL=engl
+
+########################################
+# END OF SCRIPT
+BASHFXN_LOADED='TRUE'
+echo "LOADED bash.fxn"
+# END OF SCRIPT
+########################################
+@
+
+
+1.2
+log
+@modify creighton bash.fxn to fit NIS environment
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.1 2010/10/14 18:10:11 mhsatto Exp mhsatto $
+a28 4
+function extpath
+{
+    echo $EXTENDEDPATH |tr ':' '\n'
+}
+a31 1
+    unset HAVEEXTPATH
+d35 1
+a35 1
+    export PATH=$MYPATH:$EXTENDEDPATH
+a40 4
+function setextpath
+{
+    export EXTENDEDPATH="$1"
+}
+d105 1
+a105 1
+    if (( target <= 50 ))
+d108 3
+d112 1
+a112 1
+        ls -A
+d122 1
+a122 1
+    if (( target <= 50 ))
+d125 3
+d129 1
+a129 1
+        ls -A
+d187 1
+a187 1
+	xterm -title "$1 $2 $3 $4"
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.12 2010/10/06 12:43:25 mhsatto Exp $
+a72 10
+function origmanpath 
+{
+    echo " ORIGMANPATH:"
+	echo $ORIGMANPATH |tr ':' '\n'
+}
+function cleanmanpath
+{
+    export MANPATH=$ORIGMANPATH
+}
+
+a78 10
+function originfopath
+{
+    echo " ORIGINFOPATH:"
+	echo $ORIGINFOPATH |tr ':' '\n'
+}
+function cleaninfopath
+{
+    export INFOPATH=$ORIGINFOPATH
+}
+
+a84 1
+
+d91 1
+a91 2
+alias modlist='module list'
+alias modav='module avail'
+a193 15
+function mr
+{
+	mtarun -m $1 $2 $3 $4 $5 $6
+}
+
+function mrt
+{
+    if [ $3 ]
+    then
+    	mtarun -t $1 -m $2 $3 $4 $5 $6
+    else
+    	mtarun -t $1 -m $1 $2
+    fi
+}
+
+@

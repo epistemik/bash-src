@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /export/home/mhsatto/visual
+visual3.0 vismark3.im

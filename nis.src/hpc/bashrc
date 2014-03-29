@@ -1,0 +1,91 @@
+#!/bin/bash
+############################
+#
+# mhsatto@cse-cst.gc.ca
+# $Header: /home/crypt/mhsatto/bin/src/RCS/bashrc,v 1.6 2010/02/03 16:43:37 mhsatto Exp $
+#
+############################
+
+# set corp home
+export mhscorp=cse11707.corp.cse
+
+# Netezza setup
+export NZ_USER=mhsatto
+export NZ_PASSWORD=mhsatto1
+export NZ_DATABASE=h2_db
+export NZ_HOST=savuka.central.cse
+
+# aliases
+alias ls='ls -F --color'
+alias ll='ls -l'
+alias la='ls -Al'
+alias lal=la
+alias lt='la -t'
+alias m=more
+alias cp='cp -p'
+alias c=clear
+alias del='rm -i'
+alias h='history 21'
+alias ups='cd .. ; show'
+alias upss='cd ../.. ; show'
+alias upsss='cd ../../.. ; show'
+alias upssss='cd ../../../.. ; show'
+alias EC=echo
+alias so=source
+alias ciu='ci -u '
+alias cil='ci -l '
+alias cou='co -u '
+alias col='co -l '
+alias src='go ~/bin/src'
+alias home='cd ~; show'
+
+# functions
+function path 
+{
+	echo $PATH |tr ':' '\n'
+}
+
+function manpath 
+{
+	echo $MANPATH |tr ':' '\n'
+}
+
+function libpath
+{
+	echo $LD_LIBRARY_PATH |tr ':' '\n'
+}
+
+function show 
+{
+	pwd
+	lal | more
+}
+
+function go 
+{
+	pushd $1
+	show
+}
+
+function rt
+{
+	popd $1
+	show
+}
+
+function display
+{
+	echo $DISPLAY
+}
+
+function fn
+{
+	find $1 -name '$2'
+}
+
+##########################################
+# END OF SCRIPT
+echo "LOADED ~/bash.rc"
+# END OF SCRIPT
+##########################################
+

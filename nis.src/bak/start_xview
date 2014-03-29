@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+#  Script:		start_XView
+#  Instance:		1
+#  %version:		2 %
+#  Description:		launch XView
+#
+#  %created_by:		pgjeann %
+#  %date_created:	Wed Jan 10 16:17:28 EDT 2001 %
+######################################################################
+
+echo >> $HOME/DT.log
+echo $0 $* >> $HOME/DT.log
+XVIEW_DIR=/opt/DOCviewer1.0
+
+LD_LIBRARY_PATH=${XVIEW_DIR}
+export LD_LIBRARY_PATH
+
+exec ${XVIEW_DIR}/DOCviewer $1

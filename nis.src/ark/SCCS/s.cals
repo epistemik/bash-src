@@ -1,0 +1,966 @@
+h62116
+s 00060/00051/00098
+d D 1.24 07/02/07 13:27:53 mhsatto 25 24
+c add "cals printed" mesg; fix spacing
+e
+s 00001/00000/00148
+d D 1.23 06/12/21 19:20:30 mhsatto 24 23
+c point cc to CC as Sun is now only at CC, cc just aliases gcc...
+e
+s 00003/00002/00145
+d D 1.22 05/05/05 13:29:41 mhsatto 23 22
+c restore do and go to previous form, add cds for 'cd; show'
+e
+s 00003/00002/00144
+d D 1.21 05/05/05 11:38:15 mhsatto 22 21
+c added show to go, change do from 'go' to 'cd', added SE
+e
+s 00002/00002/00144
+d D 1.20 05/02/21 14:27:32 mhsatto 21 19
+c change lsd and lsz to 'ls -Al', i.e. to include all files including dot
+e
+s 00002/00002/00144
+d R 1.20 05/02/21 14:23:35 mhsatto 20 19
+c change lsd and lsz to 'ls -Al', i.e. to include all files including dot
+e
+s 00000/00001/00146
+d D 1.19 05/02/08 14:24:59 mhsatto 19 18
+c remove jcd as it is implemented in bin folder instead
+e
+s 00023/00022/00124
+d D 1.18 05/02/07 11:39:41 mhsatto 18 17
+c add do; modify jcd; fix pop; change some folder navigation; ;modify show; &
+e
+s 00001/00001/00145
+d D 1.17 04/10/06 11:39:08 mhsatto 17 16
+c modified vsz
+e
+s 00006/00005/00140
+d D 1.16 04/09/22 12:16:05 mhsatto 16 15
+c fixed myjava; added lag; modified lssc
+e
+s 00006/00003/00139
+d D 1.15 04/06/15 13:43:21 mhsatto 15 14
+c replace the old gnu dut and due with due and dua based on the regular du command
+e
+s 00010/00004/00132
+d D 1.14 04/03/17 12:05:33 mhsatto 14 13
+c add ups etc; add morn and morc
+e
+s 00002/00000/00134
+d D 1.13 04/01/15 14:15:18 mhsatto 13 12
+c added rlogin and lpgc
+e
+s 00014/00011/00120
+d D 1.12 03/09/26 15:09:20 mhsatto 12 11
+c fix du commands, supplement and modify chmod commands
+e
+s 00049/00049/00082
+d D 1.11 03/09/25 11:59:27 mhsatto 11 10
+c modify du commands, fix lsz, modify pop, etc.
+e
+s 00004/00003/00127
+d D 1.10 03/06/06 10:04:45 mhsatto 10 9
+c took date out of lsmk, lsx, lso; fixed lsx; added soc
+e
+s 00036/00033/00094
+d D 1.9 03/05/30 10:44:20 mhsatto 9 8
+c  re-organized aliases between cshrc and cals and updated environment settings between love and pphost 
+e
+s 00013/00008/00114
+d D 1.8 03/04/10 16:26:29 mhsatto 8 7
+c added so, show, setbox from cshrc; changed mkgnu and mksun; added ppcode and ppdocs
+e
+s 00022/00023/00100
+d D 1.7 03/04/10 16:10:12 mhsatto 7 6
+c fixed the mk commands
+e
+s 00008/00005/00115
+d D 1.6 03/04/10 16:04:30 mhsatto 6 5
+c added mkgnu, mksun, and lssc
+e
+s 00051/00043/00069
+d D 1.5 03/03/13 08:20:42 mhsatto 5 4
+c added several folder navigation aliases; updated file listing; improved comments and modified categories
+e
+s 00002/00000/00110
+d D 1.4 03/03/12 15:59:43 mhsatto 4 3
+c added mybin and mybinsrc
+e
+s 00030/00026/00080
+d D 1.3 03/03/11 11:33:47 mhsatto 3 2
+c added SCCS aliases schk and sprh
+e
+s 00019/00010/00087
+d D 1.2 03/03/11 11:16:21 mhsatto 2 1
+c added and improved the chmod aliases and added a default -n flag to grep
+e
+s 00097/00000/00000
+d D 1.1 03/03/11 09:30:44 mhsatto 1 0
+c date and time created 03/03/11 09:30:44 by mhsatto
+e
+u
+U
+f e 0
+t
+T
+I 1
+D 2
+# aliases - csh
+################
+E 2
+I 2
+D 9
+# aliases for csh
+E 9
+I 9
+# ALIASES for csh
+
+E 9
+###################################################
+I 9
+#
+E 9
+#  Mark Sattolo (mhsatto@po.cse)
+D 9
+#  -------------------------------------------
+E 9
+I 9
+# ---------------------------------------------
+E 9
+#   File: %Z%%M%
+#   Version: %I%
+#   Last Update: %E% %U%
+#
+###################################################
+E 2
+
+I 8
+D 9
+alias	dt	'date '
+alias	so	'source'
+alias	show	'pwd; ls -ot |more '
+alias	setbox	'echo -n "]0; \!* " '
+E 8
+I 7
+alias	del	'rm -i '
+alias	socsh	'source ~/.cshrc '
+E 9
+I 9
+D 22
+alias	go	'pushd \!*; p'
+E 22
+I 22
+D 23
+alias	go	'pushd \!*; p; show'
+E 23
+I 23
+D 25
+alias	go	'pushd \!*; p'
+E 23
+E 22
+D 11
+alias	pop	'popd \!*; p'
+E 11
+I 11
+D 18
+alias	pop	'popd +\!*; p'
+E 18
+I 18
+alias	pop	'popd \!*;  p'
+D 22
+alias	do	'go \!* ;   show'
+E 22
+I 22
+D 23
+alias	do	'cd \!* ;   show'
+E 23
+I 23
+alias	do	'go \!* ; show'
+alias	cds	'cd \!* ; show'
+E 25
+I 25
+alias	go	    'pushd \!*; p'
+alias	pop	    'popd \!*;  p'
+alias	do	    'go \!* ; show'
+alias	cds	    'cd \!* ; show'
+E 25
+E 23
+E 22
+E 18
+E 11
+I 10
+D 16
+alias	soc	'source ~mhsatto/bin/cals '
+E 16
+I 16
+alias	socals	'source ~mhsatto/bin/cals '
+E 16
+E 10
+E 9
+alias	grep	"/usr/xpg4/bin/grep -n "
+D 25
+alias	l13	'last -13 '
+E 25
+I 25
+alias	l13	    'last -13 '
+E 25
+I 13
+D 16
+alias	rlogin	/usr/bin/rlogin # pphost doesn't like the default /usr/local/bin/rlogin
+E 13
+D 9
+alias	png	'ping -I 2 '
+E 9
+I 9
+alias	setbox	'echo -n "]0; \!* " '	# set the window and icon labels
+E 16
+I 16
+D 18
+alias	rlogin	/usr/bin/rlogin  # pphost doesn't like the default /usr/local/bin/rlogin
+E 18
+I 18
+alias	rlogin	/usr/bin/rlogin  # pphost doesn't like /usr/local/bin/rlogin
+E 18
+alias	setbox	'echo -n "]0; \!* " '	# set the window AND icon labels
+E 16
+alias	setbar	'echo -n "]2; \!* " '	# set the window label
+alias	seticon	'echo -n "]1; \!* " '	# set the icon label
+E 9
+D 8
+alias	dt	'date '
+E 8
+
+E 7
+# FILE LISTING
+I 9
+D 11
+alias	show	'pwd; ls -ot |more '
+E 11
+I 11
+D 18
+alias	show	'pwd; ls -ot  |more '
+E 18
+I 18
+alias	show	'pwd; ls -o	|more '
+E 18
+E 11
+E 9
+D 25
+alias	la	'ls -A '
+D 3
+alias	ll	'ls -l \!* |more'
+alias	lal	'ls -Al \!* |more'
+alias	lt	'ls -lt \!* |more'
+alias	lat	'ls -lAt \!* |more'
+alias	lg	'ls -dlt \!* |more'
+E 3
+I 3
+D 5
+alias	ll	'ls -l \!* |more '
+alias	lal	'ls -Al \!* |more '
+alias	lt	'ls -lt \!* |more '
+alias	lat	'ls -lAt \!* |more '
+alias	lg	'ls -dlt \!* |more '
+E 3
+alias	le	'ls -lt *.\!* |more '
+D 3
+alias	lsd	'ls -l | grep ^dr |more'
+alias	lsz	'ls -l | sort -r -n +4 |more'
+E 3
+I 3
+alias	lsd	'ls -l | grep ^dr |more '
+alias	lsz	'ls -l | sort -r -n +4 |more '
+E 3
+alias	lct	'echo `\ls -A |wc -w` files/folders '
+alias	lscc	'ls -lt *.cc *.cpp *.c *.C *.cxx |grep -v ',' |more '
+alias	lsh	'ls -lt *.h *.hpp *.hh *.hxx |grep -v ',' |more '
+D 3
+alias	lsrc	'lscc > mhslsrctemp; lsh >> mhslsrctemp; more mhslsrctemp |sort -f +8; rm mhslsrctemp'
+E 3
+I 3
+alias	lsrc	'lscc > mhslsrctemp; lsh >> mhslsrctemp; more mhslsrctemp |sort -f +8; rm mhslsrctemp '
+E 3
+alias	lso	'date; ls -lt *.o *.obj |more '
+alias	lsx	'date; ls -lt | grep -e -rwx |more '
+E 5
+I 5
+D 11
+alias	lal	'ls -Ao \!* |more '
+alias	ll	'ls -o \!* |more '
+E 11
+I 11
+D 18
+alias	lal	'ls -Ao \!*   |more '
+alias	lat	'ls -Aot \!*  |more '
+I 16
+alias	lag	'ls -Al \!*   |more '
+E 16
+alias	ll	'ls -o \!*    |more '
+E 18
+I 18
+alias	lal	'ls -Ao \!*	|more '
+alias	lat	'ls -Aot \!*	|more '
+alias	lag	'ls -Al \!*	|more '
+alias	ll	'ls -o \!*	|more '
+E 18
+E 11
+alias	cll	'clear; ll '
+D 11
+alias	llg	'ls -l \!* |more '
+alias	lt	'ls -ot \!* |more '
+E 11
+I 11
+D 18
+alias	llg	'ls -l \!*    |more '
+alias	lt	'ls -ot \!*   |more '
+E 18
+I 18
+alias	llg	'ls -l \!*	|more '
+alias	lt	'ls -ot \!*	|more '
+E 18
+E 11
+alias	clt	'clear; lt '
+D 11
+alias	lat	'ls -oAt \!* |more '
+alias	lg	'ls -dot \!* |more '			# list for grep
+E 11
+I 11
+D 18
+alias	ltg	'ls -lt \!*   |more '
+E 11
+alias	le	'ls -ot *.\!* |more '			# list extension
+E 18
+I 18
+alias	ltg	'ls -lt \!*	|more '
+alias	le	'ls -ot *.\!*	|more '			# list extension
+E 18
+D 9
+alias	lsd	'ls -o | grep ^dr |more '		# list directories
+E 9
+I 9
+D 11
+alias	lsd	'ls -o | \grep ^dr |more '		# list directories
+E 9
+alias	lsz	'ls -o | sort -r -n +4 |more '		# list by size
+E 11
+I 11
+alias	lg	'ls -dot \!* '				# list for grep
+D 21
+alias	lsd	'ls -o | \grep ^dr     |more '		# list directories
+alias	lsz	'ls -o | sort -r -n +3 |more '		# list by size
+E 21
+I 21
+alias	lsd	'ls -Al | \grep ^dr     |more '		# list directories
+alias	lsz	'ls -Al | sort -r -n +4 |more '		# list by size
+E 21
+E 11
+alias	lct	'echo `\ls -A |wc -w` files/folders '	# count items
+E 25
+I 25
+alias	la	    'ls -A '
+alias	lal	    'ls -Ao \!*	|more '
+alias	lat	    'ls -Aot \!*	|more '
+alias	lag	    'ls -Al \!*	|more '
+alias	ll	    'ls -o \!*	|more '
+alias	cll	    'clear; ll '
+alias	llg	    'ls -l \!*	|more '
+alias	lt	    'ls -ot \!*	|more '
+alias	clt	    'clear; lt '
+alias	ltg	    'ls -lt \!*	|more '
+alias	le	    'ls -ot *.\!*	|more '			# list extension
+alias	lg	    'ls -dot \!* '				# list for grep
+alias	lsd	    'ls -Al | \grep ^dr     |more '		# list directories
+alias	lsz	    'ls -Al | sort -r -n +4 |more '		# list by size
+alias	lct	    'echo `\ls -A |wc -w` files/folders '	# count items
+E 25
+D 9
+alias	lscc	'ls -ot *.cc *.cpp *.C *.c *.cxx |grep -s -v ',' |more '
+alias	lsh	'ls -ot *.h *.hpp *.hh *.hxx |grep -s -v ',' |more '
+E 9
+I 9
+alias	lscc	'ls -ot *.cc *.cpp *.C *.c *.cxx | \grep -s -v ',' |more '
+D 11
+alias	lsh	'ls -ot *.h *.hpp *.hh *.hxx | \grep -s -v ',' |more '
+E 11
+I 11
+D 25
+alias	lsh	'ls -ot *.h *.hpp *.hh *.hxx | \grep -s -v ','     |more '
+E 25
+I 25
+alias	lsh	    'ls -ot *.h *.hpp *.hh *.hxx | \grep -s -v ','     |more '
+E 25
+E 11
+E 9
+alias	lsrc	'lscc > /tmp/mhslsrctemp; lsh >> /tmp/mhslsrctemp; more /tmp/mhslsrctemp |sort -f +8; rm /tmp/mhslsrctemp '
+D 6
+alias	lsmk	'date; ls -ot | egrep "[Mm]ake" '
+alias	lso	'date; ls -ot *.o *.obj |more '
+alias	lsx	'date; ls -ot | grep -s -e -rwx |more '
+E 5
+alias	lspl	'grep -ils perl * |more '
+E 6
+I 6
+D 10
+alias	lsmk	'date; ls -ot | egrep "[Mm]ake" '	# list make files
+alias	lso	'date; ls -ot *.o *.obj |more '		# list object files
+D 9
+alias	lsx	'date; ls -ot | grep -s -e -rwx |more '	# list executables
+alias	lspl	'grep -ils perl * |more '		# list perl scripts
+E 9
+I 9
+alias	lsx	'date; ls -ot | \grep -s -e -rwx |more '# list executables
+E 10
+I 10
+alias	lsmk	'ls -ot | egrep "[Mm]ake" '		# list make files
+D 25
+alias	lso	'ls -ot *.o *.obj |more '		# list object files
+alias	lsx	'ls -ot | egrep -s -e -..x |more '	# list executables
+E 25
+I 25
+alias	lso	    'ls -ot *.o *.obj |more '		# list object files
+alias	lsx	    'ls -ot | egrep -s -e -..x |more '	# list executables
+E 25
+E 10
+alias	lspl	'\grep -ils perl * |more '		# list perl scripts
+E 9
+D 16
+alias	lssc	'ls -o ,* |more '			# list sccs files
+E 16
+I 16
+alias	lssc	'cd SCCS; ls -o s.* |more ; cd ..'	# list sccs files
+E 16
+E 6
+
+D 5
+# PROTECTED FILE DELETION
+E 5
+I 5
+D 7
+# SPECIAL COMMANDS
+E 5
+D 3
+alias	del	'rm -i'
+E 3
+I 3
+alias	del	'rm -i '
+I 5
+alias	socsh	'source ~/.cshrc '
+alias	grep	"/usr/xpg4/bin/grep -n "
+alias	l13	'last -13 '
+alias	png	'ping -I 2 '
+alias	dt	'date '
+E 7
+I 7
+# PROGRAMMING
+I 24
+D 25
+alias	cc	CC	# Sun is CC ; cc just duplicates gcc on the default platforms like dinobot...
+E 24
+D 18
+alias	jcd	'javac -deprecation '
+E 18
+I 18
+D 19
+alias	jcd	'javac -deprecation \!*.java'
+E 19
+E 18
+alias	pd	'perl -de 0 '
+E 25
+I 25
+alias	cc	    CC	# Sun is CC ; cc just duplicates gcc on the default platforms like dinobot...
+alias	pd	    'perl -de 0 '
+E 25
+I 14
+alias	morn	'cat -n \!* |more '		# more with line numbers
+alias	morc	'cat -vent \!* |more '		# more showing control chars
+E 14
+I 9
+D 25
+alias	arl	'ar -t \!* |sort -df |more '	# archive list
+E 9
+alias	mk	'make -r -f \!* ; lso '
+E 25
+I 25
+alias	arl	    'ar -t \!* |sort -df |more '	# archive list
+alias	mk	    'make -r -f \!* ; lso '
+E 25
+D 8
+alias	mkgnu	'make -f Makefile.gnu ; lso '
+alias	mksun	'make -f Makefile.sun ; lso '
+E 8
+I 8
+alias	mkgnu	'make -f Makefile.gnu '
+alias	mksun	'make -f Makefile.sun '
+E 8
+E 7
+E 5
+E 3
+
+I 7
+# EDITING
+alias	schk	'sccs check '
+alias	sprh	'sccs prs \!* | head -22 '
+D 9
+alias	ve	'clear; vi '
+E 9
+D 11
+alias	xe	'xterm -j -rw -geometry 109x61 -title "vi \!*" -e vi \!* '
+E 11
+I 11
+D 25
+alias	xe	'xterm  -j -rw -geometry 109x61 -title "vi \!*" -e vi \!* '
+E 25
+I 25
+alias	xe	    'xterm  -j -rw -geometry 109x61 -title "vi \!*" -e vi \!* '
+E 25
+E 11
+alias	view	'dtterm -j -rw -geometry 109x59 -title "vi \!*" -e vi \!* '
+D 11
+alias	hxd	'dtterm -j -rw -geometry 90x37 -title "hexdump \!*" -e ~mhsatto/bin/hexdump \!* '
+E 11
+I 11
+D 25
+alias	hxd	'dtterm -j -rw -geometry  90x37 -title "hexdump \!*" -e ~mhsatto/bin/hexdump \!* '
+E 25
+I 25
+alias	hxd	    'dtterm -j -rw -geometry  90x37 -title "hexdump \!*" -e ~mhsatto/bin/hexdump \!* '
+E 25
+E 11
+D 9
+alias	can	'cat -n '
+E 9
+
+E 7
+# PROCESSES
+D 25
+alias	pm	'ps -fu mhsatto |more '
+D 17
+alias	vsz	"ps -ef -o vsz,comm,user |grep $USER |sort -n "
+E 17
+I 17
+alias	vsz	"ps -u mhsatto -o vsz=mhsatto_VIRTUAL_SIZE_KB_processes -o args |sort -r -n"
+E 17
+D 3
+alias	top	'top 40'
+alias	k9	'kill -9'
+E 3
+I 3
+alias	top	'top 40 '
+alias	k9	'kill -9 '
+E 25
+I 25
+alias	pm	    'ps -fu mhsatto |more '
+alias	vsz	    "ps -u mhsatto -o vsz=mhsatto_VIRTUAL_SIZE_KB_processes -o args |sort -r -n"
+alias	top	    'top 40 '
+alias	k9	    'kill -9 '
+E 25
+E 3
+
+# FOLDER NAVIGATION
+I 4
+D 5
+alias	mybin	'cd ~/bin '
+alias	mybinsrc 'cd ~/bin/src '
+E 4
+D 2
+alias	up	'cd ..'
+alias	upp	'cd ../..'
+alias	uppp	'cd ../../..'
+alias	upppp	'cd ../../../..'
+E 2
+I 2
+alias	up	'cd .. '
+alias	upp	'cd ../.. '
+alias	uppp	'cd ../../.. '
+alias	upppp	'cd ../../../.. '
+E 5
+I 5
+D 9
+alias	mybinsrc "cd ~/bin/src; echo -n ']0;my bin/src '; show "
+alias	mybin	 "cd ~/bin; echo -n ']0;my bin'; show "
+alias	up	 'cd .. '
+alias	upp	 'cd ../.. '
+alias	uppp	 'cd ../../.. '
+alias	upppp	 'cd ../../../.. '
+alias	mysrc	 "cd ~/refer/power; echo -n ']0;`pwd`'; ls "
+alias	mycode	 "cd ~/refer; echo -n ']0;`pwd`'; ls "
+D 8
+alias	mytest	 "cd ~/refer/test; echo -n ']0;`pwd`'; ls "
+E 8
+alias	mydocs	 "cd ~/docs; echo -n ']0;`pwd`'; ls "
+D 8
+alias	myc	 "cd ~/refer/ctest; echo -n ']0;my C'; ls "
+alias	mycpp	 "cd ~/refer/cpptest; echo -n ']0;my CPP'; ls "
+alias	myperl	 "cd ~/refer/perl; echo -n ']0;my PERL'; ls "
+alias	myjava	 "cd ~/refer/ctest; echo -n ']0;my JAVA'; ls "
+E 8
+I 8
+alias	mytest	 "cd ~/refer/test; echo -n ']0;`pwd`'; ll "
+alias	myc	 "cd ~/refer/ctest; echo -n ']0;my C'; ll "
+alias	mycpp	 "cd ~/refer/cpptest; echo -n ']0;my CPP'; ll "
+alias	myperl	 "cd ~/refer/perl; echo -n ']0;my PERL'; ll "
+alias	myjava	 "cd ~/refer/ctest; echo -n ']0;my JAVA'; ll "
+alias	ppcode	 "cd ~/cream/code; echo -n ']0;ppCode'; ll "
+alias	ppdocs	 "cd ~/cream/docs; echo -n ']0;ppDocs'; ll "
+E 9
+I 9
+alias	mybinsrc "go ~/bin/src; echo -n ']2;my bin/src ]1;bin src'; show "
+D 11
+alias	mybin	 "go ~/bin; echo -n ']0;my bin'; show "
+E 11
+I 11
+alias	mybin	 "go ~/bin;     echo -n ']0;my bin'; show "
+E 11
+D 14
+alias	up	 'go .. '
+alias	upp	 'go ../.. '
+alias	uppp	 'go ../../.. '
+alias	upppp	 'go ../../../.. '
+E 14
+I 14
+D 25
+alias	up	 "go .. "
+alias	ups	 "go .. ; show"
+alias	upp	 "go ../.. "
+E 25
+I 25
+alias	up	     "go .. "
+alias	ups	     "go .. ; show"
+alias	upp	     "go ../.. "
+E 25
+alias	upps	 "go ../.. ; show"
+alias	uppp	 "go ../../.. "
+alias	uppps	 "go ../../.. ; show"
+alias	upppp	 "go ../../../.. "
+alias	upppps	 "go ../../../.. ; show"
+E 14
+D 11
+alias	mysrc	 "go ~/refer/power; echo -n ']2;`pwd`]1;my src'; ls "
+alias	mycode	 "go ~/refer; echo -n ']2;`pwd`]1;my code'; ls "
+alias	mydocs	 "go ~/docs; echo -n ']2;`pwd`]1;my docs'; ls "
+alias	mytest	 "go ~/refer/test; echo -n ']2;`pwd`]1;my test'; ll "
+alias	myc	 "go ~/refer/ctest; echo -n ']0;my C'; ll "
+alias	mycpp	 "go ~/refer/cpptest; echo -n ']0;my CPP'; ll "
+alias	myperl	 "go ~/refer/perl; echo -n ']0;my PERL'; ll "
+alias	myjava	 "go ~/refer/ctest; echo -n ']0;my JAVA'; ll "
+alias	ppcode	 "go ~/cream/code; echo -n ']0;ppCode'; ll "
+alias	ppdocs	 "go ~/cream/docs; echo -n ']0;ppDocs'; ll "
+E 11
+I 11
+D 18
+alias	mysrc	 "go ~/refer/power;   echo -n ']2;`pwd`]1;my src';  ls "
+alias	mycode	 "go ~/refer;         echo -n ']2;`pwd`]1;my code'; ls "
+alias	mydocs	 "go ~/docs;          echo -n ']2;`pwd`]1;my docs'; ls "
+alias	mytest	 "go ~/refer/test;    echo -n ']2;`pwd`]1;my test'; ll "
+alias	myc	 "go ~/refer/ctest;   echo -n ']0;my C';    ll "
+alias	mycpp	 "go ~/refer/cpptest; echo -n ']0;my CPP';  ll "
+alias	myperl	 "go ~/refer/perl;    echo -n ']0;my PERL'; ll "
+D 16
+alias	myjava	 "go ~/refer/ctest;   echo -n ']0;my JAVA'; ll "
+E 16
+I 16
+alias	myjava	 "go ~/refer/java;    echo -n ']0;my JAVA'; ll "
+E 16
+alias	ppcode	 "go ~/cream/code;    echo -n ']0;ppCode';  ll "
+alias	ppdocs	 "go ~/cream/docs;    echo -n ']0;ppDocs';  ll "
+E 18
+I 18
+alias	mydocs	 "go ~/docs;		echo -n ']0;my Docs';	 ls "
+alias	mysrc	 "go ~/refer;		echo -n ']0;my Src';   ls "
+alias	mytest	 "go ~/refer/test;	echo -n ']0;my Test';  ll "
+D 25
+alias	myc	 "go ~/refer/ctest;	echo -n ']0;my C';     ll "
+E 25
+I 25
+alias	myc	     "go ~/refer/ctest;	echo -n ']0;my C';     ll "
+E 25
+alias	mycpp	 "go ~/refer/cpptest;	echo -n ']0;my CPP';   ll "
+alias	myperl	 "go ~/refer/perl;	echo -n ']0;my PERL';  ll "
+alias	myjava	 "go ~/refer/java;	echo -n ']0;my JAVA';  ll "
+alias	myshell	 "go ~/refer/shell_ex;	echo -n ']0;my Shell'; ls "
+alias	ppcode	 "go ~/cream/code;	echo -n ']0;ppCode';   ll "
+alias	ppdocs	 "go ~/cream/docs;	echo -n ']0;ppDocs';   ll "
+E 18
+E 11
+E 9
+E 8
+E 5
+E 2
+
+D 7
+# PROGRAMMING
+D 3
+alias	jcd	'javac -deprecation'
+alias	pd	'perl -de 0'
+E 3
+I 3
+alias	jcd	'javac -deprecation '
+alias	pd	'perl -de 0 '
+E 3
+D 6
+alias	mk	'make -r -f \!*; date; lso '
+E 6
+I 6
+alias	mk	'make -r -f \!* ; date ; lso '
+alias	mkgnu	'make -f Makefile.gnu ; date ; lso '
+alias	mksun	'make -f Makefile.sun ; date ; lso '
+E 6
+
+D 5
+# DISK PARAMETERS
+D 3
+alias	duo	'du -rsk ~/* | sort -n'
+alias	due	'du -rsk ./* | sort -n'
+alias	dua	'du -rsk ~'
+E 3
+I 3
+alias	duo	'du -rsk ~/* | sort -n '
+alias	due	'du -rsk ./* | sort -n '
+alias	dua	'du -rsk ~ '
+E 3
+
+# SPECIAL COMMANDS
+alias	socsh	'source ~/.cshrc '
+D 2
+alias	grep	'/usr/xpg4/bin/grep'
+E 2
+I 2
+alias	grep	"/usr/xpg4/bin/grep -n "
+E 2
+D 3
+alias	l13	'last -13'
+alias	png	'ping -I 2'
+alias	dt	'date'
+E 3
+I 3
+alias	l13	'last -13 '
+alias	png	'ping -I 2 '
+alias	dt	'date '
+E 3
+
+I 3
+# SCCS
+E 5
+I 5
+# EDITING
+E 5
+alias	schk	'sccs check '
+alias	sprh	'sccs prs \!* | head -22 '
+D 5
+
+E 3
+# EDITING
+E 5
+D 3
+alias	ve	'clear; vi'
+E 3
+I 3
+alias	ve	'clear; vi '
+E 3
+alias	xe	'xterm -j -rw -geometry 109x61 -title "vi \!*" -e vi \!* '
+alias	view	'dtterm -j -rw -geometry 109x59 -title "vi \!*" -e vi \!* '
+alias	hxd	'dtterm -j -rw -geometry 90x37 -title "hexdump \!*" -e ~mhsatto/bin/hexdump \!* '
+D 3
+alias	can	'cat -n'
+E 3
+I 3
+alias	can	'cat -n '
+E 3
+
+E 7
+I 5
+# FILE MODES
+D 12
+alias	mw	'chmod u+w '
+I 9
+alias	mwa	'chmod ugo+w '
+E 9
+alias	mr	'chmod ug+r '
+alias	mro	'chmod 440 '
+I 9
+alias	mra	'chmod ugo+r '
+E 9
+alias	mx	'chmod ug+x '
+D 9
+alias	mxo	'chmod 550 '
+E 9
+I 9
+alias	mxo	'chmod 551 '
+alias	mxa	'chmod ugo+x '
+E 12
+I 12
+D 25
+alias	mdf	'chmod 640   '		# make default file
+alias	mdd	'chmod 751   '		# make default directory
+alias	mdx	'chmod 750   '		# make default executable
+alias	mw	'chmod u+w   '		# make writable
+alias	mwa	'chmod ugo+w '		# make write all
+alias	mr	'chmod ug+r  '		# make readable
+alias	mro	'chmod 440   '		# make read-only
+alias	mra	'chmod ugo+r '		# make read all
+alias	mx	'chmod ug+x  '		# make executable
+alias	mxo	'chmod 550   '		# make executable-only
+alias	mxa	'chmod ugo+x '		# make executable all
+E 25
+I 25
+alias	mdf	    'chmod 640   '		# make default file
+alias	mdd	    'chmod 751   '		# make default directory
+alias	mdx	    'chmod 750   '		# make default executable
+alias	mw	    'chmod u+w   '		# make writable
+alias	mwa	    'chmod ugo+w '		# make write all
+alias	mr	    'chmod ug+r  '		# make readable
+alias	mro	    'chmod 440   '		# make read-only
+alias	mra	    'chmod ugo+r '		# make read all
+alias	mx	    'chmod ug+x  '		# make executable
+alias	mxo	    'chmod 550   '		# make executable-only
+alias	mxa	    'chmod ugo+x '		# make executable all
+E 25
+E 12
+E 9
+
+E 5
+# FONTS
+D 11
+alias	fnreg	'echo -n "[0m " '		# regular
+alias	fnb	'echo -n "[1m " '		# bold
+alias	fnund	'echo -n "[4m " '		# underline
+alias	fnrev	'echo -n "[7m " '		# reversed
+alias	fnred	'echo -n "[31m " '		# red text
+alias	fnredb	'echo -n "[1;31m " '	# bold red text
+alias	fnredk	'echo -n "[41m " '		# red background
+alias	fngrn	'echo -n "[32m " '		# green text
+alias	fngrnb	'echo -n "[1;32m " '	# bold green text
+alias	fngrnk	'echo -n "[42m " '		# green background
+alias	fnyel	'echo -n "[33m " '		# yellow text
+alias	fnyelb	'echo -n "[1;33m " '	# bold yellow text
+alias	fnyelk	'echo -n "[43m " '		# yellow background
+alias	fnblu	'echo -n "[34m " '		# blue text
+alias	fnblub	'echo -n "[1;34m " '	# bold blue text
+alias	fnbluk	'echo -n "[44m " '		# blue background
+alias	fnmag	'echo -n "[35m " '		# magenta text
+alias	fnmagb	'echo -n "[1;35m " '	# bold magenta text
+alias	fnmagk	'echo -n "[45m " '		# magenta background
+alias	fncya	'echo -n "[36m " '		# cyan text
+alias	fncyab	'echo -n "[1;36m " '	# bold cyan text
+alias	fncyak	'echo -n "[46m " '		# cyan background
+E 11
+I 11
+alias	fnreg	"echo -n '[0m'    "	# regular
+D 25
+alias	fnb	"echo -n '[1m'    "	# bold
+E 25
+I 25
+alias	fnb	    "echo -n '[1m'    "	# bold
+E 25
+alias	fnund	"echo -n '[4m'    "	# underline
+alias	fnrev	"echo -n '[7m'    "	# reversed
+alias	fnred	"echo -n '[31m'   "	# red text
+alias	fnredb	"echo -n '[1;31m' "	# bold red text
+alias	fnredk	"echo -n '[41m'   "	# red background
+alias	fngrn	"echo -n '[32m'   "	# green text
+alias	fngrnb	"echo -n '[1;32m' "	# bold green text
+alias	fngrnk	"echo -n '[42m'   "	# green background
+alias	fnyel	"echo -n '[33m'   "	# yellow text
+alias	fnyelb	"echo -n '[1;33m' "	# bold yellow text
+alias	fnyelk	"echo -n '[43m'   "	# yellow background
+alias	fnblu	"echo -n '[34m'   "	# blue text
+alias	fnblub	"echo -n '[1;34m' "	# bold blue text
+alias	fnbluk	"echo -n '[44m'   "	# blue background
+alias	fnmag	"echo -n '[35m'   "	# magenta text
+alias	fnmagb	"echo -n '[1;35m' "	# bold magenta text
+alias	fnmagk	"echo -n '[45m'   "	# magenta background
+alias	fncya	"echo -n '[36m'   "	# cyan text
+alias	fncyab	"echo -n '[1;36m' "	# bold cyan text
+alias	fncyak	"echo -n '[46m'   "	# cyan background
+E 11
+
+D 5
+# FILE MODES
+D 2
+alias	mx	'chmod 750'
+alias	mr	'chmod 664'
+alias	mw	'chmod 666'
+E 2
+I 2
+D 3
+alias	mw	'chmod u+w'
+alias	mr	'chmod ug+r'
+alias	mro	'chmod 440'
+alias	mx	'chmod ug+x'
+alias	mxo	'chmod 550'
+E 3
+I 3
+alias	mw	'chmod u+w '
+alias	mr	'chmod ug+r '
+alias	mro	'chmod 440 '
+alias	mx	'chmod ug+x '
+alias	mxo	'chmod 550 '
+E 3
+E 2
+
+E 5
+# LANDSCAPE 2-PAGE PRINTING
+alias	lpga	'fold -s \!* | mp -l -o -s "\!*" | lp -s '
+alias	lpgb	'mp -l -o -s "\!*" <\!* | lp -s '
+I 13
+alias	lpgc	'pr -F -w110 -t -l84 \!* | /usr/lib/lp/postscript/postprint -s 8 -l 84 | lp -Tpostscript '
+E 13
+
+I 5
+D 12
+# DISK PARAMETERS
+D 11
+alias	duo	'du -rsk ~/* | sort -n '
+alias	due	'du -rsk ./* | sort -n '
+alias	dua	'du -rsk ~ '
+E 11
+I 11
+alias	dut	"fnb; echo -n 'Total size (bytes) of CWD and contents: '; fnreg; du -sh "
+alias	due	"fnb; echo 'Size (bytes) of each file: '; fnreg; du -sb * | sort -n "
+E 12
+I 12
+D 15
+# DISK SPACE - set to use the Gnu utility on Seal
+alias	dut	"fnb; echo -n 'Total disk space (bytes) for CWD and contents: '; /opt/solaris7/bin/du -sh; fnreg"
+alias	due	"fnb; echo 'Disk space (bytes) for each file: '; fnreg; /opt/solaris7/bin/du --max-depth=1 -ab |sort -n"
+E 15
+I 15
+# DISK SPACE 
+ # used the (now unavailable) gnu version of du
+ #alias	dut	"fnb; echo -n 'Total disk space (bytes) for CWD and contents: '; /opt/solaris7/bin/du -sh; fnreg"
+ #alias	due	"fnb; echo 'Disk space (bytes) for each file: '; fnreg; /opt/solaris7/bin/du --max-depth=1 -ab |sort -n"
+alias	dua	"fnb; echo -n 'Total disk space (kBytes) for CWD and contents: '; du -ks ; fnreg"
+alias	due	"fnb; echo 'Disk space (kBytes) for each file: '; fnreg; du -ks * |sort -n"
+E 15
+E 12
+E 11
+
+E 5
+# ENV VARIABLE VIEWING
+alias	ECHO	echo
+D 25
+alias	EC	echo
+E 25
+I 25
+alias	EC	    echo
+E 25
+alias	SETENV	setenv
+I 22
+D 25
+alias	SE	setenv
+E 25
+I 25
+alias	SE	    setenv
+
+
+fnred
+fnrev
+echo "[${HOST}]cals has been read."
+fnreg
+
+# END
+######
+E 25
+E 22
+E 1

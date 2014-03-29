@@ -1,0 +1,1 @@
+echo $MANPATH | tr ':' '\n'

@@ -1,0 +1,137 @@
+# ALIASES 
+# pphost CSH 
+################################################
+#  Mark Sattolo @ Project Cheesecake @ K5.CSE
+#  -------------------------------------------
+#   File: @(#)ppals
+#   Version: 1.10
+#   Last Update: 03/02/28 12:03:33
+#
+################################################
+
+alias	m	more
+alias	c	clear
+alias	del	'rm -i'
+alias	so	source
+alias	socsh	'source ~mhsatto/.cshrc '
+
+# FILE LISTING
+alias	show	'pwd; ls -ot |more '
+alias	la	'ls -A '
+alias	lal	'ls -Ao \!* |more '
+alias	ll	'ls -o \!* |more '
+alias	cll	'clear; ll '
+alias	llg	'ls -l \!* |more '
+alias	lt	'ls -ot \!* |more '
+alias	clt	'clear; lt '
+alias	lat	'ls -oAt \!* |more '
+alias	lg	'ls -dot \!* |more '
+alias	le	'ls -ot *.\!* |more '
+alias	lsd	'ls -o | grep ^dr |more '
+alias	lsz	'ls -o | sort -r -n +4 |more '
+alias	lct	'echo `\ls -A |wc -w` files/folders '
+alias	lscc	'ls -ot *.cc *.cpp *.C *.c *.cxx |grep -v ',' |more '
+alias	lsh	'ls -ot *.h *.hpp *.hh *.hxx |grep -v ',' |more '
+alias	lsrc	'lscc > /tmp/mhslsrctemp; lsh >> /tmp/mhslsrctemp; more /tmp/mhslsrctemp |sort -f +8; rm /tmp/mhslsrctemp '
+alias	lsmk	'date; ls -ot | egrep "[Mm]ake" '
+alias	lso	'date; ls -ot *.o *.obj |more '
+alias	lsx	'date; ls -ot | grep -e -rwx |more '
+
+# FOLDER NAVIGATION
+alias	mybinsrc "cd ~/bin/src; echo -n ']0;mybinsrc'; show "
+alias	mybin	 "cd ~/bin; echo -n ']0;mybin'; show "
+alias	up	 'cd .. '
+alias	upp	 'cd ../.. '
+alias	uppp	 'cd ../../.. '
+alias	upppp	 'cd ../../../.. '
+alias	ppcode	 "cd /spare7/rtm_passport/bv/mhsatto; echo -n ']0;ppcode'; ls "
+alias	ppdocs	 "cd /spare6/passport_documentation; echo -n ']0;ppdocs'; ls "
+alias	ppbox	 "cd /home/passport/cheesecake; echo -n ']0;ppbox'; show "
+alias	ppgiz	 "cd /home/passport/unix; echo -n ']0;ppgiz'; show "
+alias	ppbld	 "cd ~mhsatto/build; echo -n ']0;ppbld'; show "
+alias	ppobj	 "cd ~mhsatto/build/obj; echo -n ']0;ppobj'; show "
+alias	ppout	 "cd ~mhsatto/build/out; echo -n ']0;ppout'; show "
+alias	bvh	 "bv; cd include; echo -n ']0;bvh'; show "
+alias	bvcc	 "bv; cd src/lib; echo -n ']0;bvcc'; show "
+alias	bvmake	 "bv; cd make; echo -n ']0;bvmake'; show "
+alias	bvlib	 "bv; cd lib; echo -n ']0;bvlib'; show "
+alias	bvcoll	 "bv; cd src/lib/collector; echo -n ']0;bvcoll'; show "
+alias	bvcollh	 "bv; cd include/collector; echo -n ']0;bvcollh'; show "
+alias	bvcm	 "bv; cd src/lib/collectionManager; echo -n ']0;bvcm'; show "
+alias	bvcmh	 "bv; cd include/collectionManager; echo -n ']0;bvcmh'; show "
+alias	bvem	 "bv; cd src/lib/exploitManager; echo -n ']0;bvem'; show "
+alias	bvemh	 "bv; cd include/exploitManager; echo -n ']0;bvemh'; show "
+alias	bvrout	 "bv; cd src/lib/routing; echo -n ']0;bvrout'; show "
+alias	bvrouth	 "bv; cd include/routing; echo -n ']0;bvrouth'; show "
+alias	bvmess	 "bv; cd src/lib/messages; echo -n ']0;bvmess'; show "
+alias	bvmessh	 "bv; cd include/messages; echo -n ']0;bvmessh'; show "
+alias	bvmisc	 "bv; cd src/lib/misc; echo -n ']0;bvmisc'; show "
+alias	bvmisch	 "bv; cd include/misc; echo -n ']0;bvmisch'; show "
+alias	bvci	 "bv; cd src/lib/ci; echo -n ']0;bvci'; show "
+alias	bvcih	 "bv; cd include/ci; echo -n ']0;bvcih'; show "
+alias	bvciu	 "bv; cd src/lib/ci/Unix; echo -n ']0;bvciu'; show "
+alias	bvciuh	 "bv; cd include/ci/Unix; echo -n ']0;bvciuh'; show "
+alias	bvrule	 "bv; cd src/lib/rules; echo -n ']0;bvrule'; show "
+alias	bvruleh	 "bv; cd include/rules; echo -n ']0;bvruleh'; show "
+alias	bvutil	 "bv; cd src/lib/utils; echo -n ']0;bvutil'; show "
+alias	bvutilh	 "bv; cd include/utils; echo -n ']0;bvutilh'; show "
+alias	bvrik	 "cd /passport/bv/rikenda/cheesecake; echo -n ']0;bvrik'; show "
+alias	bvrikh	 "cd /passport/bv/rikenda/cheesecake/include; echo -n ']0;bvrikh'; show "
+alias	bvrikcc	 "cd /passport/bv/rikenda/cheesecake/src/lib; echo -n ']0;bvrikcc'; show "
+alias	chbld	 "cd ~mhsatto/cheesecake/src/lib; echo -n ']0;chbld'; show "
+alias	chinc	 "cd ~mhsatto/cheesecake/include; echo -n ']0;chinc'; show "
+alias	chbin	 "cd ~mhsatto/cheesecake/bin; echo -n ']0;chbin'; show "
+alias	chcoll	 "cd ~mhsatto/cheesecake/src/lib/collector; echo -n ']0;chcoll'; show "
+alias	chutil	 "cd ~mhsatto/cheesecake/src/lib/utils; echo -n ']0;chutil'; show "
+
+# ENVIRONMENT
+alias	h	 'history 21'
+alias	path	 "echo $PATH | tr ':' '\n' "
+alias	manpath	 "echo $MANPATH | tr ':' '\n' "
+alias	display	 "echo $DISPLAY "
+alias	EC	 echo
+alias	SETENV	 setenv
+
+# PROCESSES
+alias	pm	'ps -fu mhsatto |more '
+alias	vsz	"ps -ef -o vsz,comm,user |grep $USER |sort -n "
+alias	k9	'kill -9 '
+
+# PACKETS
+alias	png	'ping -I 2'
+alias	hxd	'xterm -j -rw -geometry 90x37 -title "hexdump \!*" -e ~mhsatto/bin/hexdump \!* '
+
+# PROGRAMMING
+alias	mk	'make -r -f \!*; date; lso '
+
+# EDITING
+alias	xe	'xterm -j -rw -geometry 109x61 -title "vi \!*" -e vi \!* '
+alias	grep	/usr/xpg4/bin/grep 
+
+# FONTS
+alias	fnreg	'echo -n "[0m " '		# regular
+alias	fnb	'echo -n "[1m " '		# bold
+alias	fnund	'echo -n "[4m " '		# underline
+alias	fnrev	'echo -n "[7m " '		# reversed
+alias	fnred	'echo -n "[31m " '		# red text
+alias	fnredb	'echo -n "[1;31m " '	# bold red text
+alias	fnredk	'echo -n "[41m " '		# red background
+alias	fngrn	'echo -n "[32m " '		# green text
+alias	fngrnb	'echo -n "[1;32m " '	# bold green text
+alias	fngrnk	'echo -n "[42m " '		# green background
+alias	fnyel	'echo -n "[33m " '		# yellow text
+alias	fnyelb	'echo -n "[1;33m " '	# bold yellow text
+alias	fnyelk	'echo -n "[43m " '		# yellow background
+alias	fnblu	'echo -n "[34m " '		# blue text
+alias	fnblub	'echo -n "[1;34m " '	# bold blue text
+alias	fnbluk	'echo -n "[44m " '		# blue background
+alias	fnmag	'echo -n "[35m " '		# magenta text
+alias	fnmagb	'echo -n "[1;35m " '	# bold magenta text
+alias	fnmagk	'echo -n "[45m " '		# magenta background
+alias	fncya	'echo -n "[36m " '		# cyan text
+alias	fncyab	'echo -n "[1;36m " '	# bold cyan text
+alias	fncyak	'echo -n "[46m " '		# cyan background
+
+# LANDSCAPE 2-PAGE PRINTING
+alias	lpga	'fold -s \!* | mp -l -o | lp -s '
+alias	lpgb	'mp -l -o -s "\!*" <\!* | lp -s '

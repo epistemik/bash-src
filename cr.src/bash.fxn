@@ -1,0 +1,246 @@
+#!/bin/bash
+################################################################################
+#
+# mhsatto@cse-cst.gc.ca
+# $Id: bash.fxn,v 1.11 2010/09/16 18:43:14 mhsatto Exp $
+#
+################################################################################
+
+# Functions (and some related aliases)
+
+function display
+{
+	echo $DISPLAY
+}
+
+# PATH
+function path 
+{
+	echo $PATH |tr ':' '\n'
+}
+function origpath
+{
+    echo $ORIGPATH |tr ':' '\n'
+}
+function mypath
+{
+    echo $MYPATH |tr ':' '\n'
+}
+function extpath
+{
+    echo $EXTENDEDPATH |tr ':' '\n'
+}
+function cleanpath
+{
+    export PATH=$ORIGPATH
+    unset HAVEEXTPATH
+}
+function resetpath
+{
+    export PATH=$MYPATH:$EXTENDEDPATH
+}
+function setmypath
+{
+    export MYPATH="$1"
+}
+function setextpath
+{
+    export EXTENDEDPATH="$1"
+}
+
+# LIBPATH
+function libpath
+{
+    echo " LD_LIBRARY_PATH:"
+	echo $LD_LIBRARY_PATH |tr ':' '\n'
+}
+function origlibpath
+{
+    echo " ORIGLIBPATH:"
+	echo $ORIGLIBPATH |tr ':' '\n'
+}
+function cleanlibpath
+{
+    export LD_LIBRARY_PATH=$ORIGLIBPATH
+}
+
+# MANPATH
+function manpath 
+{
+    echo " MANPATH:"
+	echo $MANPATH |tr ':' '\n'
+}
+function origmanpath 
+{
+    echo " ORIGMANPATH:"
+	echo $ORIGMANPATH |tr ':' '\n'
+}
+function cleanmanpath
+{
+    export MANPATH=$ORIGMANPATH
+}
+
+# INFOPATH
+function infopath
+{
+    echo " INFOPATH:"
+	echo $INFOPATH |tr ':' '\n'
+}
+function originfopath
+{
+    echo " ORIGINFOPATH:"
+	echo $ORIGINFOPATH |tr ':' '\n'
+}
+function cleaninfopath
+{
+    export INFOPATH=$ORIGINFOPATH
+}
+
+# PKGPATH
+function pkgpath
+{
+    echo " PKG_CONFIG_PATH:"
+	echo $PKG_CONFIG_PATH |tr ':' '\n'
+}
+
+# MODULEPATH
+function modpath
+{
+    echo " MODULEPATH:"
+	echo $MODULEPATH |tr ':' '\n'
+}
+alias modlist='module list'
+alias modav='module avail'
+
+# DIRECTORIES
+function list
+{
+	echo "$1" |tr ':' '\n'
+}
+
+function lfm 
+{
+	ls -Al "$1" | more
+}
+
+function le
+{
+    ls -Al "$1"* | more
+}
+
+function go 
+{
+	pushd $1
+	pwd
+    target=`ls -Al | wc -l`
+    if (( target <= 50 ))
+    then
+        ls -Al
+    else
+        ls -A
+    fi
+}
+alias GO=go
+
+function rt
+{
+	popd $1
+	pwd
+    target=`ls -Al | wc -l`
+    if (( target <= 50 ))
+    then
+        ls -Al
+    else
+        ls -A
+    fi
+}
+alias rtt='popd;rt'
+alias rttt='popd;rtt'
+alias rtttt='popd;rttt'
+alias rttttt='popd;rtttt'
+
+function to 
+{
+	pushd $1
+	pwd
+}
+
+function rto
+{
+	popd $1
+	pwd
+}
+
+# MISC
+function fn
+{
+	find "$1" -name "$2"
+}
+
+function xxl
+{
+	if [ $2 ]
+    then
+        xxd -c"$1" "$2" | less
+    else
+        xxd -c16 "$1" | less
+    fi
+}
+
+function h
+{
+	if [ $1 ]
+    then
+        history "$1"
+    else
+        history 21
+    fi
+}
+
+function hd
+{
+    if [ $2 ]
+    then
+        head -n "$1" "$2"
+    else
+        head -n 16 "$1"
+    fi
+}
+
+function xt
+{
+	xterm -title "$1 $2 $3 $4"
+}
+
+function mr
+{
+	mtarun -m $1 $2 $3 $4 $5 $6
+}
+
+function mrt
+{
+    if [ $3 ]
+    then
+    	mtarun -t $1 -m $2 $3 $4 $5 $6
+    else
+    	mtarun -t $1 -m $1 $2
+    fi
+}
+
+function eng
+{
+    env | grep "$1" | more
+}
+alias ENG=eng
+function engl
+{
+    env | grep "$1" | less
+}
+alias ENGL=engl
+
+########################################
+# END OF SCRIPT
+BASHFXN_LOADED='TRUE'
+echo "LOADED bash.fxn"
+# END OF SCRIPT
+########################################

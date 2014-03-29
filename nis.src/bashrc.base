@@ -1,0 +1,54 @@
+#!/bin/bash
+################################################################################
+#
+# mhsatto@cse-cst.gc.ca
+# $Id: bashrc.base,v 1.3 2010/10/15 16:30:43 mhsatto Exp $
+#
+################################################################################
+
+# set prompt
+unset LONGPROMPT
+export PS1='\t \w \! $ '
+alias uslp='unset LONGPROMPT'
+
+# set corp home
+export mhscorp=cse11707.corp.cse
+
+# set display
+#export DISPLAY=131.140.158.190:0
+export DISPLAY=cse11707.corp.cse:0
+
+# set sorting env
+export LC_ALL=C
+
+# remember original path
+if [ ! $HAVEORIGPATH ]
+then
+#    echo "do NOT have orig path"
+	export ORIGPATH=$PATH  # save
+    export HAVEORIGPATH='TRUE'
+else
+    export PATH=$ORIGPATH  # reset
+fi
+
+# remember original lib path
+if [ $LD_LIBRARY_PATH ]
+then
+    if [ ! $HAVEORIGLIBPATH ]
+    then
+        #echo "do NOT have orig Lib path"
+    	export ORIGLIBPATH=$LD_LIBRARY_PATH  # save
+        export HAVEORIGLIBPATH='TRUE'
+    else
+        export LD_LIBRARY_PATH=$ORIGLIBPATH  # reset
+    fi
+fi
+
+alias sob='source ~/.bashext'
+alias sobb='source ~/.bashrc'
+
+########################################
+# END OF SCRIPT
+BASHRCBASE_LOADED='TRUE'
+# END OF SCRIPT
+########################################

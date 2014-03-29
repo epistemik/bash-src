@@ -1,0 +1,6 @@
+syntax enable
+set number
+set showmode
+set ts=3
+set ignorecase
+

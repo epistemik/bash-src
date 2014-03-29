@@ -1,0 +1,909 @@
+head	1.21;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.21
+date	2010.09.20.13.56.57;	author mhsatto;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2010.09.16.19.58.45;	author mhsatto;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2010.09.16.18.47.07;	author mhsatto;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2010.06.29.19.37.04;	author mhsatto;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2010.06.23.20.21.15;	author mhsatto;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2010.04.01.17.49.22;	author mhsatto;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2010.03.31.14.59.19;	author mhsatto;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2010.03.08.20.17.11;	author mhsatto;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2010.03.03.21.36.27;	author mhsatto;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2010.03.01.16.29.29;	author mhsatto;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2010.02.25.18.53.05;	author mhsatto;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2010.02.24.20.55.04;	author mhsatto;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2010.02.16.19.33.33;	author mhsatto;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2010.02.15.15.48.16;	author mhsatto;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2010.02.10.22.39.01;	author mhsatto;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2010.02.03.16.43.37;	author mhsatto;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2010.02.02.20.59.14;	author mhsatto;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.02.02.20.48.16;	author mhsatto;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.02.02.20.26.40;	author mhsatto;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.02.02.20.13.41;	author mhsatto;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.02.02.20.04.48;	author mhsatto;	state Exp;
+branches;
+next	;
+
+
+desc
+@bash run control
+@
+
+
+1.21
+log
+@remove export from various variables so child xterm windows start properly
+@
+text
+@#!/bin/bash
+################################################################################
+#
+# mhsatto@@cse-cst.gc.ca
+# $Id: bashrc,v 1.20 2010/09/16 19:58:45 mhsatto Exp mhsatto $
+#
+################################################################################
+
+# set prompt
+if [ ! $HAVENEWPROMPT ]
+then
+    RED="\[\e[31;1m\]"
+    GREEN="\[\e[32;1m\]"
+    YELLOW="\[\e[33;1m\]"
+    BLUE="\[\e[34;1m\]"
+    MAGENTA="\[\e[35;1m\]"
+    CYAN="\[\e[36;2m\]"
+    COLOR_RESET="\[\e[30;0m\]"
+    TXTFRAME=$RED
+    HILITE=$YELLOW
+    export PS1="${HILITE}\u@@\h${TXTFRAME} | ${HILITE}\t${TXTFRAME} | ${HILITE}\w${TXTFRAME}\r\n${HILITE}\!${TXTFRAME} >$COLOR_RESET "
+    HAVENEWPROMPT='TRUE'
+fi
+
+# set manpath
+if [ ! $HAVEORIGMANPATH ]
+then
+	ORIGMANPATH=$MANPATH
+    HAVEORIGMANPATH='TRUE'
+fi
+export MANPATH=~/dev/man:~/gnu/man:$ORIGMANPATH
+
+# set infopath
+if [ ! $HAVEORIGINFOPATH ]
+then
+	ORIGINFOPATH=$INFOPATH
+    HAVEORIGINFOPATH='TRUE'
+fi
+export INFOPATH=~/dev/info:~/gnu/info:$ORIGINFOPATH
+
+# reset libpath
+if [ $HAVEORIGLIBPATH ]
+then
+    export LD_LIBRARY_PATH=$ORIGLIBPATH
+fi
+ADDLIBPATH=~/dev/lib:~/gnu/lib:~/dev/lib64:~/gnu/lib64
+export LD_LIBRARY_PATH=$ADDLIBPATH:$LD_LIBRARY_PATH
+
+# reset path and load Open Projects
+cleanopen
+if [ $HAVEORIGPATH ]
+then
+    export PATH=$ORIGPATH
+fi
+source /project/open/open_env.sh
+unset LDFLAGS
+
+# Netezza setup
+source ~/dev/scripts/nz.sh
+
+# MEGRAPHS/MTGL setup
+source ~/dev/scripts/megraphs.sh
+
+# omniORB setup
+#source ~/dev/scripts/omni.sh
+
+# make sure my path folders are first
+EXTENDEDPATH=$PATH
+MYPATH=~/bin:~/dev/bin:~/gnu/bin:~/dev/perl:~/dev/sbin:~/gnu/sbin:/sbin
+export PATH=$MYPATH:$EXTENDEDPATH
+
+# functions
+source ~/bin/src/bash.fxn
+alias sobf='source ~/bin/src/bash.fxn'
+
+# aliases
+source ~/bin/src/bash.als
+alias soba='source ~/bin/src/bash.als'
+
+########################################
+# END OF SCRIPT
+BASHRC_LOADED='TRUE'
+echo "LOADED ~/.bashext"
+# END OF SCRIPT
+########################################
+@
+
+
+1.20
+log
+@simplify all settings for path and libpath
+by resetting them to the base values before any of the additions in this file.
+add var protection for reset of PS1
+move source of bash.als to end
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.19 2010/09/16 18:47:07 mhsatto Exp mhsatto $
+d22 1
+a22 1
+    export HAVENEWPROMPT='TRUE'
+d28 2
+a29 2
+	export ORIGMANPATH=$MANPATH
+    export HAVEORIGMANPATH='TRUE'
+d36 2
+a37 2
+	export ORIGINFOPATH=$INFOPATH
+    export HAVEORIGINFOPATH='TRUE'
+d46 1
+a46 1
+export ADDLIBPATH=~/dev/lib:~/gnu/lib:~/dev/lib64:~/gnu/lib64
+d68 2
+a69 2
+export EXTENDEDPATH=$PATH
+export MYPATH=~/bin:~/dev/bin:~/gnu/bin:~/dev/perl:~/dev/sbin:~/gnu/sbin:/sbin
+@
+
+
+1.19
+log
+@use color vars and PS1 style from John Healy where prompt line wrap works properly
+add vars to save open apps configurations
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.18 2010/06/29 19:37:04 mhsatto Exp mhsatto $
+d10 1
+a10 19
+RED="\[\e[31;1m\]"
+GREEN="\[\e[32;1m\]"
+YELLOW="\[\e[33;1m\]"
+BLUE="\[\e[34;1m\]"
+MAGENTA="\[\e[35;1m\]"
+CYAN="\[\e[36;2m\]"
+COLOR_RESET="\[\e[30;0m\]"
+TXTFRAME=$RED
+HILITE=$YELLOW
+export PS1="${HILITE}\u@@\h${TXTFRAME} | ${HILITE}\t${TXTFRAME} | ${HILITE}\w${TXTFRAME}\r\n${HILITE}\!${TXTFRAME} >$COLOR_RESET "
+
+# set corp home
+export mhscorp=cse11707.corp.cse
+
+# set sorting env
+export LC_ALL=C
+
+# set libpath
+if [ ! $HAVEORIGLIBPATH ]
+d12 11
+a22 2
+	export ORIGLIBPATH=$LD_LIBRARY_PATH
+    export HAVEORIGLIBPATH='TRUE'
+a23 2
+export ADDLIBPATH=~/dev/lib:~/gnu/lib:~/dev/lib64:~/gnu/lib64
+export LD_LIBRARY_PATH=$ADDLIBPATH:$ORIGLIBPATH
+d41 7
+a47 3
+# aliases
+source ~/bin/src/bash.als
+alias soba='source ~/bin/src/bash.als'
+d49 1
+a49 1
+# load open apps
+d51 1
+a51 1
+if [ ! $HAVEPREOPEN ]
+d53 1
+a53 5
+    export PREOPENPATH=$PATH
+    unset PATH
+    export PREOPENLIBPATH=$LD_LIBRARY_PATH
+    unset LD_LIBRARY_PATH
+    export HAVEPREOPEN='TRUE'
+a55 4
+export OPENPATH=$PATH
+export OPENLIBPATH=$LD_LIBRARY_PATH
+export PATH=$OPENPATH:$PREOPENPATH
+export LD_LIBRARY_PATH=$OPENLIBPATH:$PREOPENLIBPATH
+d68 3
+a70 9
+if [ ! $HAVEEXTPATH ]
+then
+    export EXTENDEDPATH=$PATH
+    export HAVEEXTPATH='TRUE'
+    export MYPATH=~/bin:~/dev/bin:~/gnu/bin:~/dev/perl:~/dev/sbin:~/gnu/sbin:/sbin
+    export PATH=$MYPATH:$EXTENDEDPATH
+else
+    resetpath
+fi
+d76 4
+@
+
+
+1.18
+log
+@fix setting of paths when run multiple times
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.17 2010/06/23 20:21:15 mhsatto Exp mhsatto $
+d9 12
+d33 2
+a34 1
+export LD_LIBRARY_PATH=~/dev/lib:~/gnu/lib:~/dev/lib64:~/gnu/lib64:$ORIGLIBPATH
+a51 3
+# revert to original state
+cleanstate
+
+d57 9
+d67 4
+d99 1
+a99 1
+BASHRC_LOAD='LOADED'
+@
+
+
+1.17
+log
+@fix settings for libpath,
+improve settings for manpath, infopath,
+change NEWPATH to EXTENDEDPATH
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.16 2010/04/01 17:49:22 mhsatto Exp mhsatto $
+d39 3
+d50 3
+a55 3
+# Netezza setup
+source ~/dev/scripts/nz.sh
+
+d66 2
+d77 1
+a77 1
+echo "LOADED ~/bash.rc"
+@
+
+
+1.16
+log
+@change value of HAVENEWPATH from 1 to TRUE
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.15 2010/03/31 14:59:19 mhsatto Exp mhsatto $
+d16 1
+a16 1
+if [ ! $ORIGLIBPATH ]
+d19 1
+d24 1
+a24 1
+if [ ! $ORIGMANPATH ]
+d27 1
+d32 1
+a32 1
+if [ ! $ORIGINFOPATH ]
+d35 1
+d57 1
+a57 1
+if [ ! $HAVENEWPATH ]
+d59 2
+a60 2
+    export NEWPATH=$PATH
+    HAVENEWPATH='TRUE'
+d62 1
+a62 1
+    export PATH=$MYPATH:$NEWPATH
+@
+
+
+1.15
+log
+@change open_env source to common /project/open/ version and unset LDFLAGS
+use var HAVENEWPATH
+add sbin to MYPATH
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.14 2010/03/08 20:17:11 mhsatto Exp mhsatto $
+d57 1
+a57 1
+    HAVENEWPATH=1
+@
+
+
+1.14
+log
+@add my perl to path
+comment out running script omni.sh
+add env var LC_ALL=C to ensure proper sorting
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.13 2010/03/03 21:36:27 mhsatto Exp mhsatto $
+d41 2
+a42 1
+source ~/dev/scripts/open_env.sh
+d44 1
+a44 1
+# Megraphs/Mtgl setup
+d54 1
+a54 1
+if [ ! $NEWPATH ]
+d57 2
+a58 1
+    export MYPATH=~/bin:~/dev/bin:~/gnu/bin:~/dev/perl:~/dev/sbin:~/gnu/sbin
+@
+
+
+1.13
+log
+@remove aliases to a separate bash.als file
+add alias 'soba'
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.12 2010/03/01 16:29:29 mhsatto Exp mhsatto $
+d12 3
+d50 1
+a50 1
+source ~/dev/scripts/omni.sh
+d56 1
+a56 1
+    export MYPATH=~/bin:~/dev/bin:~/gnu/bin:~/dev/sbin:~/gnu/sbin
+@
+
+
+1.12
+log
+@change 'ups' to 'up' etc
+change 'sofxn' to 'sobf'
+my path additions are here with re-source protection
+move functions load to end
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.11 2010/02/25 18:53:05 mhsatto Exp mhsatto $
+d34 2
+a35 40
+alias ls='ls -F --color'
+alias lsm='ls -FC --color |more'
+alias ll='ls -l |more'
+alias la='ls -Al |more'
+alias lal=la
+alias lt='ls -Alt |more'
+alias lf='ls -Al'
+alias ct='ls |wc -w'
+
+alias so=source
+alias alm='alias |more'
+alias m=more
+alias cp='cp -p'
+alias c=clear
+alias del='rm -i'
+alias h='history 21'
+
+alias exp=export
+alias EC=echo
+alias ec=echo
+
+alias up='go ..'
+alias upp='go ../..'
+alias uppp='go ../../..'
+alias upppp='go ../../../..'
+alias uppppp='go ../../../../..'
+
+alias co='co -l'
+alias ci='ci -u'
+alias ciu='\ci -u '
+alias cil='\ci -l '
+alias cou='\co -u '
+alias col='\co -l '
+
+alias home='go ~'
+alias mybin='go ~/bin'
+alias mysrc='go ~/bin/src'
+alias mydev='go ~/dev'
+
+alias mta='go /opt/mta-pe/6.4.0'
+d52 1
+a52 1
+	export NEWPATH=$PATH
+@
+
+
+1.11
+log
+@move functions to a separate file 'bash.fxn'
+run the megraphs script
+remove alias 'EC' and use as function (in bash.fxn) instead
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.10 2010/02/24 20:55:04 mhsatto Exp mhsatto $
+d43 1
+d50 1
+d52 2
+a53 1
+#alias EC=echo
+d55 5
+a59 4
+alias ups='go ..'
+alias upps='go ../..'
+alias uppps='go ../../..'
+alias upppps='go ../../../..'
+d75 2
+a76 3
+# functions
+source ~/bin/src/bash.fxn
+alias sofxn='source ~/bin/src/bash.fxn'
+d87 11
+a97 4
+# load other apps
+source /project/open/open_env.sh
+# this can interfere with other builds, e.g. mtgl, megraphs
+unset LDFLAGS
+d101 1
+@
+
+
+1.10
+log
+@unset LDFLAGS
+add functions 'to' and 'rto' and modify 'go', 'rt' and 'show'
+add aliases 'lsm', 'ct' and 'alm'
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.9 2010/02/16 19:33:33 mhsatto Exp mhsatto $
+d50 1
+a50 1
+alias EC=echo
+d72 5
+a76 88
+function path 
+{
+	echo $PATH |tr ':' '\n'
+}
+
+function libpath
+{
+	echo $LD_LIBRARY_PATH |tr ':' '\n'
+}
+
+function manpath 
+{
+	echo $MANPATH |tr ':' '\n'
+}
+
+function infopath
+{
+	echo $INFOPATH |tr ':' '\n'
+}
+
+function pkgpath
+{
+	echo $PKG_CONFIG_PATH |tr ':' '\n'
+}
+
+function modpath
+{
+	echo $MODULEPATH |tr ':' '\n'
+}
+
+alias modlist='module list'
+alias modav='module avail'
+
+function show 
+{
+	pwd
+	ls -Al "$1" | more
+}
+
+function le
+{
+    ls -Al "$1"* | more
+}
+
+function go 
+{
+	pushd $1
+	pwd
+	ls -Al | more
+}
+
+function rt
+{
+	popd $1
+	pwd
+	ls -Al | more
+}
+
+alias rtt='popd;rt'
+alias rttt='popd;rtt'
+alias rtttt='popd;rttt'
+
+function to 
+{
+	pushd $1
+	pwd
+}
+
+function rto
+{
+	popd $1
+	pwd
+}
+
+function xxl
+{
+    xxd -c16 "$1" | less
+}
+
+function display
+{
+	echo $DISPLAY
+}
+
+function fn
+{
+	find "$1" -name "$2"
+}
+@
+
+
+1.9
+log
+@add functions 'le' and 'xxl'
+modify alias 'lf' and add alias 'mta'
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.8 2010/02/15 15:48:16 mhsatto Exp mhsatto $
+d35 1
+d41 1
+d43 1
+d108 1
+a108 1
+	ls -Al | more
+d119 2
+a120 1
+	show
+d126 18
+a143 1
+	show
+a150 4
+alias rtt='popd;rt'
+alias rttt='popd;rtt'
+alias rtttt='popd;rttt'
+
+d169 2
+@
+
+
+1.8
+log
+@fix lt; add lf, exp, modlist, modav
+fix ups aliases
+@
+text
+@d5 1
+a5 1
+# $Id$
+d66 2
+d74 5
+d84 1
+a84 1
+function libpath
+d86 1
+a86 1
+	echo $LD_LIBRARY_PATH |tr ':' '\n'
+a93 5
+function infopath
+{
+	echo $INFOPATH |tr ':' '\n'
+}
+
+d108 5
+d125 5
+@
+
+
+1.7
+log
+@add fxn.s etc for 'pkgpath', 'infopath', 'modpath'
+fix 'ups' aliases and add 'rtt' aliases
+modify rcs aliases so 'co' and 'ci' have default flags
+add setup for omniORB and move Netezza setup to a separate script
+@
+text
+@d2 1
+a2 1
+##################################################################################################
+d5 1
+a5 1
+# $Header: /home/crypt/mhsatto/bin/src/RCS/bashrc,v 1.6 2010/02/03 16:43:37 mhsatto Exp mhsatto $
+d7 1
+a7 1
+##################################################################################################
+d38 2
+a39 1
+alias lt='la -t |more'
+d46 1
+d50 3
+a52 3
+alias upss='go ../..'
+alias upsss='go ../../..'
+alias upssss='go ../../../..'
+d61 1
+d97 3
+d141 1
+a141 1
+##########################################
+d145 1
+a145 1
+##########################################
+@
+
+
+1.6
+log
+@remove directives now in bashrc.base
+add alias 'src'
+@
+text
+@d2 1
+a2 1
+############################
+d5 1
+a5 1
+# $Header$
+d7 1
+a7 1
+############################
+d12 20
+a31 5
+# Netezza setup
+export NZ_USER=mhsatto
+export NZ_PASSWORD=mhsatto1
+export NZ_DATABASE=h2_db
+export NZ_HOST=savuka.central.cse
+d35 2
+a36 2
+alias ll='ls -l'
+alias la='ls -Al'
+d38 2
+a39 1
+alias lt='la -t'
+a44 4
+alias ups='cd .. ; show'
+alias upss='cd ../.. ; show'
+alias upsss='cd ../../.. ; show'
+alias upssss='cd ../../../.. ; show'
+d46 16
+a61 6
+alias so=source
+alias ciu='ci -u '
+alias cil='ci -l '
+alias cou='co -u '
+alias col='co -l '
+alias src='go ~/bin/src'
+d79 15
+d97 1
+a97 1
+	lal | more
+d112 4
+d123 1
+a123 1
+	find $1 -name '$2'
+d126 6
+a139 1
+
+@
+
+
+1.5
+log
+@fix misspelling on aliases, add var 'mhscorp'
+@
+text
+@d4 2
+a5 2
+# mhsatto
+# $Id: bashrc,v 1.4 2010/02/02 20:48:16 mhsatto Exp mhsatto $
+d9 1
+a9 6
+# set prompt
+export PS1='\e[1;35;49m[\u@@\h] \w \! > \e[0m' 
+
+# set display
+#export DISPLAY=131.140.158.190:0
+export DISPLAY=cse11707.corp.cse:0
+a11 8
+# set path
+if [ ! $ORIGPATH ]
+then
+	export ORIGPATH=$PATH
+fi
+export PATH=~/bin:/sbin:$ORIGPATH
+#export PATH=~/bin:/usr/local/nz/bin:$ORIGPATH
+
+d21 3
+a23 3
+alias la='ls -A'
+alias lal='la -l'
+alias lt='lal -t'
+a34 1
+alias sob='source ~/bash.rc'
+d39 1
+d90 1
+a90 1
+echo "LOADED ~/.bashrc"
+@
+
+
+1.4
+log
+@add aliases 'cil', 'cou', 'col'
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.3 2010/02/02 20:26:40 mhsatto Exp mhsatto $
+d15 1
+d51 2
+a52 2
+alais cou='co -u '
+alais col='co -l '
+@
+
+
+1.3
+log
+@add alias 'ciu' and function 'rt', modify function 'go' to use pushd
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.2 2010/02/02 20:13:41 mhsatto Exp $
+d49 3
+@
+
+
+1.2
+log
+@update display, aliases, and add function 'fn'
+@
+text
+@d5 1
+a5 1
+# $Id: bashrc,v 1.1 2010/02/02 20:04:48 mhsatto Exp $
+d48 1
+d74 7
+a80 1
+	cd $1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 1
+a5 1
+# $Id$
+d13 2
+a14 1
+export DISPLAY=131.140.158.190:0
+d47 1
+a47 1
+alias sob='source ~/.bashrc'
+d82 5
+@

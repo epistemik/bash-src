@@ -1,0 +1,16 @@
+#!/bin/ksh
+
+name=$1
+font=$2
+
+# if there is only one parameter, cannot be sure if 
+# it is a window name or font name
+
+if [[ ${#font} == 0 ]] then
+  name="`whoami`: `date`" 
+  font=serif14 
+  echo "Usage: tmfn 'terminal name' 'font name' " ;
+fi
+
+/usr/dt/bin/dtterm -title "$name" -fn "$font" &
+

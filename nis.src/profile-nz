@@ -1,0 +1,31 @@
+#!/bin/bash
+############################
+#
+# mhsatto@cse-cst.gc.ca
+# $Header: /home/mhsatto/bin/src/RCS/profile-nz,v 1.1 2010/10/14 18:38:17 mhsatto Exp $
+#
+############################
+
+# set prompt
+export PS1='\e[1;35;49m[$USER@\h] \w \! > \e[0m' 
+
+# set display
+#export DISPLAY=131.140.158.190:0
+export DISPLAY=cse11707.corp.cse:0
+
+# set path
+if [ ! $ORIGPATH ]
+then
+	export ORIGPATH=$PATH
+fi
+#export PATH=~/bin:/sbin:$ORIGPATH
+export PATH=~/bin:/sbin:/usr/local/nz/bin:$ORIGPATH
+
+alias sob='source ~/bash.rc'
+alias sobb='source ~/.bashrc'
+
+###############################
+# END OF SCRIPT
+PROFILENZ_LOADED='TRUE'
+# END OF SCRIPT
+###############################

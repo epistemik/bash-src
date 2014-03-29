@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+
+exec > $HOME/.dt/dtwm.mhsatto.menus
+echo "# This sub-menu file gets recreated at each login"
+echo "# Editing this file is futile"
+echo "#"
+
+DATE=`date +"%d %b %y"`
+# cd to the directory containing all the icons
+cd /home/mhsatto/.dt/appmanager
+
+# Create a submenu containing all the directory names there
+echo "Menu mhsatto_Menu
+{
+\"MHS Applications\"	f.title"
+for dir in `/bin/ls`; do
+    pretty_dir=`echo ${dir} | tr "_" " "`
+    echo "\"${pretty_dir} ...\"		f.menu ${dir}Menu"
+done
+echo "no-label	f.separator
+\"Last Updated $DATE\"	f.title
+}
+"
+
+# For each directory create a menu item for each of the
+# action items contained within
+#
+# First create the Menu Title
+for dir in `/bin/ls`; do
+    	pretty_dir=`echo ${dir} | tr "_" " "`
+	cd ${dir}
+
+	echo "Menu ${dir}Menu
+{
+    \"${pretty_dir} Menu\"		f.title"
+
+# Next create an entry for each action
+	for fid in `/bin/ls`; do
+    	pretty_fid=`echo ${fid} | tr "_" " "`
+		echo "    \"${pretty_fid}\"		f.action ${fid}"
+	done
+	cd ..
+	echo "}
+"
+done
+exec 1>&2
+cd

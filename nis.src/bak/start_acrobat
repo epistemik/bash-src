@@ -1,0 +1,5 @@
+echo >> $HOME/DT.log
+echo $0 $* >> $HOME/DT.log
+
+exec /usr/local/bin/acroread $2
+rm $2

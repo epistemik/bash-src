@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+#  Script:		start_imageview
+#  Instance:		1
+#  %version:		1 %
+#  Description:		launch image viewer
+#
+#  %created_by:		mhsatto %
+#  %date_created:	Thu Mar 15 10:17:28 EDT 2001 %
+######################################################################
+
+echo >> $HOME/DT.log
+echo $0 $* >> $HOME/DT.log
+IMAGEVIEW_DIR=/usr/dt/bin
+
+LD_LIBRARY_PATH=${IMAGEVIEW_DIR}
+export LD_LIBRARY_PATH
+
+#exec ${IMAGEVIEW_DIR}/sdtimage $1
+(${IMAGEVIEW_DIR}/sdtimage $2; rm $2)&

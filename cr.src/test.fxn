@@ -1,0 +1,96 @@
+#!/bin/bash
+##############################################################
+#
+#  Perseus (perseus@surf.longrun.net)
+# ---------------------------------------------
+#   $Header: //users/main/perseus/dev/code/scripts/bashrc#3 $
+#   $DateTime: 2009/01/20 16:25:55 $
+#   $Change: 50748 $
+#
+##############################################################
+
+# need to handle the aliases FIRST so show() gets the proper ls
+aliaslist=~perseus/code/scripts/bals
+if [ -f $aliaslist ];
+    then
+        source $aliaslist ;
+    else
+        echo "$aliaslist does NOT exist!!" ;
+fi
+
+
+#
+# in bash, need to handle 'shell prompt' manipulation with FUNCTIONS, not aliases
+###################################################################################
+
+# C program apwd abridges the prompt's path display
+function shortprompt
+{
+    wd=$(apwd)
+    #echo "cwd is $wd"
+#    export PS1="\e[1;35;49m[\u@\h] $wd \! > \e[0m"
+#    export PS1="\e[1;33;49m[\u@\h]\e[0m $wd \! > "
+#    PS1="\t \e[1;33;49m\w\e[0m \! > "
+#    export PS1="\t $wd \! > "
+    PS1="\t \w \! > "
+    #export PS1="[\u@\h] $wd \! > "
+}
+# cd to dir; modify prompt; display contents
+function gg
+{
+    cd $1
+    shortprompt
+    show
+}
+
+# push to dir; modify prompt; display contents
+function gp
+{
+    pushd $1
+    shortprompt
+    show
+}
+alias gop=gp
+
+# cd to dir; modify prompt
+function gn
+{
+    cd $1
+    shortprompt
+}
+alias gns=gn
+
+# push to dir; modify prompt
+function gnp
+{
+    pushd $1
+    shortprompt
+}
+
+# pop current dir; modify prompt
+function rtx
+{
+    popd $1
+    shortprompt
+}
+
+# pop current dir; modify prompt; display contents
+function rts
+{
+    popd $1
+    shortprompt
+    show
+}
+
+function show
+{
+    pwd
+    ls -o | more
+}
+
+
+#############################################################################
+# END OF SCRIPT
+echo "LOADED test.fxn"
+# END OF SCRIPT
+#############################################################################

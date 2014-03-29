@@ -1,0 +1,61 @@
+#!/bin/bash
+################################################################################
+#
+# mhsatto@cse-cst.gc.ca
+# $Id: bashrc.base,v 1.17 2010/09/20 13:56:28 mhsatto Exp $
+#
+################################################################################
+
+# set prompt
+#export PS1='\e[0;33;49m[\u@\h] `apwd` \! > \e[0m' 
+#export PS1='\e[1;33;49m\t \w \! > \e[0m'
+unset HAVENEWPROMPT
+export PS1='\t \w \! > ' 
+
+# set corp home
+export mhscorp=cse11707.corp.cse
+
+# set display
+#export DISPLAY=131.140.158.190:0
+export DISPLAY=cse11707.corp.cse:0
+
+# set sorting env
+export LC_ALL=C
+
+# set MTA env
+#! SHOULD ONLY BE SET ON THE COMPUTE NODES !
+#export __MTA__=1
+
+# remember original path
+if [ ! $HAVEORIGPATH ]
+then
+#    echo "do NOT have orig path"
+	export ORIGPATH=$PATH  # save
+    export HAVEORIGPATH='TRUE'
+else
+    export PATH=$ORIGPATH  # reset
+fi
+
+# remember original lib path
+if [ ! $HAVEORIGLIBPATH ]
+then
+#    echo "do NOT have orig Lib path"
+	export ORIGLIBPATH=$LD_LIBRARY_PATH  # save
+    export HAVEORIGLIBPATH='TRUE'
+else
+    export LD_LIBRARY_PATH=$ORIGLIBPATH  # reset
+fi
+
+alias sob='source ~/.bashext'
+alias sobb='source ~/.bashrc'
+
+# Open Projects
+alias sopen='source /project/open/open_env.sh'
+alias cleanopen='unset OPEN_ENV'
+unset OPEN_ENV
+
+########################################
+# END OF SCRIPT
+BASHRCBASE_LOADED='TRUE'
+# END OF SCRIPT
+########################################

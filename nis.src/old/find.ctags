@@ -1,0 +1,4 @@
+# there is some bug in 'find' - this code that is supposed to work does not actually search for the 
+# first name after -prune, so the dummy '*.k' is put there and the '*.cc' is put as an extra -o 
+
+find . \( -name SCCS -prune -name '*.k' -o -name '*.cc' -o -name '*.h' \) -exec ctags -u {} \;

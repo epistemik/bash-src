@@ -1,0 +1,19 @@
+[00mtotal 1476
+-rwxr-xr-x 1 mhsatto k5a    7671 Apr 26  2010 [01;32mapwd[00m
+drwxr-x--- 4 mhsatto k5a    8192 Oct 15 18:09 [01;34mbak[00m
+-rw-r--r-- 1 mhsatto k5a       0 Nov  3 13:56 [00mbindir.out[00m
+lrwxrwxrwx 1 mhsatto k5a      36 Oct 21  2009 [00;36mchange_shebang[00m -> [01;32m./src/perlsrc/change_shebang_args.pl[00m
+lrwxrwxrwx 1 mhsatto k5a      23 Oct 21  2009 [00;36mchextg[00m -> [01;32m./src/perlsrc/chextg.pl[00m
+lrwxrwxrwx 1 mhsatto k5a      28 Oct 21  2009 [00;36mchfilenames[00m -> [01;32m./src/perlsrc/chfilenames.pl[00m
+-rwx--x--- 1 mhsatto k5a      31 Mar  4  2003 [01;32mfexg[00m
+lrwxrwxrwx 1 mhsatto k5a      27 Oct 21  2009 [00;36mfindscedit[00m -> [01;32m./src/perlsrc/findscedit.pl[00m
+-rwx--x--- 1 mhsatto k5a      26 Mar  4  2003 [01;32mfn[00m
+-rwxr-xr-x 1 mhsatto k5a 1474000 Oct  6  2008 [01;32mnedit5.5[00m
+drwxr-xr-x 2 mhsatto k5a    4096 Apr 26  2010 [01;34mold[00m
+drwx--x--- 6 mhsatto k5a    4096 Nov 13  2001 [01;34mpktswinghome[00m
+drwxr-xr-x 2 mhsatto k5a    4096 Apr 26  2010 [01;34msparc[00m
+drwxr-x--x 5 mhsatto k5a    4096 Nov  3 13:54 [01;34msrc[00m
+lrwxrwxrwx 1 mhsatto k5a      25 Oct 21  2009 [00;36mwhereall[00m -> [01;32m./src/perlsrc/whereall.pl[00m
+lrwxrwxrwx 1 mhsatto k5a      24 Oct 21  2009 [00;36mwhereis[00m -> [01;32m./src/perlsrc/whereis.pl[00m
+lrwxrwxrwx 1 mhsatto k5a      39 Oct 21  2009 [00;36mwich[00m -> [01;32m/home/mhsatto/bin/./src/perlsrc/wich.pl[00m
+[m

@@ -1,0 +1,15 @@
+! for xterm
+XTerm*background:	    black
+XTerm*foreground:	    white
+XTerm*jumpScroll:	    True
+XTerm*saveLines:	    2000
+XTerm*scrollBar:	    True
+XTerm*cursorColor:	    red
+XTerm*visualBell:	    True
+XTerm*pointerColor:	    green
+XTerm*scrollKey:	    True
+XTerm*eightBitInput:	True
+XTerm*geometry:         126x63+1320+28
+XTerm*font:             -adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-15
+! for nedit
+nedit.remapDeleteKey:	False

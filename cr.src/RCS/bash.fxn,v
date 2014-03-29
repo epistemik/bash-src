@@ -1,0 +1,659 @@
+head	1.11;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.11
+date	2010.09.16.18.43.14;	author mhsatto;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2010.08.25.16.16.53;	author mhsatto;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2010.06.29.19.37.46;	author mhsatto;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2010.06.23.20.23.14;	author mhsatto;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2010.04.28.22.51.35;	author mhsatto;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2010.04.01.17.45.29;	author mhsatto;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2010.03.31.14.53.03;	author mhsatto;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2010.03.03.21.52.02;	author mhsatto;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2010.03.03.21.33.21;	author mhsatto;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2010.03.01.16.27.05;	author mhsatto;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2010.02.25.18.45.53;	author mhsatto;	state Exp;
+branches;
+next	;
+
+
+desc
+@bash functions (and related aliases)
+@
+
+
+1.11
+log
+@add alias GO
+change ENG and ENGL to aliases
+@
+text
+@#!/bin/bash
+################################################################################
+#
+# mhsatto@@cse-cst.gc.ca
+# $Id: bash.fxn,v 1.10 2010/08/25 16:16:53 mhsatto Exp mhsatto $
+#
+################################################################################
+
+# Functions (and some related aliases)
+
+function display
+{
+	echo $DISPLAY
+}
+
+# PATH
+function path 
+{
+	echo $PATH |tr ':' '\n'
+}
+function origpath
+{
+    echo $ORIGPATH |tr ':' '\n'
+}
+function mypath
+{
+    echo $MYPATH |tr ':' '\n'
+}
+function extpath
+{
+    echo $EXTENDEDPATH |tr ':' '\n'
+}
+function cleanpath
+{
+    export PATH=$ORIGPATH
+    unset HAVEEXTPATH
+}
+function resetpath
+{
+    export PATH=$MYPATH:$EXTENDEDPATH
+}
+function setmypath
+{
+    export MYPATH="$1"
+}
+function setextpath
+{
+    export EXTENDEDPATH="$1"
+}
+
+# LIBPATH
+function libpath
+{
+    echo " LD_LIBRARY_PATH:"
+	echo $LD_LIBRARY_PATH |tr ':' '\n'
+}
+function origlibpath
+{
+    echo " ORIGLIBPATH:"
+	echo $ORIGLIBPATH |tr ':' '\n'
+}
+function cleanlibpath
+{
+    export LD_LIBRARY_PATH=$ORIGLIBPATH
+}
+
+# MANPATH
+function manpath 
+{
+    echo " MANPATH:"
+	echo $MANPATH |tr ':' '\n'
+}
+function origmanpath 
+{
+    echo " ORIGMANPATH:"
+	echo $ORIGMANPATH |tr ':' '\n'
+}
+function cleanmanpath
+{
+    export MANPATH=$ORIGMANPATH
+}
+
+# INFOPATH
+function infopath
+{
+    echo " INFOPATH:"
+	echo $INFOPATH |tr ':' '\n'
+}
+function originfopath
+{
+    echo " ORIGINFOPATH:"
+	echo $ORIGINFOPATH |tr ':' '\n'
+}
+function cleaninfopath
+{
+    export INFOPATH=$ORIGINFOPATH
+}
+
+# PKGPATH
+function pkgpath
+{
+    echo " PKG_CONFIG_PATH:"
+	echo $PKG_CONFIG_PATH |tr ':' '\n'
+}
+
+# MODULEPATH
+function modpath
+{
+    echo " MODULEPATH:"
+	echo $MODULEPATH |tr ':' '\n'
+}
+alias modlist='module list'
+alias modav='module avail'
+
+# DIRECTORIES
+function list
+{
+	echo "$1" |tr ':' '\n'
+}
+
+function lfm 
+{
+	ls -Al "$1" | more
+}
+
+function le
+{
+    ls -Al "$1"* | more
+}
+
+function go 
+{
+	pushd $1
+	pwd
+    target=`ls -Al | wc -l`
+    if (( target <= 50 ))
+    then
+        ls -Al
+    else
+        ls -A
+    fi
+}
+alias GO=go
+
+function rt
+{
+	popd $1
+	pwd
+    target=`ls -Al | wc -l`
+    if (( target <= 50 ))
+    then
+        ls -Al
+    else
+        ls -A
+    fi
+}
+alias rtt='popd;rt'
+alias rttt='popd;rtt'
+alias rtttt='popd;rttt'
+alias rttttt='popd;rtttt'
+
+function to 
+{
+	pushd $1
+	pwd
+}
+
+function rto
+{
+	popd $1
+	pwd
+}
+
+# MISC
+function fn
+{
+	find "$1" -name "$2"
+}
+
+function xxl
+{
+	if [ $2 ]
+    then
+        xxd -c"$1" "$2" | less
+    else
+        xxd -c16 "$1" | less
+    fi
+}
+
+function h
+{
+	if [ $1 ]
+    then
+        history "$1"
+    else
+        history 21
+    fi
+}
+
+function hd
+{
+    if [ $2 ]
+    then
+        head -n "$1" "$2"
+    else
+        head -n 16 "$1"
+    fi
+}
+
+function xt
+{
+	xterm -title "$1 $2 $3 $4"
+}
+
+function mr
+{
+	mtarun -m $1 $2 $3 $4 $5 $6
+}
+
+function mrt
+{
+    if [ $3 ]
+    then
+    	mtarun -t $1 -m $2 $3 $4 $5 $6
+    else
+    	mtarun -t $1 -m $1 $2
+    fi
+}
+
+function eng
+{
+    env | grep "$1" | more
+}
+alias ENG=eng
+function engl
+{
+    env | grep "$1" | less
+}
+alias ENGL=engl
+
+########################################
+# END OF SCRIPT
+BASHFXN_LOADED='TRUE'
+echo "LOADED bash.fxn"
+# END OF SCRIPT
+########################################
+@
+
+
+1.10
+log
+@add useful clean fxns
+re-organize and add heading comments
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.9 2010/06/29 19:37:46 mhsatto Exp mhsatto $
+d143 1
+a156 1
+
+d234 1
+d239 1
+a239 9
+
+function ENG
+{
+    env | grep "$1" | more
+}
+function ENGL
+{
+    env | grep "$1" | less
+}
+d243 1
+a243 1
+BASHFXN='LOADED'
+@
+
+
+1.9
+log
+@add originfopath, origmanpath, origlibpath,
+and list, lfm
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.8 2010/06/23 20:23:14 mhsatto Exp mhsatto $
+d16 1
+d21 29
+d51 1
+d54 1
+a54 1
+    echo "\$LD_LIBRARY_PATH:"
+d59 1
+a59 1
+    echo "\$ORIGLIBPATH:"
+d62 4
+d67 1
+d70 1
+a70 1
+    echo "\$MANPATH:"
+d75 1
+a75 1
+    echo "\$ORIGMANPATH:"
+d78 4
+d83 1
+d86 1
+a86 1
+    echo "\$INFOPATH:"
+d91 1
+a91 1
+    echo "\$ORIGINFOPATH:"
+d94 4
+d99 1
+d102 1
+a102 1
+    echo "\$PKG_CONFIG_PATH:"
+d106 1
+d109 1
+a109 1
+    echo "\$MODULEPATH:"
+a111 1
+
+d115 1
+a115 36
+function cleanpath
+{
+    export PATH=$ORIGPATH
+    unset HAVEEXTPATH
+}
+
+function origpath
+{
+    echo $ORIGPATH |tr ':' '\n'
+}
+
+function mypath
+{
+    echo $MYPATH |tr ':' '\n'
+}
+
+function extpath
+{
+    echo $EXTENDEDPATH |tr ':' '\n'
+}
+
+function setmypath
+{
+    export MYPATH="$1"
+}
+
+function setextpath
+{
+    export EXTENDEDPATH="$1"
+}
+
+function resetpath
+{
+    export PATH=$MYPATH:$EXTENDEDPATH
+}
+
+d174 1
+@
+
+
+1.8
+log
+@modifications to the various *path* functions,
+change eng/ENG to use more and add engl/ENGL with less
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.7 2010/04/28 22:51:35 mhsatto Exp mhsatto $
+d26 5
+d37 5
+d48 5
+d105 6
+a110 1
+function show 
+a111 1
+	pwd
+@
+
+
+1.7
+log
+@add mrt
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.6 2010/04/01 17:45:29 mhsatto Exp mhsatto $
+d23 1
+d29 1
+d35 1
+d41 1
+d47 1
+d57 1
+a57 1
+    unset HAVENEWPATH
+d70 1
+a70 1
+function newpath
+d72 1
+a72 1
+    echo $NEWPATH |tr ':' '\n'
+d80 1
+a80 1
+function setnewpath
+d82 1
+a82 1
+    export NEWPATH="$1"
+d87 1
+a87 1
+    export PATH=$MYPATH:$NEWPATH
+d175 1
+a175 1
+        head -n 12 "$1"
+d201 4
+d210 4
+@
+
+
+1.6
+log
+@add xt for creating xterm with a custom window title
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.5 2010/03/31 14:53:03 mhsatto Exp mhsatto $
+d184 10
+@
+
+
+1.5
+log
+@change eng and ENG from more to less
+move fxn and fxnf to aliases
+update NEWPATH to HAVENEWPATH
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.4 2010/03/03 21:52:02 mhsatto Exp mhsatto $
+d174 5
+@
+
+
+1.4
+log
+@fix typo in 'xxl'
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.3 2010/03/03 21:33:21 mhsatto Exp mhsatto $
+d52 1
+a52 1
+    unset NEWPATH
+d80 1
+a80 1
+function setpath
+a84 10
+function fxn
+{
+    declare -F
+}
+
+function fxnf
+{
+    declare -f | more
+}
+
+d176 1
+a176 1
+	mtarun -m $1 $2 $3 $4 $5
+d181 1
+a181 1
+    env | grep "$1" | more
+d186 1
+a186 1
+    env | grep "$1" | more
+@
+
+
+1.3
+log
+@modify 'go' and 'rt' to use the folder size to decide on 'ls' or 'll'
+modify 'xxd' to use multiple vars
+add 'h' and 'hd'
+add 'mr' to use with mta
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.2 2010/03/01 16:27:05 mhsatto Exp mhsatto $
+a156 2
+alias rttttt='popd;rtttt'
+
+@
+
+
+1.2
+log
+@add several 'path' type functions
+add 'eng' and 'ENG' to grep the env
+@
+text
+@d5 1
+a5 1
+# $Id: bash.fxn,v 1.1 2010/02/25 18:45:53 mhsatto Exp mhsatto $
+d65 1
+a65 1
+function setmypath
+d67 1
+a67 1
+    export MYPATH="$1"
+d70 1
+a70 1
+function newpath
+d72 1
+a72 1
+    echo $NEWPATH |tr ':' '\n'
+d110 7
+a116 1
+	ls -Al | more
+d123 7
+a129 1
+	ls -Al | more
+d135 1
+d156 33
+a188 1
+    xxd -c16 "$1" | less
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+d5 1
+a5 1
+# $Id$
+d49 27
+a75 1
+function fxn
+d77 1
+a77 1
+    declare -f | more
+d80 1
+a80 1
+function fxnn
+d82 1
+a82 1
+    declare -F
+d85 1
+a85 1
+function EC
+d87 1
+a87 2
+    target=`env |grep $1 | sed -e "s/$1=//" `
+	echo $target
+d90 1
+a90 1
+function ec
+d92 1
+a92 2
+    target=`env |grep $1 | sed -e "s/$1=//" `
+	echo $target
+d136 5
+d146 6
+a151 1
+function fn
+d153 1
+a153 1
+	find "$1" -name "$2"
+d158 2
+a159 1
+echo "LOADED ~/bash.fxn"
+@

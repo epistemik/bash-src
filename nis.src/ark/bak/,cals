@@ -1,0 +1,97 @@
+# aliases - csh
+################
+
+# FILE LISTING
+alias	la	'ls -A '
+alias	ll	'ls -l \!* |more'
+alias	lal	'ls -Al \!* |more'
+alias	lt	'ls -lt \!* |more'
+alias	lat	'ls -lAt \!* |more'
+alias	lg	'ls -dlt \!* |more'
+alias	le	'ls -lt *.\!* |more '
+alias	lsd	'ls -l | grep ^dr |more'
+alias	lsz	'ls -l | sort -r -n +4 |more'
+alias	lct	'echo `\ls -A |wc -w` files/folders '
+alias	lscc	'ls -lt *.cc *.cpp *.c *.C *.cxx |grep -v ',' |more '
+alias	lsh	'ls -lt *.h *.hpp *.hh *.hxx |grep -v ',' |more '
+alias	lsrc	'lscc > mhslsrctemp; lsh >> mhslsrctemp; more mhslsrctemp |sort -f +8; rm mhslsrctemp'
+alias	lso	'date; ls -lt *.o *.obj |more '
+alias	lsx	'date; ls -lt | grep -e -rwx |more '
+alias	lspl	'grep -ils perl * |more '
+
+# PROTECTED FILE DELETION
+alias	del	'rm -i'
+
+# PROCESSES
+alias	pm	'ps -fu mhsatto |more '
+alias	vsz	"ps -ef -o vsz,comm,user |grep $USER |sort -n "
+alias	top	'top 40'
+alias	k9	'kill -9'
+
+# FOLDER NAVIGATION
+alias	up	'cd ..'
+alias	upp	'cd ../..'
+alias	uppp	'cd ../../..'
+alias	upppp	'cd ../../../..'
+
+# PROGRAMMING
+alias	jcd	'javac -deprecation'
+alias	pd	'perl -de 0'
+alias	mk	'make -r -f \!*; date; lso '
+
+# DISK PARAMETERS
+alias	duo	'du -rsk ~/* | sort -n'
+alias	due	'du -rsk ./* | sort -n'
+alias	dua	'du -rsk ~'
+
+# SPECIAL COMMANDS
+alias	socsh	'source ~/.cshrc '
+alias	grep	'/usr/xpg4/bin/grep'
+alias	l13	'last -13'
+alias	png	'ping -I 2'
+alias	dt	'date'
+
+# EDITING
+alias	ve	'clear; vi'
+alias	xe	'xterm -j -rw -geometry 109x61 -title "vi \!*" -e vi \!* '
+alias	view	'dtterm -j -rw -geometry 109x59 -title "vi \!*" -e vi \!* '
+alias	hxd	'dtterm -j -rw -geometry 90x37 -title "hexdump \!*" -e ~mhsatto/bin/hexdump \!* '
+alias	can	'cat -n'
+
+# FONTS
+alias	fnreg	'echo -n "[0m " '		# regular
+alias	fnb	'echo -n "[1m " '		# bold
+alias	fnund	'echo -n "[4m " '		# underline
+alias	fnrev	'echo -n "[7m " '		# reversed
+alias	fnred	'echo -n "[31m " '		# red text
+alias	fnredb	'echo -n "[1;31m " '	# bold red text
+alias	fnredk	'echo -n "[41m " '		# red background
+alias	fngrn	'echo -n "[32m " '		# green text
+alias	fngrnb	'echo -n "[1;32m " '	# bold green text
+alias	fngrnk	'echo -n "[42m " '		# green background
+alias	fnyel	'echo -n "[33m " '		# yellow text
+alias	fnyelb	'echo -n "[1;33m " '	# bold yellow text
+alias	fnyelk	'echo -n "[43m " '		# yellow background
+alias	fnblu	'echo -n "[34m " '		# blue text
+alias	fnblub	'echo -n "[1;34m " '	# bold blue text
+alias	fnbluk	'echo -n "[44m " '		# blue background
+alias	fnmag	'echo -n "[35m " '		# magenta text
+alias	fnmagb	'echo -n "[1;35m " '	# bold magenta text
+alias	fnmagk	'echo -n "[45m " '		# magenta background
+alias	fncya	'echo -n "[36m " '		# cyan text
+alias	fncyab	'echo -n "[1;36m " '	# bold cyan text
+alias	fncyak	'echo -n "[46m " '		# cyan background
+
+# FILE MODES
+alias	mx	'chmod 750'
+alias	mr	'chmod 664'
+alias	mw	'chmod 666'
+
+# LANDSCAPE 2-PAGE PRINTING
+alias	lpga	'fold -s \!* | mp -l -o -s "\!*" | lp -s '
+alias	lpgb	'mp -l -o -s "\!*" <\!* | lp -s '
+
+# ENV VARIABLE VIEWING
+alias	ECHO	echo
+alias	EC	echo
+alias	SETENV	setenv

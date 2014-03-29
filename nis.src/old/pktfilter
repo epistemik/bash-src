@@ -1,0 +1,30 @@
+#!/bin/csh -f
+
+# Shell start for pktfilter.
+#
+# You will need to edit INSTALLDIR and possibly TMPDIR
+# JAVA_HOME and JAVA should also be adjusted as appropriate.
+
+
+# set installed directory - I think should be absolute path
+setenv INSTALLDIR /home/mhsatto/bin/pktswinghome
+
+# set the temporary directory for conversion temporary files 
+if ( $?TMPDIR == 0 ) then
+	setenv TMPDIR /tmp
+endif
+
+
+# set up your installed JDK here (no need if downloaded the boxed set).
+setenv JAVA_HOME /usr/jdk1.2
+
+#set the initial JVM heap size to be 96MB by default, 128MB maximium
+setenv JAVA "$JAVA_HOME/bin/java -Xms96m -Xmx128m"
+
+# set the location of the jar files
+setenv CLASSPATH $INSTALLDIR/lib/CC.jar:$INSTALLDIR/lib/pktconvert.jar:$INSTALLDIR/lib/PktSwing.v09.jar:$INSTALLDIR/lib/iconsAndHelp.jar
+
+# and run
+$JAVA -Dpktswing.tmpdir=$TMPDIR pktfilter.PktFilter $*
+
+

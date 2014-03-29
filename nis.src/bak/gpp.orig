@@ -1,0 +1,4 @@
+#!/bin/ksh
+
+	/usr/local/bin/g++ -g -o `basename $1 .cc`.x $1
+

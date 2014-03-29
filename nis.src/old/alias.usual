@@ -1,0 +1,108 @@
+EC	echo
+ECHO	echo
+SETENV	setenv
+arl	ar -t !* |sort -df |more 
+c	clear
+cd	cd !*; p
+cll	clear; ll 
+clt	clear; lt 
+del	rm -i 
+dua	du -rsk ~ 
+due	du -rsk ./* | sort -n 
+duo	du -rsk ~/* | sort -n 
+fnb	echo -n "^[[1m " 
+fnblu	echo -n "^[[34m " 
+fnblub	echo -n "^[[1;34m " 
+fnbluk	echo -n "^[[44m " 
+fncya	echo -n "^[[36m " 
+fncyab	echo -n "^[[1;36m " 
+fncyak	echo -n "^[[46m " 
+fngrn	echo -n "^[[32m " 
+fngrnb	echo -n "^[[1;32m " 
+fngrnk	echo -n "^[[42m " 
+fnmag	echo -n "^[[35m " 
+fnmagb	echo -n "^[[1;35m " 
+fnmagk	echo -n "^[[45m " 
+fnred	echo -n "^[[31m " 
+fnredb	echo -n "^[[1;31m " 
+fnredk	echo -n "^[[41m " 
+fnreg	echo -n "^[[0m " 
+fnrev	echo -n "^[[7m " 
+fnund	echo -n "^[[4m " 
+fnyel	echo -n "^[[33m " 
+fnyelb	echo -n "^[[1;33m " 
+fnyelk	echo -n "^[[43m " 
+go	pushd !*; p
+grep	/usr/xpg4/bin/grep -n 
+h	history 21
+hxd	dtterm -j -rw -geometry 90x37 -title "hexdump !*" -e ~mhsatto/bin/hexdump !* 
+jcd	javac -deprecation 
+k9	kill -9 
+l13	last -13 
+la	ls -A 
+lal	ls -Ao !* |more 
+lat	ls -oAt !* |more 
+lct	echo `\ls -A |wc -w` files/folders 
+le	ls -ot *.!* |more 
+lg	ls -dot !* |more 
+ll	ls -o !* |more 
+llg	ls -l !* |more 
+lpga	fold -s !* | mp -l -o -s "!*" | lp -s 
+lpgb	mp -l -o -s "!*" <!* | lp -s 
+ls	ls -F
+lscc	ls -ot *.cc *.cpp *.C *.c *.cxx | \grep -s -v , |more 
+lsd	ls -o | \grep ^dr |more 
+lsh	ls -ot *.h *.hpp *.hh *.hxx | \grep -s -v , |more 
+lsmk	date; ls -ot | egrep "[Mm]ake" 
+lso	date; ls -ot *.o *.obj |more 
+lspl	\grep -ils perl * |more 
+lsrc	lscc > /tmp/mhslsrctemp; lsh >> /tmp/mhslsrctemp; more /tmp/mhslsrctemp |sort -f +8; rm /tmp/mhslsrctemp 
+lssc	ls -o ,* |more 
+lsx	date; ls -ot | \grep -s -e -rwx |more 
+lsz	ls -o | sort -r -n +4 |more 
+lt	ls -ot !* |more 
+m	more
+mk	make -r -f !* ; lso 
+mkgnu	make -f Makefile.gnu 
+mksun	make -f Makefile.sun 
+mn	cat -n !* |more 
+mr	chmod ug+r 
+mra	chmod ugo+r 
+mro	chmod 440 
+mw	chmod u+w 
+mwa	chmod ugo+w 
+mx	chmod ug+x 
+mxa	chmod ugo+x 
+mxo	chmod 551 
+mybin	go ~/bin; echo -n '^[]0;my bin^G'; show 
+mybinsrc	go ~/bin/src; echo -n '^[]2;my bin/src ^G^[]1;bin src^G'; show 
+myc	go ~/refer/ctest; echo -n '^[]0;my C^G'; ll 
+mycode	go ~/refer; echo -n '^[]2;/home/mhsatto/bin^G^[]1;my code^G'; ls 
+mycpp	go ~/refer/cpptest; echo -n '^[]0;my CPP^G'; ll 
+mydocs	go ~/docs; echo -n '^[]2;/home/mhsatto/bin^G^[]1;my docs^G'; ls 
+myjava	go ~/refer/ctest; echo -n '^[]0;my JAVA^G'; ll 
+myperl	go ~/refer/perl; echo -n '^[]0;my PERL^G'; ll 
+mysrc	go ~/refer/power; echo -n '^[]2;/home/mhsatto/bin^G^[]1;my src^G'; ls 
+mytest	go ~/refer/test; echo -n '^[]2;/home/mhsatto/bin^G^[]1;my test^G'; ll 
+p	set prompt = "^[[1;34;49m[${USER}@`uname -n`] `pwd` ! > ^[[0m" 
+pd	perl -de 0 
+pm	ps -fu mhsatto |more 
+pop	popd !*; p
+ppcode	go ~/cream/code; echo -n '^[]0;ppCode^G'; ll 
+ppdocs	go ~/cream/docs; echo -n '^[]0;ppDocs^G'; ll 
+schk	sccs check 
+setbar	echo -n "^[]2; !* ^G" 
+setbox	echo -n "^[]0; !* ^G" 
+seticon	echo -n "^[]1; !* ^G" 
+show	pwd; ls -ot |more 
+so	source
+socsh	source ~/.cshrc 
+sprh	sccs prs !* | head -22 
+top	top 40 
+up	go .. 
+upp	go ../.. 
+uppp	go ../../.. 
+upppp	go ../../../.. 
+view	dtterm -j -rw -geometry 109x59 -title "vi !*" -e vi !* 
+vsz	ps -ef -o vsz,comm,user |grep mhsatto |sort -n 
+xe	xterm -j -rw -geometry 109x61 -title "vi !*" -e vi !* 

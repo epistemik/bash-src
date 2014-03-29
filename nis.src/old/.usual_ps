@@ -1,0 +1,37 @@
+     UID   PID  PPID  C    STIME TTY      TIME CMD
+ mhsatto   955   953  0 09:18:00 pts/3    0:00 /bin/sh /export/home/mhsatto/visual/visual3.0
+ mhsatto   966   945  0 09:18:02 ?        0:00 /bin/cat /tmp/.removable/notify0
+ mhsatto   937   930  0 09:17:54 ??       0:01 dtterm -session dtHoaa6a -title Run -e /usr/dt/bin/dtexec -open -1 -ttprocid 3.
+ mhsatto   945     1  0 09:17:55 ?        0:00 /bin/ksh /usr/dt/bin/sdtvolcheck -d -z 5 cdrom
+ mhsatto   953   937  0 09:18:00 pts/3    0:00 /usr/dt/bin/dtexec -open -1 -ttprocid 3.v70EH 01 8860 1289637086 1 1 11084 209.
+ mhsatto   963   938  0 09:18:02 pts/5    0:00 -ksh
+ mhsatto   747   231  1 17:11:56 ?        4:55 /usr/openwin/bin/Xsun :0 -nobanner -auth /var/dt/A:0-bMa4Ca
+ mhsatto   961   939  0 09:18:01 pts/4    0:00 /bin/ksh
+ mhsatto   929     1  0 09:17:33 pts/2    0:03 /usr/dt/bin/ttsession
+ mhsatto   941   930  0 09:17:54 ?        0:02 /usr/openwin/bin/clock -Wp 862 0 -Ws 274 92 -WP 8 12 +Wi -fg gold -bg black +Wn
+ mhsatto   943   930  0 09:17:54 ?        0:02 /usr/dt/bin/sdtperfmeter -f -H -t cpu -t disk -s 1 -name fpperfmeter
+ mhsatto   978   936  0 09:18:43 ?        1:11 netscape.real
+ mhsatto   940   930  0 09:17:54 ?        0:01 dtcalc -session dtCWaG6a -xrm *iconX:2 -xrm *iconY:186
+ mhsatto   939   930  0 09:17:54 ??       0:02 /usr/dt/bin/dtterm -session dtcJay6a
+ mhsatto   938   930  0 09:17:54 ??       0:01 dtterm -session dtSCaq6a -bg gold -C -ls -name kali Console
+ mhsatto   942   930  1 09:17:54 ?        0:05 /usr/dt/bin/dtcm -session dtoiaO6a -xrm *iconX:2 -xrm *iconY:366
+ mhsatto   936   930  0 09:17:37 ?        0:46 dtwm
+ mhsatto   908   906  0 09:17:28 pts/2    0:00 -ksh -c  	    unset DT; 	    DISPLAY=:0;   	    /usr/dt/bin/dtsession_res -merg
+ mhsatto   874     1  0 09:17:24 ?        0:00 /usr/openwin/bin/speckeysd
+ mhsatto   905     1  0 09:17:27 ?        0:00 /usr/dt/bin/dsdm
+ mhsatto  1163     1  0 12:41:50 pts/6   11:12 /opt/VISUAL_3.0/SunOS/bin/visual /export/home/mhsatto/visual/clean_full.im
+ mhsatto   906   860  0 09:17:27 pts/2    0:00 /usr/dt/bin/sdt_shell -c  	    unset DT; 	    DISPLAY=:0;   	    /usr/dt/bin/dt
+ mhsatto   870   860  0 09:17:23 ?        0:00 /usr/openwin/bin/fbconsole
+ mhsatto   930   908  0 09:17:34 pts/2    0:01 /usr/dt/bin/dtsession
+ mhsatto  1155  1153  0 12:40:21 pts/6    0:00 /bin/ksh
+ mhsatto  1153   936  0 12:40:20 ??       0:01 /usr/dt/bin/dtterm
+ mhsatto   979   978  0 09:18:47 ?        0:00 (dns helper)
+ mhsatto   860   748  0 09:17:21 ?        0:01 /bin/ksh /usr/dt/bin/Xsession
+ mhsatto  1099  1093  0 11:52:51 pts/2    0:00 dtfile -noview
+ mhsatto  1092   929  0 11:52:26 pts/2    0:00 /bin/sh -c dtfile -noview
+ mhsatto  1104  1103  0 11:53:50 pts/2    0:05 dtpad -server
+ mhsatto  1093  1092  0 11:52:26 pts/2    0:19 dtfile -noview
+ mhsatto  1106   961  0 11:54:48 pts/4    0:00 /bin/sh /opt/VISUAL_3.0/bin/visual3.0
+ mhsatto  1103   929  0 11:53:50 pts/2    0:00 /bin/sh -c dtpad -server
+ 
+Wed May 31 14:09:06 EDT 2000

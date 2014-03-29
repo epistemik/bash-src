@@ -1,0 +1,66 @@
+#!/bin/bash
+################################################################################
+#
+# mhsatto@cse-cst.gc.ca
+# $Id: bashrc,v 1.3 2010/10/15 16:31:35 mhsatto Exp $
+#
+################################################################################
+
+DIAVIK=diavik*
+EKATI=ekati*
+# set prompt
+if [ ! $LONGPROMPT ]
+then
+    RED="\[\e[31;1m\]"
+    GREEN="\[\e[32;1m\]"
+    YELLOW="\[\e[33;1m\]"
+    BLUE="\[\e[34;1m\]"
+    MAGENTA="\[\e[35;1m\]"
+    CYAN="\[\e[36;1m\]"
+    COLOR_RESET="\[\e[30;0m\]"
+    if [[ ($HOSTNAME =~ $DIAVIK) || ($HOSTNAME =~ $EKATI) ]]
+    then
+        echo "Netezza box!"
+        HILITE=$MAGENTA
+        TXTFRAME=$GREEN
+    else
+        echo "NOT a Netezza box..."
+        HILITE=$CYAN
+        TXTFRAME=$RED
+    fi
+    export PS1="${HILITE}\w${TXTFRAME} | ${HILITE}\d \t${TXTFRAME} | ${HILITE}\u@\h${TXTFRAME} | ${HILITE}\s \V${TXTFRAME}\r\n${HILITE}\!${TXTFRAME} >$COLOR_RESET "
+    LONGPROMPT='TRUE'
+fi
+
+# reset libpath
+MYLIBPATH=~/dev/lib:~/dev/lib64 #:~/gnu/lib:~/gnu/lib64
+if [ $HAVEORIGLIBPATH ]
+then
+    export LD_LIBRARY_PATH=$MYLIBPATH:$ORIGLIBPATH
+else
+    export LD_LIBRARY_PATH=$MYLIBPATH
+fi
+
+# make sure my path folders are first
+MYPATH=~/bin:~/dev/perl/bin:/sbin
+if [ $HAVEORIGPATH ]
+then
+    export PATH=$MYPATH:$ORIGPATH
+else
+    export PATH=$MYPATH
+fi
+
+# functions
+source ~/bin/src/bash.fxn
+alias sobf='source ~/bin/src/bash.fxn'
+
+# aliases
+source ~/bin/src/bash.als
+alias soba='source ~/bin/src/bash.als'
+
+########################################
+# END OF SCRIPT
+BASHRC_LOADED='TRUE'
+echo "LOADED ~/.bashext"
+# END OF SCRIPT
+########################################
