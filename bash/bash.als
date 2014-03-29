@@ -17,6 +17,7 @@ alias cp='cp -p'
 alias c=clear
 alias del='rm -i'
 alias hl='history |less'
+alias md='mkdir -p'
 
 # list files
 alias ls='ls --color'
