@@ -1,5 +1,4 @@
 set number
 set showmode
-set ts=3
+set ts=4
 set ignorecase
-

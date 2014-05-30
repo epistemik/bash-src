@@ -23,11 +23,11 @@ alias md='mkdir -p'
 alias ls='ls --color'
 alias lsa='ls -A'
 alias lsm='\ls -FC --color |more'
-alias ll='ls -Adhl'
+alias ll='ls -hl'
 alias la='ls -Ahl |more'
 alias lal=la
 alias lt='ls -Alht |more'
-alias lf='ls -Alh'
+alias lf='ls -Adlh'
 alias ct='ls -A |wc -w'
 
 # directory stack
@@ -63,12 +63,12 @@ alias uppp='go ../../..'
 alias upppp='go ../../../..'
 alias uppppp='go ../../../../..'
 
-alias home='go ~'
-alias mybin='go ~/bin'
-alias mysrc='go ~/bin/src'
-alias mydev='go ~/dev'
-alias myperl='go ~/dev/perl'
-alias myjava='go ~/dev/java'
+alias home='to ~'
+alias mybin='to ~/bin'
+alias mysrc='to ~/bin/src'
+alias mydev='to ~/dev'
+alias myperl='to ~/dev/perl'
+alias myjava='to ~/dev/java'
 
 # list functions
 alias fxn='declare -F | more'
@@ -104,7 +104,6 @@ alias diff='diff -s'
 ########################################
 # END OF SCRIPT
 BASHALS_LOADED='TRUE'
-echo "LOADED bash.als"
+echo "LOADED ~marksa/.bashals"
 # END OF SCRIPT
 ########################################
-

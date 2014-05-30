@@ -1,6 +1,6 @@
-syntax enable
+syntax on
 set number
 set showmode
-set ts=3
+set ts=4
 set ignorecase
-
+set background=dark

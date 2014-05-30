@@ -22,23 +22,23 @@ if [[ ! $LONGPROMPT ]] ; then
   LONGPROMPT='TRUE' ;
 fi
 alias clearprompt='unset LONGPROMPT'
+alias uslp=clearprompt
 
 # add bin to PATH
 ORIGPATH=$PATH
-export PATH=~/bin:$ORIGPATH
+export PATH=~marksa/bin:$ORIGPATH
 
 # aliases
-test -s ~/.bashals && source ~/.bashals
-alias soba='source ~/.bashals'
+test -s ~marksa/.bashals && source ~marksa/.bashals
+alias soba='source ~marksa/.bashals'
 
 # functions
-test -s ~/.bashfxn && source ~/.bashfxn
-alias sobf='source ~/.bashfxn'
+test -s ~marksa/.bashfxn && source ~marksa/.bashfxn
+alias sobf='source ~marksa/.bashfxn'
 
 ########################################
 # END OF SCRIPT
 BASHEXT_LOADED='TRUE'
-echo "LOADED ~/.bashext"
+echo "LOADED ~marksa/.bashext"
 # END OF SCRIPT
 ########################################
-
