@@ -39,36 +39,36 @@ lr ()
 
 target ()
 {
-  target=`ls -A | wc -w`
-  if (( target <= ($LINES-2) ))
+  targ=`ls -Al | wc -l`
+  if (( targ <= ($LINES-2) ))
   then
       ls -Alh
-  elif (( target <= (2*($LINES-2)) ))
+  elif (( targ <= (2*($LINES-2)) ))
   then
       ls -A
   else
-      echo "$target files in this directory"
+      echo "$targ files in this directory"
   fi
 }
 
 go ()
 {
-	if [[ $1 ]] ; then
-	  pushd "$1"
-	else
-	    pushd
-	fi
+  if [[ $1 ]] ; then
+    pushd "$1"
+  else
+	  pushd
+  fi
   target ;
 }
 alias GO=go
 
 rt ()
 {
-	if [[ $1 ]] ; then
-	  popd "$1"
-	else
-	    popd
-	fi
+  if [[ $1 ]] ; then
+	popd "$1"
+  else
+	  popd
+  fi
   target ;
 }
 alias rtt='popd;rt'

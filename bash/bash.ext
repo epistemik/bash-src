@@ -7,6 +7,13 @@
 #
 ################################################################################
 
+# set directory colors
+d=.dircolors
+test -r $d && eval "$(dircolors $d)"
+
+shopt -s histverify
+shopt -s histappend
+
 # set prompt
 if [[ ! $LONGPROMPT ]] ; then
   RED="\[\e[31;1m\]" ;
@@ -21,12 +28,14 @@ if [[ ! $LONGPROMPT ]] ; then
   export PS1="${HILITE}\w${TXTFRAME} | ${HILITE}\d \t${TXTFRAME} | ${HILITE}\u@\h${TXTFRAME} | ${HILITE}\s \V${TXTFRAME}\r\n${HILITE}\!${TXTFRAME} >$COLOR_RESET " ;
   LONGPROMPT='TRUE' ;
 fi
-alias clearprompt='unset LONGPROMPT'
+alias clearprompt="unset LONGPROMPT"
 alias uslp=clearprompt
 
 # add bin to PATH
 ORIGPATH=$PATH
 export PATH=~marksa/bin:$ORIGPATH
+
+alias sobx="source ~marksa/.bashext"
 
 # aliases
 test -s ~marksa/.bashals && source ~marksa/.bashals
@@ -34,11 +43,11 @@ alias soba='source ~marksa/.bashals'
 
 # functions
 test -s ~marksa/.bashfxn && source ~marksa/.bashfxn
-alias sobf='source ~marksa/.bashfxn'
+alias sobf="source ~marksa/.bashfxn"
 
 ########################################
 # END OF SCRIPT
-BASHEXT_LOADED='TRUE'
+BASHEXT_LOADED="TRUE"
 echo "LOADED ~marksa/.bashext"
 # END OF SCRIPT
 ########################################

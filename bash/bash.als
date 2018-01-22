@@ -101,6 +101,10 @@ alias modlist=lsmod
 alias mk='make -f Mk.file'
 alias diff='diff -s'
 
+# networks
+# lsusb
+alias ntsh='sudo lshw -C network'
+
 ########################################
 # END OF SCRIPT
 BASHALS_LOADED='TRUE'
