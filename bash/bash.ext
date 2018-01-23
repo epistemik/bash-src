@@ -33,7 +33,7 @@ alias uslp=clearprompt
 
 # add bin to PATH
 ORIGPATH=$PATH
-export PATH=~marksa/bin:$ORIGPATH
+#export PATH=~marksa/bin:$ORIGPATH
 
 alias sobx="source ~marksa/.bashext"
 
