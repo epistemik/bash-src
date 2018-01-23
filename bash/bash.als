@@ -8,6 +8,7 @@
 ################################################################################
 
 # common
+alias path=bp
 alias so=source
 alias exp=export
 alias EXP=export
