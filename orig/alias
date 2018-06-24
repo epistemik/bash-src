@@ -1,0 +1,26 @@
+alias sob='source ~/.bashrc'
+alias soba='source ~/.alias'
+alias sobf='source ~/.fxn'
+
+alias so=source
+alias m=more
+alias ec=echo
+alias EC=ec
+alias la='ls -Ahl'
+alias lsa='ls -A'
+alias ct='ll |wc -l'
+alias dv='dirs -v'
+alias h='history 21'
+alias diff='diff -s'
+alias psu='ps u -H --user marksa |more'
+
+alias mybin='go ~/bin'
+alias mysrc='go ~/bin/src'
+alias mydev='go ~/dev'
+
+alias up='go ..'
+alias upp='go ../..'
+alias uppp='go ../../..'
+alias upppp='go ../../../..'
+alias uppppp='go ../../../../..'
+

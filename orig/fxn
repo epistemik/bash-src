@@ -1,0 +1,20 @@
+go ()
+{
+	if [[ $1 ]] ; then
+	  pushd "$1"
+	else
+	  pushd
+	fi
+	ls -lA
+}
+
+rt ()
+{
+	if [[ $1 ]] ; then
+	  popd "$1"
+	else
+	  popd
+	fi
+	ls -lA
+}
+
