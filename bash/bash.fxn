@@ -108,6 +108,11 @@ hist ()
     fi
 }
 
+hgi ()
+{
+    history | grep "$1"
+}
+
 hd ()
 {
     if [ $2 ]
