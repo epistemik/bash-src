@@ -21,6 +21,7 @@ alias hl='history |less'
 alias md='mkdir -p'
 alias dua='du -h --max-depth=1'
 alias vi=vim
+alias cdp='cd -P'
 
 # list files
 alias ls='ls --color'
