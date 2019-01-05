@@ -37,13 +37,31 @@ lr ()
   ls -Adlh "$1"* | more
 }
 
+# list directories with ll
 target ()
 {
   targ=`ls -Al | wc -l`
-  if (( targ <= ($LINES-2) ))
+  page=($LINES-2)
+  if (( targ <= page ))
   then
       ls -Alh
-  elif (( targ <= (2*($LINES-2)) ))
+  elif (( targ <= (3*page) ))
+  then
+      ls -A
+  else
+      echo "$targ files in this directory"
+  fi
+}
+
+# list directories with lt
+targett ()
+{
+  targ=`ls -Al | wc -l`
+  page=($LINES-2)
+  if (( targ <= page ))
+  then
+      ls -Alth
+  elif (( targ <= (3*page) ))
   then
       ls -A
   else
@@ -58,7 +76,7 @@ go ()
   else
 	  pushd
   fi
-  target ;
+  targett ;
 }
 alias GO=go
 
