@@ -15,9 +15,15 @@ list ()
 }
 
 # PATH
-bp ()
+binpath ()
 {
 	list $PATH
+}
+
+# ORIGPATH
+origpath ()
+{
+	list $ORIGPATH # set in bash.ext
 }
 
 # LIBPATH

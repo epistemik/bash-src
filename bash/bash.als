@@ -8,7 +8,7 @@
 ################################################################################
 
 # common
-alias path=bp
+alias path=binpath # function
 alias so=source
 alias exp=export
 alias EXP=export
@@ -74,7 +74,7 @@ alias mydev='to ~/dev'
 alias myperl='to ~/dev/perl'
 alias myjava='to ~/dev/java'
 
-# list functions
+# list declared functions
 alias fxn='declare -F | more'
 alias fxnm=fxn
 alias fxnf='declare -f | less'
