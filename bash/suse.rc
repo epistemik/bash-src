@@ -1,0 +1,40 @@
+#!/bin/bash
+################################################################################
+#
+# mhsatto@cse-cst.gc.ca
+#
+# $Id: //depot/src/bash/bash.rc#4 $
+#
+################################################################################
+
+# Sample .bashrc for SuSE Linux
+# Copyright (c) SuSE GmbH Nuernberg
+
+# There are 3 different types of shells in bash: the login shell, normal shell and interactive shell.
+# Login shells read ~/.profile and interactive shells read ~/.bashrc;
+# - in our setup, /etc/profile sources ~/.bashrc 
+# - thus all settings made here will also take effect in a login shell.
+#
+# NOTE: It is recommended to make language settings in ~/.profile rather than here,
+# since multilingual X sessions would not work properly if LANG is over-ridden in every subshell.
+
+# Some applications read the EDITOR variable to determine your favourite text editor.
+# So uncomment the line below and enter the editor of your choice :-)
+#export EDITOR=/usr/bin/mcedit
+export EDITOR=/usr/bin/vim
+
+export P4PORT=1666
+export MAN_POSIXLY_CORRECT=1
+
+# config
+alias sobb='source ~/.bashrc'
+alias sobx='source ~/.bashext'
+alias sob='sobb; sobx'
+
+unset LONGPROMPT
+
+########################################
+# END OF SCRIPT
+BASHRC_LOADED='TRUE'
+# END OF SCRIPT
+########################################
