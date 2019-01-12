@@ -13,7 +13,7 @@ esac
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
-shopt -s histappend histverify
+#shopt -s histappend histverify
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -101,14 +101,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bashfxn ]; then
-    . ~/.bashfxn
-    alias sobf='source ~/.bashfxn'
-fi
-
-if [ -f ~/.bashals ]; then
-    . ~/.bashals
-    alias soba='source ~/.bashals'
+if [ -f ~/.bashext ]; then
+    . ~/.bashext
 fi
 
 # enable programmable completion features (you don't need to enable
