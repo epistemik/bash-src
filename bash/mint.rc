@@ -13,6 +13,7 @@ esac
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
+# set in .bashext
 #shopt -s histappend histverify
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
