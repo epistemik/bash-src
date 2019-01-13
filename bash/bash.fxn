@@ -117,7 +117,7 @@ xxl ()
         xxd -c"$1" "$2" | less
     else
         xxd -c16 "$1" | less
-    fi
+  fi
 }
 
 hist ()
@@ -127,22 +127,22 @@ hist ()
         history "$1"
     else
         history 32
-    fi
+  fi
 }
 
 hgi ()
 {
-    history | grep "$1"
+  history | grep -i "$1"
 }
 
 hd ()
 {
-    if [ $2 ]
+  if [ $2 ]
     then
         head -n "$1" "$2"
     else
         head -n 16 "$1"
-    fi
+  fi
 }
 
 xt ()
@@ -153,28 +153,33 @@ alias XT=xt
 
 egi ()
 {
-    env | grep "$1"
+  env | grep -i "$1"
 }
 egim ()
 {
-    env | grep "$1" | more
+  egi "$1" | more
 }
 egil ()
 {
-    env | grep "$1" | less
+  egi "$1" | less
 }
 
 sgi ()
 {
-    set | grep "$1"
+  if [ $2 ]
+    then
+        set | grep -C"$2" -i "$1"
+    else
+        set | grep -i "$1"
+  fi
 }
 sgim ()
 {
-    set | grep "$1" | more
+    sgi "$1" | more
 }
 sgil ()
 {
-    set | grep "$1" | less
+    sgi "$1" | less
 }
 
 ########################################
