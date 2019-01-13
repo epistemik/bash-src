@@ -8,8 +8,9 @@
 ################################################################################
 
 # set directory colors
-d=.dircolors
-test -r $d && eval "$(dircolors $d)"
+# already done in bashrc
+#d=.dircolors
+#test -r $d && eval "$(dircolors $d)"
 
 shopt -s histverify histappend
 
@@ -39,10 +40,12 @@ PURPLE='\[\033[1;35m\]'
 COLOR_RESET="\[\e[30;0m\]" ;
      HILITE=$CYAN ;
    TXTFRAME=$RED ;
+# change the title of the terminal to reflect the current location
+chg_term_title='\[\e]0;\W\a\]' ;
 #export PS1="${HILITE}\w${TXTFRAME} | ${HILITE}\d \t${TXTFRAME} | ${HILITE}\u@\h${TXTFRAME} | ${HILITE}\s \V${TXTFRAME}\r\n${HILITE}\!${TXTFRAME} >$COLOR_RESET " ;
 
 # set long prompt
-alias exlp='export PS1="${cyan}\w${TXTFRAME} | ${green}\d \t${TXTFRAME} | ${yellow}\u@\h${TXTFRAME} | ${purple}\s \V${TXTFRAME}\r\n${cyan}\!${TXTFRAME} >$NC " ;'
+alias exlp='export PS1="${chg_term_title}${cyan}\w${TXTFRAME} | ${green}\d \t${TXTFRAME} | ${yellow}\u@\h${TXTFRAME} | ${purple}\s \V${TXTFRAME}\r\n${cyan}\!${TXTFRAME} >$NC " ;'
 exlp
 
 # add bin to PATH
