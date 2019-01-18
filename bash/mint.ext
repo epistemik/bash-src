@@ -38,7 +38,8 @@ PURPLE='\[\033[1;35m\]'
 COLOR_RESET="\[\e[30;0m\]"
      HILITE=$CYAN
         DIV=$RED
-# change the title of the terminal to reflect the current location
+# change the title of the terminal to reflect the current location (without full path): \W
+# and the number of jobs running in this terminal: \j
 chg_term_title='\[\e]0;\W:\j$TTA\007\]'
 PROMPT_COMMAND="TTA=''"
 #export PS1="${HILITE}\w${DIV} | ${HILITE}\d \t${DIV} | ${HILITE}\u@\h${DIV} | ${HILITE}\s \V${DIV}\r\n${HILITE}\!${DIV} >$COLOR_RESET " ;
@@ -68,23 +69,28 @@ setta ()
   fi
 }
 
-# add bin to PATH
 ORIGPATH=$PATH
-export PATH=~marksa/bin:$ORIGPATH
+# add bin to PATH
+if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
+  echo "PATH already contains ~/bin"
+else
+    echo "~/bin added to PATH."
+    export PATH=$HOME/bin:$ORIGPATH
+fi
 
-alias sobx='source ~marksa/.bashext'
+alias sobx='source $HOME/.bashext'
 
 # aliases
-test -s ~marksa/.bashals && source ~marksa/.bashals
-alias soba='source ~marksa/.bashals'
+test -s $HOME/.bashals && source $HOME/.bashals
+alias soba='source $HOME/.bashals'
 
 # functions
-test -s ~marksa/.bashfxn && source ~marksa/.bashfxn
-alias sobf="source ~marksa/.bashfxn"
+test -s $HOME/.bashfxn && source $HOME/.bashfxn
+alias sobf="source $HOME/.bashfxn"
 
 ########################################
 # END OF SCRIPT
 BASHEXT_LOADED="TRUE"
-echo "LOADED ~marksa/.bashext"
+echo "LOADED $HOME/.bashext"
 # END OF SCRIPT
 ########################################
