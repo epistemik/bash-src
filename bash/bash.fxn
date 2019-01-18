@@ -7,6 +7,7 @@
 
 # Functions (and some related aliases)
 
+# display parameters with each entry on a new line
 list ()
 {
 	echo "$1" |tr ':' '\n'
@@ -31,24 +32,19 @@ libpath ()
 	list $LD_LIBRARY_PATH
 }
 
-# DIRECTORIES
-le ()
-{
-  ls -Adlh *."$1" | more
-}
-lr ()
-{
-  ls -Adlh "$1"* | more
-}
-
-# list directories with ll
+# list files -- with 'Alh' as default parameter
 target ()
 {
+  if [[ $1 ]] ; then
+    args="$1"
+  else
+      args="Alh"
+  fi
   targ=`ls -Al | wc -l`
   page=($LINES-2)
   if (( targ <= page ))
   then
-      ls -Alh
+      ls -$args
   elif (( targ <= (3*page) ))
   then
       ls -A
@@ -57,39 +53,31 @@ target ()
   fi
 }
 
-# list directories with lt
+# list files with latest first
 targett ()
 {
-  targ=`ls -Al | wc -l`
-  page=($LINES-2)
-  if (( targ <= page ))
-  then
-      ls -Alth
-  elif (( targ <= (3*page) ))
-  then
-      ls -A
-  else
-      echo "$targ files in this directory"
-  fi
+  target 'Alth'
 }
 
+# go to a folder and list the contents
 go ()
 {
   if [[ $1 ]] ; then
     pushd "$1"
   else
-	  pushd
+	    pushd
   fi
   targett ;
 }
 alias GO=go
 
+# return
 rt ()
 {
   if [[ $1 ]] ; then
-	popd "$1"
+	  popd "$1"
   else
-	  popd
+	    popd
   fi
   target ;
 }
@@ -98,10 +86,22 @@ alias rttt='popd;rtt'
 alias rtttt='popd;rttt'
 alias rttttt='popd;rtttt'
 
+# go without pushing destination on the stack
 to ()
 {
 	cd $1
-	target
+	targett
+}
+
+# list files with a particular extension
+le ()
+{
+  ls -Adlh *."$1" | more
+}
+# list files with a particular root string
+lr ()
+{
+  ls -Adlh "$1"* | more
 }
 
 # MISC
@@ -110,23 +110,25 @@ fn ()
 	find "$1" -name "$2"
 }
 
+# hex display
 xxl ()
 {
 	if [ $2 ]
     then
         xxd -c"$1" "$2" | less
     else
-        xxd -c16 "$1" | less
+        xxd "$1" | less
   fi
 }
 
 hist ()
 {
+  page=$(($LINES - 2))
 	if [ $1 ]
     then
         history "$1"
     else
-        history 32
+        history $page
   fi
 }
 
@@ -137,11 +139,12 @@ hgi ()
 
 hd ()
 {
+  page=$(($LINES - 2))
   if [ $2 ]
     then
         head -n "$1" "$2"
     else
-        head -n 16 "$1"
+        head -n $page "$1"
   fi
 }
 
@@ -168,9 +171,9 @@ sgi ()
 {
   if [ $2 ]
     then
-        set | grep -C"$2" -i "$1"
+        set | grep -v "xspecs" | grep -C"$2" -i "$1"
     else
-        set | grep -i "$1"
+        set | grep -v "xspecs" | grep -i "$1"
   fi
 }
 sgim ()

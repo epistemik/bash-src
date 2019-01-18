@@ -41,6 +41,7 @@ COLOR_RESET="\[\e[30;0m\]"
 # change the title of the terminal to reflect the current location (without full path): \W
 # and the number of jobs running in this terminal: \j
 chg_term_title='\[\e]0;\W:\j$TTA\007\]'
+# use PROMPT_COMMAND to add any additional information to terminal title
 PROMPT_COMMAND="TTA=''"
 #export PS1="${HILITE}\w${DIV} | ${HILITE}\d \t${DIV} | ${HILITE}\u@\h${DIV} | ${HILITE}\s \V${DIV}\r\n${HILITE}\!${DIV} >$COLOR_RESET " ;
 
