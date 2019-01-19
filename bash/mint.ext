@@ -53,9 +53,11 @@ setlp
 chtt ()
 {
   if [[ $1 ]] ; then
-    chg_term_title="\[\e]0;$1\007\]"
+    # need to get the value in $1 but keep the variable TTA
+    var="\[\e]0;$1"
+    chg_term_title=${var}'${TTA}\007\]'
   else
-    chg_term_title='\[\e]0;\W:\j$TTA\007\]'
+    chg_term_title='\[\e]0;\W:\j${TTA}\007\]'
   fi
   PS1="${chg_term_title}${cyan}\w${DIV} | ${green}\d \t${DIV} | ${yellow}\u@\h${DIV} | ${purple}\s \V${DIV}\r\n${cyan}\!${DIV} >$NC "
 }
@@ -71,7 +73,7 @@ setta ()
 }
 
 ORIGPATH=$PATH
-# add bin to PATH
+# check and add ~/bin to PATH if not yet present
 if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
   echo "PATH already contains ~/bin"
 else
