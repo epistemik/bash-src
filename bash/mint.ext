@@ -38,37 +38,38 @@ PURPLE='\[\033[1;35m\]'
 COLOR_RESET="\[\e[30;0m\]"
      HILITE=$CYAN
         DIV=$RED
-# change the title of the terminal to reflect the current location (without full path): \W
-# and the number of jobs running in this terminal: \j
-chg_term_title='\[\e]0;\W:\j$TTA\007\]'
-# use PROMPT_COMMAND to add any additional information to terminal title
-PROMPT_COMMAND="TTA=''"
 #export PS1="${HILITE}\w${DIV} | ${HILITE}\d \t${DIV} | ${HILITE}\u@\h${DIV} | ${HILITE}\s \V${DIV}\r\n${HILITE}\!${DIV} >$COLOR_RESET " ;
 
+# change the title of the terminal to reflect the current location (without full path): \W
+# and the number of jobs running in this terminal: \j
+tt_default='\[\e]0;\W:\j$TTA\007\]'
+# add additional information to the terminal title
+TTA=''
+
 # set long prompt
-alias setlp='PS1="${chg_term_title}${cyan}\w${DIV} | ${green}\d \t${DIV} | ${yellow}\u@\h${DIV} | ${purple}\s \V${DIV}\r\n${cyan}\!${DIV} >$NC " ;'
+alias setlp='PS1="${tt_default}${cyan}\w${DIV} | ${green}\d \t${DIV} | ${yellow}\u@\h${DIV} | ${purple}\s \V${DIV}\r\n${cyan}\!${DIV} >$NC " ;'
 setlp
 
 # change terminal title to a particular value
 chtt ()
 {
   if [[ $1 ]] ; then
-    # need to get the value in $1 but keep the variable TTA
+    # need to get the value from $1 but keep TTA as a variable
     var="\[\e]0;$1"
-    chg_term_title=${var}'${TTA}\007\]'
+    term_title=${var}'${TTA}\007\]'
   else
-    chg_term_title='\[\e]0;\W:\j${TTA}\007\]'
+    term_title=${tt_default}
   fi
-  PS1="${chg_term_title}${cyan}\w${DIV} | ${green}\d \t${DIV} | ${yellow}\u@\h${DIV} | ${purple}\s \V${DIV}\r\n${cyan}\!${DIV} >$NC "
+  PS1="${term_title}${cyan}\w${DIV} | ${green}\d \t${DIV} | ${yellow}\u@\h${DIV} | ${purple}\s \V${DIV}\r\n${cyan}\!${DIV} >$NC "
 }
 
 # set var TTA to a particular value
 setta ()
 {
   if [[ $1 ]] ; then
-    PROMPT_COMMAND="TTA=:$1"
+    TTA=":$1"
   else
-    PROMPT_COMMAND="TTA=''"
+    TTA=''
   fi
 }
 

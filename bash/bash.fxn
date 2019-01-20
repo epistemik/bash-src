@@ -49,15 +49,17 @@ target ()
   then
       ls -A
   else
-      echo "$targ files in this directory"
+      echo "$targ files in this folder"
   fi
 }
 
-# list files with latest first
+# list files with most recently updated first
 targett ()
 {
   target 'Alth'
 }
+# run at every prompt
+# PROMPT_COMMAND=targett
 
 # go to a folder and list the contents
 go ()
@@ -79,7 +81,7 @@ rt ()
   else
 	    popd
   fi
-  target ;
+  targett ;
 }
 alias rtt='popd;rt'
 alias rttt='popd;rtt'
