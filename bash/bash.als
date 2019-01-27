@@ -41,6 +41,11 @@ alias dvl='dirs -v -l'
 alias alm='alias |more'
 alias als='alias |less'
 
+# release
+alias osrel='cat /etc/os-release'
+alias unama='uname -a'
+alias lsbrel='lsb_release -a'
+
 # processes
 alias psu='ps o user,pid,ppid,start_time,bsdtime,args --heading -H -u $USER'
 alias psm='psu |more'
