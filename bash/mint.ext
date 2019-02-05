@@ -76,10 +76,28 @@ setta ()
 ORIGPATH=$PATH
 # check and add ~/bin to PATH if not yet present
 if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
-  echo "PATH already contains ~/bin"
+  echo "PATH already contains $HOME/bin"
 else
-    echo "~/bin added to PATH."
+    echo "$HOME/bin added to PATH."
     export PATH=$HOME/bin:$ORIGPATH
+fi
+
+# check and add ~/.local/bin to PATH if not yet present
+LOCBIN="$HOME/.local/bin"
+if [[ ":$PATH:" == *":$LOCBIN:"* ]]; then
+  echo "PATH already contains $LOCBIN"
+else
+    echo "$LOCBIN added to PATH."
+    export PATH=$LOCBIN:$PATH
+fi
+
+OPTBIN='/opt/bin'
+# check and add /opt/bin to PATH if not yet present
+if [[ ":$PATH:" == *":$OPTBIN:"* ]]; then
+  echo "PATH already contains $OPTBIN"
+else
+    echo "$OPTBIN added to PATH."
+    export PATH=$OPTBIN:$PATH
 fi
 
 alias sobx='source $HOME/.bashext'
