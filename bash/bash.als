@@ -74,8 +74,9 @@ alias home='to ~'
 alias mybin='to ~/bin'
 alias mysrc='to ~/bin/src'
 alias mydev='to ~/dev'
-alias myperl='to ~/dev/perl'
-alias myjava='to ~/dev/java'
+alias mygit='to ~/dev/git'
+alias mypy='to ~/dev/git/Python'
+alias myjava='to ~/dev/git/Java'
 
 # list declared functions
 alias fxn='declare -F | more'
