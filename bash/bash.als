@@ -26,6 +26,8 @@ alias ls='ls --color'
 alias lsa='ls -A'
 alias lsm='\ls -FC --color |more'
 alias ll='ls -hl'
+alias llf='ls -l'
+alias llm='ls -hl |more'
 alias la='ls -Ahl |more'
 alias lal=la
 alias lt='ls -Alht |more'
@@ -45,6 +47,11 @@ alias als='alias |less'
 alias osrel='cat /etc/os-release'
 alias unama='uname -a'
 alias lsbrel='lsb_release -a'
+
+# dev
+alias py27='python2.7'
+alias py36='python3.6'
+alias py38='python3.8'
 
 # processes
 alias psu='ps o user,pid,ppid,start_time,bsdtime,args --heading -H -u $USER'
