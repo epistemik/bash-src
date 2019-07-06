@@ -63,6 +63,6 @@ alias sobf="source ~marksa/.bashfxn"
 ########################################
 # END OF SCRIPT
 BASHEXT_LOADED="TRUE"
-echo "LOADED ~marksa/.bashext"
+echo "LOADED $HOME/.bashext"
 # END OF SCRIPT
 ########################################

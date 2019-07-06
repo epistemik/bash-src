@@ -56,7 +56,7 @@ target ()
 # list files with most recently updated first
 targett ()
 {
-  target 'Alth'
+  target 'Alt'
 }
 # run at every prompt
 # PROMPT_COMMAND=targett
@@ -190,6 +190,6 @@ sgil ()
 ########################################
 # END OF SCRIPT
 BASHFXN_LOADED='TRUE'
-echo "LOADED ~marksa/.bashfxn"
+echo "LOADED $HOME/.bashfxn"
 # END OF SCRIPT
 ########################################

@@ -53,6 +53,7 @@ alias lsbrel='lsb_release -a'
 # dev
 alias py27='python2.7'
 alias py36='python3.6'
+alias pyu='py36 -u'
 alias py38='python3.8'
 
 # processes
@@ -125,6 +126,6 @@ alias ntsh='sudo lshw -C network'
 ########################################
 # END OF SCRIPT
 BASHALS_LOADED='TRUE'
-echo "LOADED ~marksa/.bashals"
+echo "LOADED $HOME/.bashals"
 # END OF SCRIPT
 ########################################
