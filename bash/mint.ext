@@ -39,18 +39,6 @@ tt_default='\[\e]0;\W:\j$TTA\007\]'
 # add additional information to the terminal title
 TTA=''
 
-# track git branch
-git_branch()
-{
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-git_div()
-{
-  if [[ $(git_branch) ]] ; then
-    echo -n '|'
-  fi
-}
-
 DIV=$RED
 # prompt
 PS1="${tt_default}${cyan}\w${DIV} | ${green}\d \t${DIV} | ${yellow}\u@\h${DIV} | ${purple}\s \V${DIV} \$(git_div) ${CYAN}\$(git_branch)\n${GREEN}\!${RED} >$NC "
@@ -78,31 +66,53 @@ setta ()
   fi
 }
 
-ORIGPATH=$PATH
+# track git branch
+git_branch()
+{
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+git_div()
+{
+  if [[ $(git_branch) ]] ; then
+    echo -n '|'
+  fi
+}
+
+ORIG_PATH=$PATH
+MY_BIN=$HOME/bin
 # check and add ~/bin to PATH if not yet present
-if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
-  echo "PATH already contains $HOME/bin"
+if [[ ":$PATH:" == *":$MY_BIN:"* ]]; then
+  echo "PATH already contains $MY_BIN"
 else
     echo "$HOME/bin added to PATH."
-    PATH=$HOME/bin:$ORIGPATH
+    PATH=$HOME/bin:$ORIG_PATH
 fi
 
 # check and add ~/.local/bin to PATH if not yet present
-LOCBIN="$HOME/.local/bin"
-if [[ ":$PATH:" == *":$LOCBIN:"* ]]; then
-  echo "PATH already contains $LOCBIN"
+LOCAL_BIN=$HOME/.local/bin
+if [[ ":$PATH:" == *":$LOCAL_BIN:"* ]]; then
+  echo "PATH already contains $LOCAL_BIN"
 else
-    echo "$LOCBIN added to PATH."
-    PATH=$LOCBIN:$PATH
+    echo "$LOCAL_BIN added to PATH."
+    PATH=$LOCAL_BIN:$PATH
 fi
 
-OPTBIN='/opt/bin'
+OPT_BIN=/opt/bin
 # check and add /opt/bin to PATH if not yet present
-if [[ ":$PATH:" == *":$OPTBIN:"* ]]; then
-  echo "PATH already contains $OPTBIN"
+if [[ ":$PATH:" == *":$OPT_BIN:"* ]]; then
+  echo "PATH already contains $OPT_BIN"
 else
-    echo "$OPTBIN added to PATH."
-    PATH=$OPTBIN:$PATH
+    echo "$OPT_BIN added to PATH."
+    PATH=$OPT_BIN:$PATH
+fi
+
+HOME_OPT_BIN=$HOME/opt/bin
+# check and add ~/opt/bin to PATH if not yet present
+if [[ ":$PATH:" == *":$HOME_OPT_BIN:"* ]]; then
+  echo "PATH already contains $HOME_OPT_BIN"
+else
+    echo "$HOME_OPT_BIN added to PATH."
+    PATH=$HOME_OPT_BIN:$PATH
 fi
 
 alias sobx='source $HOME/.bashext'

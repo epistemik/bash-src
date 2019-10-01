@@ -13,19 +13,16 @@ list ()
 	echo "$1" |tr ':' '\n'
 }
 
-# PATH
 binpath ()
 {
 	list $PATH
 }
 
-# ORIGPATH
 origpath ()
 {
 	list $ORIGPATH # set in bash.ext
 }
 
-# LIBPATH
 libpath ()
 {
   echo " LD_LIBRARY_PATH:"
@@ -72,8 +69,12 @@ go ()
   targett ;
 }
 alias GO=go
+alias go2='go +2'
+alias go3='go +3'
+alias go4='go +4'
+alias go1='go -1'
 
-# return
+# return from current folder
 rt ()
 {
   if [[ $1 ]] ; then
@@ -106,7 +107,7 @@ lr ()
   ls -Adlh "$1"* | more
 }
 
-# MISC
+# find
 fn ()
 {
 	find "$1" -name "$2"
