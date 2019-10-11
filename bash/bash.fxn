@@ -72,7 +72,12 @@ alias GO=go
 alias go2='go +2'
 alias go3='go +3'
 alias go4='go +4'
+alias go5='go +5'
+alias go6='go +6'
+alias go0='go -0'
 alias go1='go -1'
+alias gom2='go -2'
+alias gom3='go -3'
 
 # return from current folder
 rt ()
