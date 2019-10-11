@@ -1,0 +1,363 @@
+#!/bin/bash
+
+##########################################
+# 
+# jarvis.alfx
+#
+# Jarvis aliases and functions
+# 
+##########################################
+
+#
+# Functions
+#
+
+function list
+{
+    echo "$1" |tr ':' '\n'
+}
+
+function edp
+{
+    echo $DISPLAY
+}
+
+# PATH
+function path
+{
+    # doesn't work with spaces in path entries: list $PATH
+	 echo $PATH |tr ':' '\n'
+}
+
+# LIBPATH
+function libpath
+{
+    echo " LD_LIBRARY_PATH:"
+    list $LD_LIBRARY_PATH
+}
+
+# MANPATH
+function manpath
+{
+    echo " MANPATH:"
+    list $MANPATH
+}
+# INFOPATH
+function infopath
+{
+    echo " INFOPATH:"
+    list $INFOPATH
+}
+# PKGPATH
+function pkgpath
+{
+    echo " PKG_CONFIG_PATH:"
+    list $PKG_CONFIG_PATH
+} # MODULEPATH
+function modpath
+{
+    echo " MODULEPATH:"
+    list $MODULEPATH
+}
+alias modlist='lsmod'
+
+#
+# DIRECTORIES & FILES
+#
+
+# list root
+function lr
+{
+    \ls -Alh --color "$1"* 
+}
+# list extension
+function le
+{
+    \ls -Alh --color *."$1" 
+}
+
+# default list is without dot files
+function target
+{
+    targ=`\ls -lA | wc -l`
+    if (( targ <= ($LINES-2) ))
+    then
+        \ls -hl  --color ;
+    elif (( targ <= (2*$LINES) ))
+    then
+        \ls -Ah --color ;
+    else
+        echo " $targ regular files in this directory" ;
+    fi
+}
+
+# default list of all (including dot) files
+function targeta
+{
+    targ=`\ls -lA | wc -l`
+    if (( targ <= ($LINES-2) ))
+    then
+        \ls -hlA  --color ;
+    elif (( targ <= (2*$LINES) ))
+    then
+        \ls -A --color ;
+    else
+        echo " $targ files in this directory" ;
+    fi
+}
+
+# chronological list of all (including dot) files
+function targett
+{
+    targ=`\ls -lA | wc -l`
+    if (( targ <= ($LINES-2) ))
+    then
+        \ls -hltA  --color ;
+    elif (( targ <= (2*$LINES) ))
+    then
+        \ls -At --color ;
+    else
+        echo " $targ files in this directory" ;
+    fi
+}
+
+function go
+{
+    if [[ $1 ]] ; then
+        pushd "$1" ;
+    else
+        pushd ;
+    fi
+    targett ;
+}
+alias GO=go
+alias go2='go +2'
+alias go3='go +3'
+alias go4='go +4'
+alias go0='go -0'
+alias go1='go -1'
+
+# go short - no dot files
+function gos
+{
+    if [[ $1 ]] ; then
+        pushd "$1" ;
+    else
+        pushd ;
+    fi
+    target ;
+}
+
+function to
+{
+    cd "$1" ;
+    targeta ;
+}
+# to short - no dot files
+function tos
+{
+    cd "$1" ;
+    target ;
+}
+
+#
+# MISC
+#
+
+function fn
+{
+    find "$1" -name "$2" ;
+}
+
+function xxl
+{
+	if [[ $2 ]] ; then
+        xxd -c"$1" "$2" ;
+    else
+        xxd -c16 "$1" ;
+    fi
+}
+
+function xxm
+{
+	if [[ $2 ]] ; then
+        xxd -c"$1" "$2" ;
+    else
+        xxd -c16 "$1" ;
+    fi
+}
+
+function hist
+{
+	if [[ $1 ]] ; then
+        history "$1" ;
+    else
+        history 32 ;
+    fi
+}
+
+function hd
+{
+    if [[ $2 ]] ; then
+        head -n "$1" "$2" ;
+    else
+        head -n 16 "$1" ;
+    fi
+}
+
+function hdl
+{
+    if [[ $2 ]] ; then
+        head -n "$1" "$2" ;
+    else
+        head -n 16 "$1" ;
+    fi
+}
+
+function xt
+{
+    xterm -name "$1 $2 $3 $4 $5 $6"
+}
+alias XT=xt
+
+function egim
+{
+    env | egrep -i "$1" ;
+}
+function egil
+{
+    env | egrep -i "$1" ;
+}
+
+#
+# Aliases
+#
+
+# common
+alias vi=vim
+alias m=cat
+alias so=source
+alias exp=export
+alias EXP=export
+alias o=less
+alias cp='cp -p'
+alias cpr='\cp -pr'
+alias c=clear
+alias del='rm -i'
+alias hl='history |less'
+alias hgi='history |egrep -i'
+alias hist=history
+alias pyhist='history |grep python'
+alias md='mkdir -p'
+alias grin='egrep -in'
+alias cdp='cd -P'
+alias wdp='pwd -P'
+alias update='sudo gpk-update-viewer'
+
+# list files
+alias ls='ls --color'
+alias lsa='ls -A'
+alias ll='ls -lh'
+alias lla='ls -lha'
+alias llt='targeta'
+alias llb='ls -l'
+alias lld='ls -ld'
+alias llh=ll
+alias llg='ls -lh |grep -v "~" '
+alias la='ls -Ah'
+alias lal='ls -Alh'
+alias lam='ls -Alh |more'
+alias lt='targett'
+alias ltm='targett |more'
+alias ltf='ls -tl'
+alias lth='ls -tlfh'
+alias lta='ls -Alth'
+alias lf='ls -dlh'
+alias ct='\ls -Al |wc -l'
+
+# directory stack
+# -v = one line per item, with index
+# -l = long listing = no ~ for home dir
+alias dv='dirs -v'
+alias dvl='dirs -v -l| less'
+
+alias rt='popd; targett'
+alias rtt='popd;rt'
+alias rttt='popd;rtt'
+alias rtttt='popd;rttt'
+alias rttttt='popd;rtttt'
+
+# python
+alias py36=python3
+alias pyu='py36 -u'
+alias pip36='py36 -m pip'
+
+# shell vars
+alias egi='env |egrep -i'
+alias sgi='set |egrep -i'
+
+# ssh
+alias ssx='ssh -X'
+alias ssy='ssh -Y'
+
+# list aliases
+alias alm='alias |more'
+alias als='alias |less'
+
+# processes
+alias psu='ps o user,pid,ppid,start_time,bsdtime,args --heading -H -u $USER'
+alias psf='ps o user,pri,pid,ppid,%cpu,%mem,rss,vsz,stat,start_time,bsdtime,args --heading -u $USER'
+alias psp='ps o user,pri,pid,ppid,rss,vsz,cputime,cmd --heading -p'
+alias psn='ps o user,pid,args -w -p'
+alias k15='kill -s 15'
+alias k9='kill -s 9'
+
+# display
+alias EC=echo
+alias ec=echo
+
+# folder navigation
+alias up='to ..'
+alias upp='to ../..'
+alias uppp='to ../../..'
+alias upppp='to ../../../..'
+alias uppppp='to ../../../../..'
+alias ups='tos ..'
+alias upps='tos ../..'
+alias uppps='tos ../../..'
+alias upppps='tos ../../../..'
+alias uppppps='tos ../../../../..'
+
+alias home='tos ~'
+alias homel='to ~'
+alias mybin='to ~/bin'
+alias mysrc='to ~/bin/src'
+alias mydev='to ~/dev'
+alias mygit='to ~/dev/git'
+alias myperl='to ~/dev/perl'
+
+# dev
+alias mk='make -f Mk.file'
+alias diff='diff -s'
+alias dfw='diff -w'
+alias dfy='diff -y'
+alias sdw='sdiff -bBWs -w192'
+
+# disk usage
+alias dua='du -ha --max-depth=1'
+alias duma='echo "disk usage in MB:"; du -ma --maxdepth=1'
+alias duc='du -csh *'
+
+
+# JARVIS_ALFX
+ export JARVIS_ALFX=~mhsatto/bin/src/jarvis.alfx
+ alias soja='source $JARVIS_ALFX'
+
+########################################
+# END OF SCRIPT
+#
+  JARVIS_ALFX_LOADED='TRUE'
+  echo "LOADED $JARVIS_ALFX"
+#
+# END OF SCRIPT
+########################################

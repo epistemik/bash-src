@@ -1,0 +1,12 @@
+.*
+!.gitignore
+*.out
+**/out/
+**/in/
+**/logs/
+**/__pycache__
+**/target/
+**/test*/
+**/xml/
+src
+

@@ -1,0 +1,7 @@
+:filetype plugin on
+:syntax on
+set number
+set showmode
+set ts=3
+set ignorecase
+
