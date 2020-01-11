@@ -52,9 +52,12 @@ alias lsbrel='lsb_release -a'
 
 # dev
 alias py27='python2.7'
+alias py3='python3'
 alias py36='python3.6'
-alias pyu='py36 -u'
 alias py38='python3.8'
+alias py39='python3.9'
+alias pyu='python -u'
+alias py3u='python3 -u'
 
 # processes
 alias psu='ps o user,pid,ppid,start_time,bsdtime,args --heading -H -u $USER'
