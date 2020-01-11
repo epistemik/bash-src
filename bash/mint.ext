@@ -117,6 +117,10 @@ fi
 
 alias sobx='source $HOME/.bashext'
 
+# Gnucash build
+export GTEST_ROOT=$HOME/.local/src/googletest/googletest
+export GMOCK_ROOT=$HOME/.local/src/googletest/googlemock
+
 # aliases
 test -s $HOME/.bashals && source $HOME/.bashals
 alias soba='source $HOME/.bashals'
