@@ -51,6 +51,7 @@ alias unama='uname -a'
 alias lsbrel='lsb_release -a'
 
 # dev
+alias suh='sudo -H'
 alias py27='python2.7'
 alias py3='python3'
 alias py36='python3.6'
