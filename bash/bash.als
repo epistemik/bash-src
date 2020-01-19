@@ -59,6 +59,7 @@ alias py38='python3.8'
 alias py39='python3.9'
 alias pyu='python -u'
 alias py3u='python3 -u'
+alias pypath='echo $PYTHONPATH'
 
 # processes
 alias psu='ps o user,pid,ppid,start_time,bsdtime,args --heading -H -u $USER'
@@ -88,10 +89,11 @@ alias home='to ~'
 alias mybin='to ~/bin'
 alias mysrc='to ~/bin/src'
 alias mydev='to ~/dev'
-alias mygit='to ~/git'
-alias myopt='to ~/opt'
-alias mypy='to ~/git/Python'
-alias myjava='to ~/git/Java'
+alias mygit='go ~/git'
+alias myopt='go ~/opt'
+alias mypy='go ~/git/Python'
+alias myjava='go ~/git/Java'
+alias mygnc='go ~/dev/Gnucash'
 
 # list declared functions
 alias fxn='declare -F | more'
