@@ -38,7 +38,7 @@ target ()
       args="Alh"
   fi
   targ=`ls -Al | wc -l`
-  page=($LINES-2)
+  page=($LINES - 4)
   if (( targ <= page ))
   then
       ls -$args
@@ -139,7 +139,7 @@ xxl ()
 
 hist ()
 {
-  page=$(($LINES - 2))
+  page=$(($LINES - 4))
 	if [ $1 ]
     then
         history "$1"
@@ -155,7 +155,7 @@ hgi ()
 
 hd ()
 {
-  page=$(($LINES - 2))
+  page=$(($LINES - 4))
   if [ $2 ]
     then
         head -n "$1" "$2"
