@@ -133,5 +133,6 @@ alias sobf="source $HOME/.bashfxn"
 # END OF SCRIPT
 BASHEXT_LOADED="TRUE"
 echo "LOADED $HOME/.bashext"
+cowfort
 # END OF SCRIPT
 ########################################
