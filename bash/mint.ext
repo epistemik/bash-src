@@ -1,7 +1,8 @@
 #!/bin/bash
 ################################################################################
 #
-# mh.satto@gmail.com
+# Mark Sattolo
+# epistemik@gmail.com
 #
 ################################################################################
 
@@ -128,6 +129,10 @@ alias soba='source $HOME/.bashals'
 # functions
 test -s $HOME/.bashfxn && source $HOME/.bashfxn
 alias sobf="source $HOME/.bashfxn"
+
+# ACL for Android
+android_acl=/newdata/dev/git/Other/bash-src/bash/android_acl.sh
+test -s $android_acl && source $android_acl
 
 ########################################
 # END OF SCRIPT
