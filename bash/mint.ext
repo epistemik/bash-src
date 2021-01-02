@@ -116,6 +116,15 @@ else
     PATH=$HOME_OPT_BIN:$PATH
 fi
 
+HOME_APPS_OPT_BIN=$HOME/apps/opt/bin
+# check and add ~/apps/opt/bin to PATH if not yet present
+if [[ ":$PATH:" == *":$HOME_APPS_OPT_BIN:"* ]]; then
+  echo "PATH already contains $HOME_APPS_OPT_BIN"
+else
+    echo "$HOME_APPS_OPT_BIN added to PATH."
+    PATH=$HOME_APPS_OPT_BIN:$PATH
+fi
+
 alias sobx='source $HOME/.bashext'
 
 # Gnucash build
