@@ -80,13 +80,40 @@ git_div()
 }
 
 ORIG_PATH=$PATH
-MY_BIN=$HOME/bin
-# check and add ~/bin to PATH if not yet present
-if [[ ":$PATH:" == *":$MY_BIN:"* ]]; then
-  echo "PATH already contains $MY_BIN"
+# check and add Perl/falcon to PATH if not yet present
+PERL_FALCON=/newdata/dev/git/Perl/falcon
+if [[ ":$PATH:" == *":$PERL_FALCON:"* ]]; then
+  echo "PATH already contains $PERL_FALCON"
 else
-    echo "$HOME/bin added to PATH."
-    PATH=$HOME/bin:$ORIG_PATH
+    echo "$PERL_FALCON added to PATH."
+    PATH=$PERL_FALCON:$PATH
+fi
+
+# check and add /opt/bin to PATH if not yet present
+OPT_BIN=/opt/bin
+if [[ ":$PATH:" == *":$OPT_BIN:"* ]]; then
+  echo "PATH already contains $OPT_BIN"
+else
+    echo "$OPT_BIN added to PATH."
+    PATH=$OPT_BIN:$PATH
+fi
+
+# check and add ~/apps/opt/bin to PATH if not yet present
+HOME_APPS_OPT_BIN=$HOME/apps/opt/bin
+if [[ ":$PATH:" == *":$HOME_APPS_OPT_BIN:"* ]]; then
+  echo "PATH already contains $HOME_APPS_OPT_BIN"
+else
+    echo "$HOME_APPS_OPT_BIN added to PATH."
+    PATH=$HOME_APPS_OPT_BIN:$PATH
+fi
+
+# check and add ~/opt/bin to PATH if not yet present
+HOME_OPT_BIN=$HOME/opt/bin
+if [[ ":$PATH:" == *":$HOME_OPT_BIN:"* ]]; then
+  echo "PATH already contains $HOME_OPT_BIN"
+else
+    echo "$HOME_OPT_BIN added to PATH."
+    PATH=$HOME_OPT_BIN:$PATH
 fi
 
 # check and add ~/.local/bin to PATH if not yet present
@@ -98,31 +125,13 @@ else
     PATH=$LOCAL_BIN:$PATH
 fi
 
-OPT_BIN=/opt/bin
-# check and add /opt/bin to PATH if not yet present
-if [[ ":$PATH:" == *":$OPT_BIN:"* ]]; then
-  echo "PATH already contains $OPT_BIN"
+# check and add ~/bin to PATH if not yet present
+MY_BIN=$HOME/bin
+if [[ ":$PATH:" == *":$MY_BIN:"* ]]; then
+  echo "PATH already contains $MY_BIN"
 else
-    echo "$OPT_BIN added to PATH."
-    PATH=$OPT_BIN:$PATH
-fi
-
-HOME_OPT_BIN=$HOME/opt/bin
-# check and add ~/opt/bin to PATH if not yet present
-if [[ ":$PATH:" == *":$HOME_OPT_BIN:"* ]]; then
-  echo "PATH already contains $HOME_OPT_BIN"
-else
-    echo "$HOME_OPT_BIN added to PATH."
-    PATH=$HOME_OPT_BIN:$PATH
-fi
-
-HOME_APPS_OPT_BIN=$HOME/apps/opt/bin
-# check and add ~/apps/opt/bin to PATH if not yet present
-if [[ ":$PATH:" == *":$HOME_APPS_OPT_BIN:"* ]]; then
-  echo "PATH already contains $HOME_APPS_OPT_BIN"
-else
-    echo "$HOME_APPS_OPT_BIN added to PATH."
-    PATH=$HOME_APPS_OPT_BIN:$PATH
+    echo "$HOME/bin added to PATH."
+    PATH=$HOME/bin:$ORIG_PATH
 fi
 
 alias sobx='source $HOME/.bashext'
