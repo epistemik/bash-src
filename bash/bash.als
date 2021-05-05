@@ -21,6 +21,7 @@ alias md='mkdir -p'
 alias dua='du -h --max-depth=1'
 alias vi=vim
 alias cdp='cd -P'
+alias mx='chmod ug+x'
 
 # list files
 alias ls='ls --color'
