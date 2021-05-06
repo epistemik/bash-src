@@ -23,6 +23,10 @@ alias vi=vim
 alias cdp='cd -P'
 alias mx='chmod ug+x'
 
+# git
+alias gts='git status'
+alias gtl='git log'
+
 # list files
 alias ls='ls --color'
 alias lsa='ls -A'
