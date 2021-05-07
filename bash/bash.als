@@ -26,6 +26,9 @@ alias mx='chmod ug+x'
 # git
 alias gts='git status'
 alias gtl='git log'
+alias gtp='git push'
+alias gcam='git commit -a -m'
+alias gcm='git commit -m'
 
 # list files
 alias ls='ls --color'
