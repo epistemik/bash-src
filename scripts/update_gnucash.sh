@@ -13,23 +13,25 @@ rm ${ULB_GNC}/HouseHold.gnucash.bak
 cp -p ${ULB_GNC}/HouseHold.gnucash ${ULB_GNC}/HouseHold.gnucash.bak
 rm ${ULB_GNC}/HouseHold.gnucash
 cp -p ${GNC_HOME}/HouseHold.gnucash ${ULB_GNC}/HouseHold.gnucash
-PY_GNC_APPF=/newdata/dev/git/Python/Gnucash/app-files
-PY_GNC_APPF_BK=/newdata/dev/git/Python/Gnucash/app-files/bak
-rm ${PY_GNC_APPF_BK}/hh5.gnc
-cp -p ${PY_GNC_APPF_BK}/hh4.gnc ${PY_GNC_APPF_BK}/hh5.gnc
-rm ${PY_GNC_APPF_BK}/hh4.gnc
-cp -p ${PY_GNC_APPF_BK}/hh3.gnc ${PY_GNC_APPF_BK}/hh4.gnc
-rm ${PY_GNC_APPF_BK}/hh3.gnc
-cp -p ${PY_GNC_APPF_BK}/hh2.gnc ${PY_GNC_APPF_BK}/hh3.gnc
-rm ${PY_GNC_APPF_BK}/hh2.gnc
-cp -p ${PY_GNC_APPF_BK}/hh1.gnc ${PY_GNC_APPF_BK}/hh2.gnc
-rm ${PY_GNC_APPF_BK}/hh1.gnc
-cp -p ${PY_GNC_APPF_BK}/hh.gnc ${PY_GNC_APPF_BK}/hh1.gnc
-rm ${PY_GNC_APPF_BK}/hh.gnc
-cp -p ${PY_GNC_APPF}/main.gnc ${PY_GNC_APPF_BK}/hh.gnc
-rm ${PY_GNC_APPF}/main.gnc
-cp -p ${GNC_HOME}/HouseHold.gnucash ${PY_GNC_APPF}/main.gnc
-rm ${PY_GNC_APPF}/family.gnc
-cp -p ${GNC_HOME}/HouseHold.gnucash ${PY_GNC_APPF}/family.gnc
+GNC_APPF=/newdata/dev/Gnucash/app-files
+GNC_APPF_BK=${GNC_APPF}/bak
+rm ${GNC_APPF_BK}/xx.gnc
+cp -p ${GNC_APPF_BK}/hh5.gnc ${GNC_APPF_BK}/xx.gnc
+rm ${GNC_APPF_BK}/hh5.gnc
+cp -p ${GNC_APPF_BK}/hh4.gnc ${GNC_APPF_BK}/hh5.gnc
+rm ${GNC_APPF_BK}/hh4.gnc
+cp -p ${GNC_APPF_BK}/hh3.gnc ${GNC_APPF_BK}/hh4.gnc
+rm ${GNC_APPF_BK}/hh3.gnc
+cp -p ${GNC_APPF_BK}/hh2.gnc ${GNC_APPF_BK}/hh3.gnc
+rm ${GNC_APPF_BK}/hh2.gnc
+cp -p ${GNC_APPF_BK}/hh1.gnc ${GNC_APPF_BK}/hh2.gnc
+rm ${GNC_APPF_BK}/hh1.gnc
+cp -p ${GNC_APPF_BK}/hh.gnc ${GNC_APPF_BK}/hh1.gnc
+rm ${GNC_APPF_BK}/hh.gnc
+cp -p ${GNC_APPF}/main.gnc ${GNC_APPF_BK}/hh.gnc
+rm ${GNC_APPF}/main.gnc
+cp -p ${GNC_HOME}/HouseHold.gnucash ${GNC_APPF}/main.gnc
+rm ${GNC_APPF}/family.gnc
+cp -p ${GNC_HOME}/HouseHold.gnucash ${GNC_APPF}/family.gnc
 # run from folder /newdata/dev/git/Python/Gnucash/app-files/
 ls -Alt |more
