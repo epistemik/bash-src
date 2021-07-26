@@ -13,7 +13,7 @@ rm ${ULB_GNC}/HouseHold.gnucash.bak
 cp -p ${ULB_GNC}/HouseHold.gnucash ${ULB_GNC}/HouseHold.gnucash.bak
 rm ${ULB_GNC}/HouseHold.gnucash
 cp -p ${GNC_HOME}/HouseHold.gnucash ${ULB_GNC}/HouseHold.gnucash
-GNC_APPF=/newdata/dev/Gnucash/app-files
+GNC_APPF=/home/marksa/dev/Gnucash/app-files
 GNC_APPF_BK=${GNC_APPF}/bak
 rm ${GNC_APPF_BK}/xx.gnc
 cp -p ${GNC_APPF_BK}/hh5.gnc ${GNC_APPF_BK}/xx.gnc
@@ -33,5 +33,6 @@ rm ${GNC_APPF}/main.gnc
 cp -p ${GNC_HOME}/HouseHold.gnucash ${GNC_APPF}/main.gnc
 rm ${GNC_APPF}/family.gnc
 cp -p ${GNC_HOME}/HouseHold.gnucash ${GNC_APPF}/family.gnc
-# run from folder /newdata/dev/git/Python/Gnucash/app-files/
+# run from folder /home/marksa/dev/Gnucash/app-files/
 ls -Alt |more
+
