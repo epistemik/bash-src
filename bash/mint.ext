@@ -81,7 +81,7 @@ git_div()
 
 ORIG_PATH=$PATH
 # check and add Perl/falcon to PATH if not yet present
-PERL_FALCON=/newdata/dev/git/Perl/falcon
+PERL_FALCON=$HOME/git/Perl/falcon
 if [[ ":$PATH:" == *":$PERL_FALCON:"* ]]; then
   echo "PATH already contains $PERL_FALCON"
 else
@@ -149,7 +149,7 @@ test -s $HOME/.bashfxn && source $HOME/.bashfxn
 alias sobf="source $HOME/.bashfxn"
 
 # ACL for Android
-android_acl=/newdata/dev/git/Other/bash-src/bash/android_acl.sh
+android_acl=$HOME/git/Other/bash-src/bash/android_acl.sh
 test -s $android_acl && source $android_acl
 
 ########################################
