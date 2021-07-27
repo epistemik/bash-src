@@ -11,6 +11,7 @@ alias path=binpath # function
 alias so=source
 alias exp=export
 alias EXP=export
+alias l=ltf
 alias m=more
 alias o=less
 alias cp='cp -p'
