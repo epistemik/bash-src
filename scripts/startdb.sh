@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-sudo /usr/local/mysql/bin/mysqld_safe --user=mysql &
+sudo /usr/local/bin/mysqld --user=mysql &
