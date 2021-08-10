@@ -40,6 +40,7 @@ rm ${GNC_APPF}/family.gnc
 cp -p ${GNC_HOME}/HouseHold.gnucash ${GNC_APPF}/family.gnc
 
 /usr/bin/rsync -aq ${GNC_APPF}/ /home/marksa/Seagate/BACKUP/DIOMEDES/marksa/dev/Gnucash/app-files/
+/usr/bin/rsync -aq ${GNC_APPF}/ /mhs2/FIN/Gnc/
 
 # run from folder $GNC_APPF
 ls -Alt |more
