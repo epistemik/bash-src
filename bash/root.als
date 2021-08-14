@@ -130,21 +130,17 @@ egi ()
 
 # common
 alias path=binpath # function
-alias so=source
-alias exp=export
-alias EXP=export
 alias l=ltf
 alias m=more
 alias o=less
 alias cp='cp -p'
-alias c=clear
-alias del='rm -i'
-alias hl='history |less'
+alias rm='rm -i'
 alias md='mkdir -p'
 alias dua='du -h --max-depth=1'
 alias vi=vim
 alias cdp='cd -P'
-alias mx='chmod ug+x'
+alias dv='dirs -v'
+alias home='cd ~; targett'
 
 # list files
 alias ls='ls --color'
@@ -160,15 +156,6 @@ alias ltd='ls -lt'
 alias ltf='ls -Alt |more'
 alias lf='ls -Adlh'
 alias ct='ls -A |wc -w'
-
-# directory stack
-alias dv='dirs -v'
-alias dl='dirs -l'
-alias dvl='dirs -v -l'
-
-# list aliases
-alias alm='alias |more'
-alias als='alias |less'
 
 # display
 alias EC=echo
