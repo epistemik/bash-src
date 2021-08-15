@@ -2,6 +2,6 @@
 !.gitignore
 *.zip
 *.bak
-/logs
+**/logs
 /out
 /ark
