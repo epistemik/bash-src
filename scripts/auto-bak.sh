@@ -22,9 +22,9 @@ rsync -aq ${GOOGLE}/ ${SEAGATE}/git/Python/google/
 GNC_APPF=/home/marksa/dev/Gnucash/app-files
 # send any newer hh.gnc or hh.gnc.gcm to Google drive
 rm -f ${GNC_APPF}/hh.gnc
-cp -p ${HOME_GNC}/HouseHold.gnucash ${GNC_APPF}/hh.gnc
+cp -pf ${HOME_GNC}/HouseHold.gnucash ${GNC_APPF}/hh.gnc
 rm -f ${GNC_APPF}/hh.gnc.gcm
-cp -p ${HOME_DLS}/gnucash/books/HouseHold.gnucash.gcm ${GNC_APPF}/hh.gnc.gcm
+cp -pf ${HOME_DLS}/gnucash/books/HouseHold.gnucash.gcm ${GNC_APPF}/hh.gnc.gcm
 
 for x in $(find /home/marksa/dev/Gnucash/app-files/ -type f -newer /home/marksa/dev/git/Python/google/auto-bak/ref-file -print); do cp $x /home/marksa/dev/git/Python/google/auto-bak/transfer/; done
 # ?? export PYTHONPATH=/home/marksa/dev/Python/VENV/venv39_gnc-tag46/lib/python3.9/site-packages:$PYTHONPATH
