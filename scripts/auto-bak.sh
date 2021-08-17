@@ -2,8 +2,7 @@
 
 # Copyright (c) 2021 Mark Sattolo <epistemik@gmail.com>
 
-#  rsync to backup partition and Seagate drive
-# =============================================
+#  rsync important information to the backup partition and Seagate drive
 
 HOME_GNC=/home/marksa/Documents/Financial/Gnucash
 SEAGATE=/home/marksa/Seagate/BACKUP/DIOMEDES/marksa
