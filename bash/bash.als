@@ -22,7 +22,7 @@ alias md='mkdir -p'
 alias dua='du -h --max-depth=1'
 alias vi=vim
 alias cdp='cd -P'
-alias mx='chmod ug+x'
+alias mx='chmod ugo+x'
 
 # git
 alias gts='git status'

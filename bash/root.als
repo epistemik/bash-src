@@ -139,6 +139,7 @@ alias md='mkdir -p'
 alias dua='du -h --max-depth=1'
 alias vi=vim
 alias cdp='cd -P'
+alias mx='chmod ugo+x'
 alias dv='dirs -v'
 alias home='cd ~; targett'
 
