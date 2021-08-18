@@ -11,8 +11,8 @@ cp -pf /home/marksa/.local/share/gnucash/books/HouseHold.gnucash.gcm ${GNC_APPF}
 for x in $(find /home/marksa/dev/Gnucash/app-files/ -type f -newer /home/marksa/git/Python/google/auto-bak/ref-file -print); do cp $x /home/marksa/git/Python/google/auto-bak/transfer/; done
 
 source "/home/marksa/dev/Python/VENV/venvcron/bin/activate"
-
 python /home/marksa/git/Python/google/drive/driveAccess.py -s /home/marksa/git/Python/google/auto-bak/transfer -p gnucash -l /home/marksa/dev/logs
+deactivate
 
 GAB=/home/marksa/git/Python/google/auto-bak
 mv -f ${GAB}/transfer/* ${GAB}/sent/
