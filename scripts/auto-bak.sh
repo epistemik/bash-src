@@ -8,7 +8,7 @@ rsync -aq --exclude-from=/home/marksa/dev/rsync.exclude /home/marksa/ /media/mar
 #  rsync important information to the backup partition and Seagate drive
 
 HOME_GNC=/home/marksa/Documents/Financial/Gnucash
-SEAGATE=/home/marksa/Seagate/BACKUP/DIOMEDES/marksa
+SEAGATE=/home/marksa/Seagate/BACKUP/DIOMEDES/HOME
 
 # gnucash data
 rsync -aq ${HOME_GNC}/ /mhs2/FIN/Gnucash/
