@@ -47,7 +47,7 @@ alias lt='ls -Alht |more'
 alias ltd='ls -lt'
 alias ltf='ls -Alt |more'
 alias lf='ls -Adlh'
-alias ct='ls -A |wc -w'
+alias ct='ls -dl * |wc -l'
 
 # directory stack
 alias dv='dirs -v'
