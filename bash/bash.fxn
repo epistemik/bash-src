@@ -36,9 +36,9 @@ target ()
   if [[ $1 ]] ; then
     args="$1"
   else
-      args="Alh"
+      args='lh *'
   fi
-  targ=`ls -Al | wc -l`
+  targ=`ls -dl * | wc -l`
   page=($LINES - 4)
   if (( targ <= page ))
   then
@@ -54,7 +54,7 @@ target ()
 # list files with most recently updated first
 targett ()
 {
-  target 'Alt'
+  target 'ltd *'
 }
 # run at every prompt
 # PROMPT_COMMAND=targett
@@ -128,12 +128,12 @@ to ()
 # list files with a particular extension
 le ()
 {
-  ls -Adlh *."$1" | more
+  ls -dlh *."$1" | more
 }
 # list files with a particular root string
 lr ()
 {
-  ls -Adlh "$1"* | more
+  ls -dlh "$1"* | more
 }
 
 # find
