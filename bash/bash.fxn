@@ -30,13 +30,13 @@ libpath ()
 	list $LD_LIBRARY_PATH
 }
 
-# list files -- with 'Alh' as default parameter
+# list files -- with 'dlh *' as default parameter
 target ()
 {
   if [[ $1 ]] ; then
     args="$1"
   else
-      args='lh *'
+      args='dlh *'
   fi
   targ=`ls -dl * | wc -l`
   page=($LINES - 4)
