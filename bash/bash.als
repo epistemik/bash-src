@@ -22,6 +22,9 @@ alias dua='du -h --max-depth=1'
 alias vi=vim
 alias cdp='cd -P'
 alias mx='chmod ugo+x'
+alias ct='ls -dl * |wc -l'
+alias dv='dirs -v'
+alias diff='diff -s'
 
 # git
 alias gts='git status'
@@ -45,34 +48,33 @@ alias lf='ls -dl * |more'
 alias llf='ls -dl *'
 alias lt='ls -dlht * |more'
 alias llt='ls -dlht *'
-alias ct='ls -dl * |wc -l'
-
-# directory stack
-alias dv='dirs -v'
-alias dl='dirs -l'
-alias dvl='dirs -v -l'
 
 # list aliases
 alias alm='alias |more'
 alias als='alias |less'
 
-# release
+# system info
 alias osrel='cat /etc/os-release'
-alias unama='uname -a'
+alias modlist=lsmod
 alias lsbrel='lsb_release -a'
+alias ntsh='sudo lshw -C network'
 
 # dev
 alias suh='sudo -H'
 alias py27='python2.7'
 alias py3='python3'
 alias py36='python3.6'
+alias py37='python3.7'
 alias py38='python3.8'
 alias py39='python3.9'
-alias pyu='python -u'
-alias py3u='python3 -u'
+alias pyu='python3 -u'
+alias py3u=pyu
 alias pypath='echo $PYTHONPATH'
 
 # processes
+alias from='free -om'
+alias k9='kill -s 9'
+alias k15='kill -s 15'
 alias psu='ps o user,pid,ppid,start_time,bsdtime,args --heading -H -u $USER'
 alias psm='psu |more'
 alias psl='psu |less'
@@ -81,9 +83,6 @@ alias psfl='psf |less'
 alias psfm='psf |more'
 alias psp='ps o user,pri,pid,ppid,%cpu,%mem,rss,vsz,cputime,cmd --heading -p'
 alias psn='ps o user,pid,args -w -p'
-alias k15='kill -s 15'
-alias k9='kill -s 9'
-alias from='free -om'
 
 # display
 alias EC=echo
@@ -111,35 +110,6 @@ alias fxn='declare -F | more'
 alias fxnm=fxn
 alias fxnf='declare -f | less'
 alias fxnfl=fxnf
-
-# mplayer
-alias mp=mplayer
-alias gmp=gmplayer
-alias mpq='mplayer -quiet'
-alias gmpq='gmplayer -quiet'
-alias mprq='mplayer -really-quiet'
-alias gmprq='gmplayer -really-quiet'
-alias mpss='mplayer -vf screenshot'
-alias gmpss='gmplayer -vf screenshot'
-alias mpbm='mplayer -benchmark'
-alias gmpbm='gmplayer -benchmark'
-
-# rcs control
-alias co='co -l'
-alias ci='ci -u'
-alias ciu='\ci -u'
-alias cil='\ci -l'
-alias cou='\co -u'
-alias col='\co -l'
-
-# dev
-alias modlist=lsmod
-alias mk='make -f Mk.file'
-alias diff='diff -s'
-
-# networks
-# lsusb
-alias ntsh='sudo lshw -C network'
 
 ########################################
 # END OF SCRIPT
