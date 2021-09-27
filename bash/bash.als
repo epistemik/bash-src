@@ -48,6 +48,8 @@ alias lf='ls -dl * |more'
 alias llf='ls -dl *'
 alias lt='ls -dlht * |more'
 alias llt='ls -dlht *'
+alias la='ls -Adl * |more'
+alias lla='ls -Adl *'
 
 # list aliases
 alias alm='alias |more'
