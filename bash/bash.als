@@ -22,9 +22,9 @@ alias dua='du -h --max-depth=1'
 alias vi=vim
 alias cdp='cd -P'
 alias mx='chmod ugo+x'
-alias ct='ls -dl * |wc -l'
 alias dv='dirs -v'
 alias diff='diff -s'
+alias ct='ls -1A |wc -l'
 
 # git
 alias gts='git status'
