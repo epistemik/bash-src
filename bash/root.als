@@ -130,7 +130,6 @@ egi ()
 
 # common
 alias path=binpath # function
-alias l=ltf
 alias m=more
 alias o=less
 alias cp='cp -p'
@@ -142,21 +141,22 @@ alias cdp='cd -P'
 alias mx='chmod ugo+x'
 alias dv='dirs -v'
 alias home='cd ~; targett'
+alias ct='ls -1A |wc -l'
 
 # list files
 alias ls='ls --color'
 alias lsa='ls -A'
 alias lsm='\ls -FC --color |more'
-alias ll='ls -hl'
-alias llf='ls -Al'
-alias llm='ls -hl |more'
-alias la='ls -Ahl |more'
-alias lal=la
-alias lt='ls -Alht |more'
-alias ltd='ls -lt'
-alias ltf='ls -Alt |more'
-alias lf='ls -Adlh'
-alias ct='ls -A |wc -w'
+alias l='ls -lt |more'
+alias ll='ls -lt'
+alias lh='ls -lh |more'
+alias llh='ls -lh'
+alias lt='ls -lht |more'
+alias llt='ls -lht'
+alias lf='ls -l |more'
+alias llf='ls -l'
+alias la='ls -Al |more'
+alias lla='ls -Al'
 
 # display
 alias EC=echo
