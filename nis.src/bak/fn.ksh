@@ -1,2 +1,0 @@
-find $1 -name $2  2>/dev/null
-

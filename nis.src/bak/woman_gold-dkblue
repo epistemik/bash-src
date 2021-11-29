@@ -1,2 +1,0 @@
-exec 'xsetroot -bitmap /usr/include/X11/bitmaps/woman -fg gold3 -bg blue3 '
-

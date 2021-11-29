@@ -1,4 +1,0 @@
-#!/bin/ksh
-
-	xterm -C -e /home/mhsatto/refer/jdk1.1.5/bin/java "`basename $1 .class`"
-
