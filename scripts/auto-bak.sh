@@ -3,10 +3,9 @@
 # Copyright (c) 2021 Mark Sattolo <epistemik@gmail.com>
 
 #  rsync my home folder to the Samsung drive
-rsync -aq --exclude-from=/home/marksa/dev/rsync.exclude /home/marksa/ /media/marksa/Samsung_T5/BACKUP/marksa/
+rsync -aq --exclude-from='/home/marksa/dev/rsync.exclude' /home/marksa/ /media/marksa/Samsung_T5/BACKUP/marksa/
 
 #  rsync important information to the backup partition and Seagate drive
-
 HOME_GNC=/home/marksa/Documents/Financial/Gnucash
 SEAGATE=/home/marksa/Seagate/BACKUP/DIOMEDES/HOME
 
