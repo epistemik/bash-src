@@ -135,7 +135,8 @@ alias o=less
 alias cp='cp -p'
 alias rm='rm -i'
 alias md='mkdir -p'
-alias dua='du -h -x --max-depth=1'
+alias duh='du -h -x --max-depth=1'
+alias dum='du -m -x --max-depth=1'
 alias vi=vim
 alias cdp='cd -P'
 alias mx='chmod ugo+x'
