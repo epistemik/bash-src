@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (c) 2021 Mark Sattolo <epistemik@gmail.com>
+# Copyright (c) 2022 Mark Sattolo <epistemik@gmail.com>
 
 #  rsync my home folder to the Samsung drive
 rsync -aq --exclude-from='/home/marksa/dev/rsync.exclude' /home/marksa/ /media/marksa/Samsung_T5/BACKUP/marksa/
