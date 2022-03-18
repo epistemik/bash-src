@@ -5,5 +5,5 @@
 
 LOG_FILE=/home/marksa/dev/logs/dfm.log
 
-echo `date` >> $LOG_FILE
+date >> $LOG_FILE
 df -m >> $LOG_FILE

@@ -24,4 +24,4 @@ rsync -aq ${GOOGLE}/ /mhs2/Google/
 rsync -aq ${GOOGLE}/ ${SEAGATE}/git/Python/google/
 
 # write a log record
-echo `date` >>/home/marksa/dev/logs/rsync.log
+date >> /home/marksa/dev/logs/rsync.log
