@@ -1,19 +1,21 @@
 #!/bin/bash
 
-# Copyright (c) 2021 Mark Sattolo <epistemik@gmail.com>
+# Copyright (c) 2022 Mark Sattolo <epistemik@gmail.com>
 
 # send any newer HouseHold.gnucash or HouseHold.gnucash.gcm to Google drive
 
-GNC_APPF=/home/marksa/dev/Gnucash/app-files
-cp -pf /home/marksa/Documents/Financial/Gnucash/HouseHold.gnucash ${GNC_APPF}/hh.gnc
-cp -pf /home/marksa/.local/share/gnucash/books/HouseHold.gnucash.gcm ${GNC_APPF}/hh.gnc.gcm
+GNC_BAK=/home/marksa/dev/Gnucash/bak-files
+cp -pf /home/marksa/Documents/Financial/Gnucash/HouseHold.gnucash ${GNC_BAK}/hh.gnc
+cp -pf /home/marksa/.local/share/gnucash/books/HouseHold.gnucash.gcm ${GNC_BAK}/hh.gnc.gcm
 
-for x in $(find /home/marksa/dev/Gnucash/app-files/ -type f -newer /home/marksa/git/Python/google/auto-bak/ref-file -print); do cp $x /home/marksa/git/Python/google/auto-bak/transfer/; done
+GOOG=/home/marksa/git/Python/google
+GAB=${GOOG}/auto-bak
+for x in $(find ${GNC_BAK}/ -type f -newer ${GAB}/ref-file -print); do cp $x ${GAB}/transfer/; done
 
 source "/home/marksa/dev/Python/VENV/venvcron/bin/activate"
-python /home/marksa/git/Python/google/drive/driveAccess.py -s /home/marksa/git/Python/google/auto-bak/transfer -p gnucash -l /home/marksa/dev/logs
+python ${GOOG}/drive/driveAccess.py -s ${GAB}/transfer -p gnucash -l /home/marksa/dev/logs
 deactivate
 
-GAB=/home/marksa/git/Python/google/auto-bak
 mv -f ${GAB}/transfer/* ${GAB}/sent/
 touch ${GAB}/ref-file
+
