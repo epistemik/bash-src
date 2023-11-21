@@ -29,7 +29,7 @@ alias ct='ls -1A |wc -l'
 
 # git
 alias gts='git status'
-alias gtl='git log'
+alias gtl='git log --name-status'
 alias gtp='git push'
 alias gtpl='git pull'
 alias gtb='git branch'
