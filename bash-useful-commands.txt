@@ -1,0 +1,64 @@
+
+ command line loops
+--------------------
+ for i in {16..35}; do popd +16; done
+
+ for x in $(ls); do file $x; done
+ 
+ 
+ find release info
+-------------------
+1. cat /etc/issue
+2. hostnamectl
+3. lsb_release -a
+4. cat /etc/linuxmint/info
+5. cat /etc/os-release
+6. cat /etc/upstream-release/lsb-release
+
+
+ list current modules
+----------------------
+ lsmod
+
+
+ list the modules matching a pattern
+-------------------------------------
+ dpkg -l |grep <module_name>
+
+ e.g. dpkg -l |grep libdbi
+
+
+ find the location of a module's files
+---------------------------------------
+ dpkg -L <module_name>
+
+ e.g. dpkg -L gnucash |more
+
+
+ add new or updated lib folders to system
+------------------------------------------
+ sudo /sbin/ldconfig -v
+
+
+ install some/all the dependencies for a module
+-------------------------------------------
+ sudo apt build-dep <module_name>
+
+
+ in lib folder, find object reference
+--------------------------------------
+ nm lib*.so* |grep object
+
+
+ Delete Files Older Than 30 Days
+---------------------------------
+https://tecadmin.net/delete-files-older-x-days
+
+1. Delete all files older than 30 days in <directory>
+
+find <directory> -type f -mtime +30 -exec rm -f {} \;
+
+2. Delete Files Older Than 30 Days with .log Extension
+
+find <directory> -name "*.log" -type f -mtime +30 -exec rm -f {} \;
+
