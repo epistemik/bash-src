@@ -17,11 +17,11 @@ rsync -aq ${HOME_GNC}/ ${SEAGATE}/Documents/Financial/Gnucash/
 # gnucash / metadata
 HOME_DLS=/home/marksa/.local/share
 rsync -aq ${HOME_DLS}/gnucash/ /mhs2/dot-local-share/gnucash/
-rsync -aq ${HOME_DLS}/ ${SEAGATE}/.local/share/
+rsync -aq --exclude-from='/home/marksa/dev/rsync.seagate.exclude' ${HOME_DLS}/ ${SEAGATE}/.local/share/
 
 # python files
 PYTHON=/home/marksa/git/Python
-rsync -aq ${PYTHON}/ ${SEAGATE}/git/Python/
+rsync -aq --exclude-from='/home/marksa/dev/rsync.seagate.exclude' ${PYTHON}/ ${SEAGATE}/git/Python/
 
 # google dev files
 rsync -aq ${PYTHON}/google/ /mhs2/Google/
