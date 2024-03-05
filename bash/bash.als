@@ -33,6 +33,8 @@ alias gtl='git log --name-status'
 alias gtp='git push'
 alias gtpl='git pull'
 alias gtb='git branch'
+alias gtc='git checkout'
+alias gtd='git diff'
 alias gtr='git remote -v'
 alias gcam='git commit -a -m'
 alias gcm='git commit -m'
@@ -72,6 +74,9 @@ alias py37='python3.7'
 alias py38='python3.8'
 alias py39='python3.9'
 alias py310='python3.10'
+alias py311='python3.11'
+alias py312='python3.12'
+alias py313='python3.13'
 alias pyu='python3 -u'
 alias py3u=pyu
 alias pypath='echo $PYTHONPATH'
@@ -115,6 +120,10 @@ alias fxn='declare -F | more'
 alias fxnm=fxn
 alias fxnf='declare -f | less'
 alias fxnfl=fxnf
+
+# misc
+alias ts='sudo timeshift'
+alias tsl='ts --list'
 
 ########################################
 # END OF SCRIPT
