@@ -170,3 +170,8 @@ alias upp='go ../..'
 alias uppp='go ../../..'
 alias upppp='go ../../../..'
 alias uppppp='go ../../../../..'
+
+# timeshift
+alias ts=timeshift
+alias tsl='ts --list'
+
