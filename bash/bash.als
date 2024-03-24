@@ -121,9 +121,10 @@ alias fxnm=fxn
 alias fxnf='declare -f | less'
 alias fxnfl=fxnf
 
-# misc
+# timeshift
 alias ts='sudo timeshift'
 alias tsl='ts --list'
+alias tsds='ts --delete --snapshot'
 
 ########################################
 # END OF SCRIPT

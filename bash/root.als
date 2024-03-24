@@ -174,4 +174,5 @@ alias uppppp='go ../../../../..'
 # timeshift
 alias ts=timeshift
 alias tsl='ts --list'
+alias tsds='ts --delete --snapshot'
 
