@@ -39,11 +39,15 @@ target ()
       args='dlh *'
   fi
   targ=`ls -dl * | wc -l`
-  page=($LINES - 4)
-  if (( targ <= page ))
+  page=$(($LINES-4))
+  tripage=$((page*3))
+#  echo "tripage = $tripage"
+#  echo "targ = $targ"
+#  echo "page = $page"
+  if (( targ < page ))
   then
       ls -$args
-  elif (( targ <= (3*page) ))
+  elif (( targ < tripage ))
   then
       ls -A
   else
