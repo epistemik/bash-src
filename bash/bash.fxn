@@ -21,7 +21,7 @@ binpath ()
 
 origpath ()
 {
-	list $ORIGPATH # set in bash.ext
+	list $ORIG_PATH # set in bash.ext
 }
 
 libpath ()
@@ -39,7 +39,7 @@ target ()
       args='dlh *'
   fi
   targ=`ls -dl * | wc -l`
-  page=$(($LINES-4))
+  page=$(($LINES - 4))
   tripage=$((page*3))
 #  echo "tripage = $tripage"
 #  echo "targ = $targ"
