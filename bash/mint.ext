@@ -80,16 +80,6 @@ git_div()
 }
 
 ORIG_PATH=$PATH
-# check and add Perl/falcon to PATH if exists and not yet present
-PERL_FALCON=$HOME/git/Perl/falcon
-if [[ -d $PERL_FALCON ]]; then
-    if [[ ":$PATH:" == *":$PERL_FALCON:"* ]]; then
-        echo "PATH already contains $PERL_FALCON"
-    else
-        echo "$PERL_FALCON added to PATH."
-        PATH=$PERL_FALCON:$PATH
-    fi
-fi
 
 # check and add /opt/bin to PATH if exists and not yet present
 OPT_BIN=/opt/bin
@@ -99,17 +89,6 @@ if [[ -d $OPT_BIN ]]; then
     else
         echo "$OPT_BIN added to PATH."
         PATH=$OPT_BIN:$PATH
-    fi
-fi
-
-# check and add ~/apps/opt/bin to PATH if exists and not yet present
-HOME_APPS_OPT_BIN=$HOME/apps/opt/bin
-if [[ -d $HOME_APPS_OPT_BIN ]]; then
-    if [[ ":$PATH:" == *":$HOME_APPS_OPT_BIN:"* ]]; then
-        echo "PATH already contains $HOME_APPS_OPT_BIN"
-    else
-        echo "$HOME_APPS_OPT_BIN added to PATH."
-        PATH=$HOME_APPS_OPT_BIN:$PATH
     fi
 fi
 
@@ -142,7 +121,7 @@ if [[ -d $MY_BIN ]]; then
         echo "PATH already contains $MY_BIN"
     else
         echo "$HOME/bin added to PATH."
-        PATH=$HOME/bin:$ORIG_PATH
+        PATH=$HOME/bin:$PATH
     fi
 fi
 
