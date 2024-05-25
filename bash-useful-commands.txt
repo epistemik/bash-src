@@ -4,8 +4,21 @@
  for i in {16..35}; do popd +16; done
 
  for x in $(ls); do file $x; done
- 
- 
+
+
+ Delete Files Older Than <n> Days
+---------------------------------
+https://tecadmin.net/delete-files-older-x-days
+
+1. Delete all files older than 30 days in <directory>
+
+find <directory> -type f -mtime +30 -exec rm -f {} \;
+
+2. Delete Files Older Than 30 Days with .log Extension
+
+find <directory> -name "*.log" -type f -mtime +30 -exec rm -f {} \;
+
+
  find release info
 -------------------
 1. cat /etc/issue
@@ -48,17 +61,3 @@
  in lib folder, find object reference
 --------------------------------------
  nm lib*.so* |grep object
-
-
- Delete Files Older Than 30 Days
----------------------------------
-https://tecadmin.net/delete-files-older-x-days
-
-1. Delete all files older than 30 days in <directory>
-
-find <directory> -type f -mtime +30 -exec rm -f {} \;
-
-2. Delete Files Older Than 30 Days with .log Extension
-
-find <directory> -name "*.log" -type f -mtime +30 -exec rm -f {} \;
-
