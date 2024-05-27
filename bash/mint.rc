@@ -1,8 +1,10 @@
 ################################################################################
 #
-# mh.satto@gmail.com
+# Mark Sattolo
+# epistemik@gmail.com
 #
 ################################################################################
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples
 
@@ -11,6 +13,11 @@ case $- in
     *i*) ;;
       *) return;;
 esac
+
+if [ -z "$ORIG_PATH" ]; then
+    ORIG_PATH=$PATH
+fi
+echo "$HOME/.bashrc PATH = $PATH"
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -93,11 +100,6 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# start my custom bash scripts chain
-if [ -f ~/.bashext ]; then
-    . ~/.bashext
-fi
-
 # enable programmable completion features 
 # (you don't need to enable this, if it's already enabled 
 # in /etc/bash.bashrc and /etc/profile sources /etc/bash.bashrc).
@@ -107,6 +109,11 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+fi
+
+# start my custom bash scripts chain
+if [ -f ~/.bashext ]; then
+    . ~/.bashext
 fi
 
 # -- START ACTIVESTATE DEFAULT RUNTIME ENVIRONMENT
