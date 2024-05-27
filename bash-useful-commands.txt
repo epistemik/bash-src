@@ -4,6 +4,8 @@
  for i in {16..35}; do popd +16; done
 
  for x in $(ls); do file $x; done
+ 
+ for f in $(ls); do echo $f && grep -i data $f; done
 
 
  Delete Files Older Than <n> Days
