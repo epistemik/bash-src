@@ -58,7 +58,7 @@ target ()
 # list files with most recently updated first
 targett ()
 {
-  target 'ltd *'
+  target 'tdlh *'
 }
 # run at every prompt
 # PROMPT_COMMAND=targett
@@ -190,6 +190,7 @@ xt ()
 }
 alias XT=xt
 
+# 'env' utilities
 egi ()
 {
   env | grep -i "$1"
@@ -203,6 +204,7 @@ egil ()
   egi "$1" | less
 }
 
+# 'set' utilities
 sgi ()
 {
   if [ $2 ]
