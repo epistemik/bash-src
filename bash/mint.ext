@@ -6,11 +6,6 @@
 #
 ################################################################################
 
-# set directory colors
-# already done in .bashrc
-#d=.dircolors
-#test -r $d && eval "$(dircolors $d)"
-
 shopt -s histverify histappend
 
 # Color mapping
@@ -79,8 +74,6 @@ git_div()
   fi
 }
 
-ORIG_PATH=$PATH
-
 # check and add /opt/bin to PATH if exists and not yet present
 OPT_BIN=/opt/bin
 if [[ -d $OPT_BIN ]]; then
@@ -125,8 +118,6 @@ if [[ -d $MY_BIN ]]; then
     fi
 fi
 
-alias sobx='source $HOME/.bashext'
-
 # Gnucash build
 export GTEST_ROOT=$HOME/dev/git/clone/Google/googletest
 export GMOCK_ROOT=$GTEST_ROOT/googlemock
@@ -142,6 +133,8 @@ alias sobf="source $HOME/.bashfxn"
 # ACL for Android
 android_acl=$HOME/git/Other/bash-src/bash/android_acl.sh
 test -s $android_acl && source $android_acl
+
+alias sobx='source $HOME/.bashext'
 
 ########################################
 # END OF SCRIPT
