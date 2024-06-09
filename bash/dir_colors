@@ -120,8 +120,9 @@ EXEC 01;32
 .json   00;36
 .md     00;36
 .rst    00;36
+.yaml   00;36
 
-# header/make files & (magenta)
+# header/make, config files & (magenta)
 .h      00;35
 .hh     00;35
 .hpp    00;35
@@ -130,6 +131,9 @@ EXEC 01;32
 .make   00;35
 .ac     00;35
 .in     00;35
+.inc    00;35
+.ini    00;35
+.cfg    00;35
 .m4     00;35
 
 # source code or similar (bold magenta)
