@@ -44,6 +44,7 @@ TERM screen-w
 TERM vt100
 TERM vt102
 TERM xterm
+TERM xterm-256color
 TERM xterm-debian
 TERM iterm
 
@@ -64,14 +65,14 @@ EIGHTBIT 0
 
 NORMAL 00       # global default, although everything should be something.
 FILE   00       # normal file
-DIR    01;34    # directory			              (bold blue)
-LINK   00;34    # symbolic link			          (blue)
-SOCK   41;36    # socket			                (cyan on red)
-DOOR   41;36    # door				                (cyan on red)
-FIFO   40;33    # pipe				                (yellow on black)
-BLK    40;33    # block device driver		      (yellow on black)
+DIR    01;34    # directory			            (bold blue)
+LINK   00;34    # symbolic link			        (blue)
+SOCK   41;36    # socket			            (cyan on red)
+DOOR   41;36    # door				            (cyan on red)
+FIFO   40;33    # pipe				            (yellow on black)
+BLK    40;33    # block device driver		    (yellow on black)
 CHR    40;33    # character device driver	    (yellow on black)
-ORPHAN 31;05    # symlink to nonexistent file	(blink red)
+ORPHAN 31;05    # symlink to nonexistent file   (blink red)
 
 # This is for files with execute permission (bold green):
 EXEC 01;32
@@ -79,50 +80,57 @@ EXEC 01;32
 # List any file extensions like '.gz' or '.tar' that you would like ls to colorize below.
 # Put the extension, a space, and the color init string. (and any comments you want to add after a '#')
 
-# shell/scripts (green)
-.sh     00;32
-.csh    00;32
-.ksh    00;32
-.tcsh   00;32
-.bash   00;32
-.bashrc 00;32
-.pl     00;32
-.pm     00;32
-.bat    00;32
-.btm    00;32
-.cmd    00;32
-.py     00;32
-.als    00;32
-.alias  00;32
-.fxn    00;32
+# shell scripts, run control, & (green)
+.sh       00;32
+.csh      00;32
+.ksh      00;32
+.tcsh     00;32
+.bash     00;32
+.bashrc   00;32
+.bat      00;32
+.btm      00;32
+.cmd      00;32
+.ext      00;32
+.als      00;32
+.alias    00;32
+.fxn      00;32
+.rc       00;32
+.profile  00;32
 
 # libs, objects, etc (red)
-.a      00;31
-.ar     00;31
-.o      00;31
-.so     00;31
-.lib    00;31
-.dll    00;31
-.class  00;31
-.plg    00;31
-.pyc    00;31
-.pyo    00;31
+.a       00;31
+.ar      00;31
+.o       00;31
+.so      00;31
+.lib     00;31
+.dll     00;31
+.class   00;31
+.pm      00;31
+.plg     00;31
+.pyc     00;31
+.pyo     00;31
 
-# markup files or similar (cyan)
+# markup files & (cyan)
 .htm    00;36
 .html   00;36
 .xml    00;36
 .xsl    00;36
 .xsd    00;36
 .dtd    00;36
+.json   00;36
+.md     00;36
+.rst    00;36
 
-# header/make files or similar (magenta)
+# header/make files & (magenta)
 .h      00;35
 .hh     00;35
 .hpp    00;35
 .mk     00;35
 .mak    00;35
 .make   00;35
+.ac     00;35
+.in     00;35
+.m4     00;35
 
 # source code or similar (bold magenta)
 .c      01;35
@@ -131,12 +139,18 @@ EXEC 01;32
 .C      01;35
 .s      01;35
 .asm    01;35
+.pl     01;35
 .java   01;35
+.js     01;35
+.php    01;35
 .pas    01;35
 .pro    01;35
 .sml    01;35
 .st     01;35
 .cs     01;35
+.py     01;35
+.rs     01;35
+.kt     01;35
 
 # archives or compressed (white on blue)
 .tar    37;44
