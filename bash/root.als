@@ -76,6 +76,7 @@ alias go15='go +15'
 alias go16='go +16'
 alias go0='go -0'
 alias go1='go -1'
+alias gom1=go1
 alias gom2='go -2'
 alias gom3='go -3'
 alias gom4='go -4'
@@ -135,8 +136,8 @@ alias o=less
 alias cp='cp -p'
 alias rm='rm -i'
 alias md='mkdir -p'
-alias duh='du -h -x --max-depth=1'
-alias dum='du -m -x --max-depth=1'
+alias duh='du -hxs *'
+alias dum='du -mxs *'
 alias vi=vim
 alias cdp='cd -P'
 alias mx='chmod ugo+x'
