@@ -21,6 +21,7 @@ alias md='mkdir -p'
 alias duh='du -hxs *'
 # alias dum='du -m -x --max-depth=1'
 alias dum='du -mxs *'
+alias dut='du -mxs'
 alias vi=vim
 alias cdp='cd -P'
 alias mx='chmod ugo+x'

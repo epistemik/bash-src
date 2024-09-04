@@ -138,6 +138,7 @@ alias rm='rm -i'
 alias md='mkdir -p'
 alias duh='du -hxs *'
 alias dum='du -mxs *'
+alias dut='du -mxs'
 alias vi=vim
 alias cdp='cd -P'
 alias mx='chmod ugo+x'
