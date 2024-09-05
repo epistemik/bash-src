@@ -1,30 +1,37 @@
 #!/bin/bash
 
-# Copyright (c) 2022 Mark Sattolo <epistemik@gmail.com>
+# Copyright (c) 2024 Mark Sattolo <epistemik@gmail.com>
+# modified 2024-09-04
 
-#  rsync my home folder to the Samsung drive
-rsync -aq --exclude-from='/home/marksa/dev/rsync.samsung.exclude' /home/marksa/ /media/marksa/Samsung_T5/BACKUP/marksa/
-#  rsync my home folder to the Seagate drive
-SEAGATE=/home/marksa/Seagate/BACKUP/DIOMEDES/HOME
-#rsync -aq --exclude-from='/home/marksa/dev/rsync.seagate.exclude' /home/marksa/ ${SEAGATE}/
+RSYNC='rsync -aq'
 
-#  rsync important information to the backup partition
+#  rsync my home folder to the Samsung T5
+${RSYNC} --exclude-from='/home/marksa/dev/rsync.samsung.exclude' /home/marksa/ /media/marksa/Samsung_T5/BACKUP/marksa/
+
+#  rsync important information to backup locations
 HOME_GNC=/home/marksa/Documents/Financial/Gnucash
-# gnucash data
-rsync -aq ${HOME_GNC}/ /mhs2/FIN/Gnucash/
-rsync -aq ${HOME_GNC}/ ${SEAGATE}/Documents/Financial/Gnucash/
-
-# gnucash / metadata
 HOME_DLS=/home/marksa/.local/share
-rsync -aq ${HOME_DLS}/gnucash/ /mhs2/dot-local-share/gnucash/
-rsync -aq --exclude-from='/home/marksa/dev/rsync.seagate.exclude' ${HOME_DLS}/ ${SEAGATE}/.local/share/
+SEAGATE=/home/marksa/Seagate/BACKUP/DIOMEDES/HOME
+SAMSUNGT7=/media/marksa/T7/BACKUP
+
+# gnucash data
+${RSYNC} ${HOME_GNC}/ /mhs2/FIN/Gnucash/
+${RSYNC} ${HOME_GNC}/ ${SEAGATE}/Documents/Financial/Gnucash/
+${RSYNC} ${HOME_GNC}/ ${SAMSUNGT7}/Documents/Financial/Gnucash/
+# gnucash metadata
+${RSYNC} ${HOME_DLS}/gnucash/ /mhs2/dot-local-share/gnucash/
+
+# .local/share
+${RSYNC} --exclude-from='/home/marksa/dev/rsync.seagate.exclude' ${HOME_DLS}/ ${SEAGATE}/.local/share/
+${RSYNC} ${HOME_DLS}/ ${SAMSUNGT7}/local/share/
 
 # python files
-PYTHON=/home/marksa/git/Python
-rsync -aq --exclude-from='/home/marksa/dev/rsync.seagate.exclude' ${PYTHON}/ ${SEAGATE}/git/Python/
+PYTHON=/home/marksa/dev/git/Python
+${RSYNC} --exclude-from='/home/marksa/dev/rsync.seagate.exclude' ${PYTHON}/ ${SEAGATE}/git/Python/
+${RSYNC} ${PYTHON}/ ${SAMSUNGT7}/dev/git/Python/
 
 # google dev files
-rsync -aq ${PYTHON}/google/ /mhs2/Google/
+${RSYNC} ${PYTHON}/google/ /mhs2/Google/
 
 # write a log record
 date >> /home/marksa/dev/logs/rsync.log
