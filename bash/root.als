@@ -136,7 +136,7 @@ alias o=less
 alias cp='cp -p'
 alias rm='rm -i'
 alias md='mkdir -p'
-alias duh='du -hxs *'
+alias duh='du -hx --max-depth=1'
 alias dum='du -mxs *'
 alias dut='du -mxs'
 alias vi=vim

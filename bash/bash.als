@@ -18,8 +18,7 @@ alias c=clear
 alias del='rm -i'
 alias hl='history |less'
 alias md='mkdir -p'
-alias duh='du -hxs *'
-# alias dum='du -m -x --max-depth=1'
+alias duh='du -hx --max-depth=1'
 alias dum='du -mxs *'
 alias dut='du -mxs'
 alias vi=vim
