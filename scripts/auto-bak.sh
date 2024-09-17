@@ -34,4 +34,4 @@ ${RSYNC} ${PYTHON}/ ${SAMSUNGT7}/dev/git/Python/
 ${RSYNC} ${PYTHON}/google/ /mhs2/Google/
 
 # write a log record
-date >> /home/marksa/dev/logs/rsync.log
+echo "auto-bak finish @ $(date)" >> /home/marksa/dev/logs/rsync.log
