@@ -22,9 +22,15 @@ do
   cp "$file" ${GAB}/transfer/
 done <   <(find ${GNC_BAK}/ -type f -newer ${GAB}/ref-file -print0)
 
+# delete the older hh files
+find ${GNC_BAK} -name "hh*" -type f -mtime +2 -exec rm -f {} \;
+
 source "/home/marksa/dev/Python/VENV/venvcron/bin/activate"
 python ${GOOG}/drive/driveAccess.py -s ${GAB}/transfer -p gnucash -l /home/marksa/dev/logs
 deactivate
 
 mv -f ${GAB}/transfer/* ${GAB}/sent/
 touch ${GAB}/ref-file
+
+# clean up the 'sent' folder
+find ${GAB}/sent/ -name "hh*" -type f -mtime +30 -exec rm -f {} \;
