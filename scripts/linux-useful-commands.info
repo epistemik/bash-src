@@ -1,40 +1,38 @@
 
 # Copyright (c) 2024 Mark Sattolo <epistemik@gmail.com>
-# modified 2024-09-05
+# modified 2024-09-21
 
- command line loops
---------------------
+  command line loops
+----------------------
  for i in {16..35}; do popd +16; done
 
  for x in $(ls); do file $x; done
 
 
- FIND files by date
---------------------
- 1) move all files older than 10 days to subfolder 'OLD'
+  FIND files by date
+----------------------
+ 1) Move all files older than 10 days from current folder to subfolder 'OLD'
    > find . -maxdepth 1 -type f -mtime +10 -exec mv {} OLD/ \;
 
- FIND files by size
---------------------
- 1) list all files smaller than 10 bytes
+  FIND files by size
+----------------------
+ 1) List all files smaller than 10 bytes in current folder
    > find . -maxdepth 1 -type f -size -10c -print
- 1) Delete all files smaller than 98 bytes
-   > find . -maxdepth 1 -type f -size -98c -exec rm {} \;
+ 1) DELETE all files smaller than 98 bytes in current folder
+   > find . -maxdepth 1 -type f -size -98c -delete
 
 
- DELETE Files Older Than x Days
----------------------------------
-https://tecadmin.net/delete-files-older-x-days
+  Find and DELETE Files Older Than x Days
+-------------------------------------------
+ 1) Delete all files older than 90 days in <directory>
+   > find <directory> -type f -mtime +90 -delete
 
-1. Delete all files older than 30 days in <directory>
-  > find <directory> -type f -mtime +30 -exec rm -f {} \;
-
-2. Delete Files Older Than 30 Days with '.log' extension
-  > find <directory> -name "*.log" -type f -mtime +30 -exec rm -f {} \;
+ 2) Delete files older than 30 Days with '.log' extension
+   > find <directory> -name "*.log" -type f -mtime +30 -delete
 
 
- get release info
--------------------
+  get release info
+--------------------
 1. cat /etc/issue
 2. hostnamectl
 3. lsb_release -a
@@ -43,35 +41,35 @@ https://tecadmin.net/delete-files-older-x-days
 6. cat /etc/upstream-release/lsb-release
 
 
- list current modules
-----------------------
+  list current modules
+------------------------
  lsmod
 
 
- list the modules matching a pattern
--------------------------------------
+  list the modules matching a pattern
+---------------------------------------
  dpkg -l |grep <module_name>
 
  e.g. dpkg -l |grep libdbi
 
 
- get the location of a module's files
----------------------------------------
+  get the location of a module's files
+-----------------------------------------
  dpkg -L <module_name>
 
  e.g. dpkg -L gnucash |more
 
 
- add new or updated lib folders to system
-------------------------------------------
+  add new or updated lib folders to system
+--------------------------------------------
  sudo /sbin/ldconfig -v
 
 
- install some/all the dependencies for a module
--------------------------------------------
+  install some/all the dependencies for a module
+--------------------------------------------------
  sudo apt build-dep <module_name>
 
 
- in lib folder, find object reference
---------------------------------------
+  in lib folder, find object reference
+----------------------------------------
  nm lib*.so* |grep object
