@@ -19,7 +19,7 @@ find ${GNC_BAK} -type f -newer ${GAB}/ref-file -exec cp {} ${GAB}/transfer/ \;
 find ${GNC_BAK} -name "hh*" -type f -mtime +2 -delete
 
 # send to my Google drive
-source "/home/marksa/dev/Python/VENV/venvcron/bin/activate"
+source "/home/marksa/dev/Python/VENV/venv311/bin/activate"
 python ${GOOG}/drive/driveAccess.py -s ${GAB}/transfer -p gnucash -l /home/marksa/dev/logs
 deactivate
 
