@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Copyright (c) 2024 Mark Sattolo <epistemik@gmail.com>
-# modified 2024-09-16
+# modified 2024-09-27
 
-#  weekly backup of important home folders to the Samsung T7
+# WEEKLY rsync BACKUP of important home folders to the Samsung T7 SSD drive
 
 RSYNC='rsync -aq'
 HOME=/home/marksa
