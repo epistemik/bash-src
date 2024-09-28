@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Copyright (c) 2024 Mark Sattolo <epistemik@gmail.com>
-# modified 2024-09-27
+# modified 2024-09-28
 
 # DAILY backups with rsync
 RSYNC='rsync -aq'
@@ -29,10 +29,14 @@ ${RSYNC} --exclude-from='/home/marksa/dev/rsync.seagate.exclude' ${HOME_DLS}/ ${
 ${RSYNC} ${HOME_DLS}/ ${SAMSUNGT7}/local/share/
 
 # python files
-PYTHON=/home/marksa/dev/git/Python
-${RSYNC} --exclude-from='/home/marksa/dev/rsync.seagate.exclude' ${PYTHON}/ ${SEAGATE}/git/Python/
-${RSYNC} ${PYTHON}/ ${SAMSUNGT7}/dev/git/Python/
-${RSYNC} ${PYTHON}/ /mhs2/Python/
+DEV_PYTHON=/home/marksa/dev/Python
+${RSYNC} -f'- /VENV/' ${DEV_PYTHON}/ ${SEAGATE}/dev/Python/
+${RSYNC} -f'- /VENV/' ${DEV_PYTHON}/ ${SAMSUNGT7}/dev/Python/
+${RSYNC} -f'- /VENV/' ${DEV_PYTHON}/ /mhs2/dev-python/
+GIT_PYTHON=/home/marksa/dev/git/Python
+${RSYNC} ${GIT_PYTHON}/ ${SEAGATE}/git/Python/
+${RSYNC} ${GIT_PYTHON}/ ${SAMSUNGT7}/dev/git/Python/
+${RSYNC} ${GIT_PYTHON}/ /mhs2/git-python/
 
 # write a log record
 echo "auto-bak finish @ $(date)" >> /home/marksa/dev/logs/rsync.log
