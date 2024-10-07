@@ -1,6 +1,6 @@
 
 # Copyright (c) 2024 Mark Sattolo <epistemik@gmail.com>
-# modified 2024-09-21
+# modified 2024-10-05
 
   command line loops
 ----------------------
@@ -21,7 +21,6 @@
  1) DELETE all files smaller than 98 bytes in current folder
    > find . -maxdepth 1 -type f -size -98c -delete
 
-
   Find and DELETE Files Older Than x Days
 -------------------------------------------
  1) Delete all files older than 90 days in <directory>
@@ -41,33 +40,33 @@
 6. cat /etc/upstream-release/lsb-release
 
 
+  get info for a package
+--------------------------------------------------
+ apt show <package_name>
+
+  install some/all the dependencies for a package
+--------------------------------------------------
+ apt build-dep <package_name>
+
+
+  list the packages matching a pattern
+---------------------------------------
+ dpkg -l |grep <pattern>
+
+  get the location of a package's files
+-----------------------------------------
+ dpkg -L <package_name> |more
+
+
+
   list current modules
 ------------------------
- lsmod
-
-
-  list the modules matching a pattern
----------------------------------------
- dpkg -l |grep <module_name>
-
- e.g. dpkg -l |grep libdbi
-
-
-  get the location of a module's files
------------------------------------------
- dpkg -L <module_name>
-
- e.g. dpkg -L gnucash |more
+ lsmod |more
 
 
   add new or updated lib folders to system
 --------------------------------------------
  sudo /sbin/ldconfig -v
-
-
-  install some/all the dependencies for a module
---------------------------------------------------
- sudo apt build-dep <module_name>
 
 
   in lib folder, find object reference
