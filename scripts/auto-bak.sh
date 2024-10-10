@@ -9,20 +9,21 @@ RSYNC='rsync -aq'
 #  rsync important information to backup locations
 HOME_GNC=/home/marksa/Documents/Financial/Gnucash
 HOME_DLS=/home/marksa/.local/share
-SAMSUNGT5=/samt5/BACKUP/marksa
-SAMSUNGT7=/samt7/BACKUP
+SAMSUNGT5=/media/marksa/SamT5/BACKUP/marksa
+SAMSUNGT7=/media/marksa/SamT7/BACKUP
 
 #  rsync my home folder to the Samsung T5
-${RSYNC} --exclude-from='/home/marksa/dev/rsync.samsung.exclude' /home/marksa/ ${SAMSUNGT5}
+${RSYNC} --exclude-from='/home/marksa/dev/rsync.samsung.exclude' /home/marksa/ ${SAMSUNGT5}/
 
 # gnucash data
 ${RSYNC} ${HOME_GNC}/ /mhs2/FIN/Gnucash/
 ${RSYNC} ${HOME_GNC}/ ${SAMSUNGT5}/Documents/Financial/Gnucash/
 ${RSYNC} ${HOME_GNC}/ ${SAMSUNGT7}/Documents/Financial/Gnucash/
+${RSYNC} /home/marksa/dev/Gnucash/ ${SAMSUNGT7}/dev/Gnucash/
 # gnucash metadata
 ${RSYNC} ${HOME_DLS}/gnucash/ /mhs2/dot-local/share/gnucash/
 ${RSYNC} /home/marksa/.config/gnucash/ /mhs2/dot-config/gnucash/
-#${RSYNC} /etc/gnucash/ /mhs2/etc-gnc/ # >> needs sudo
+${RSYNC} /home/marksa/opt/etc/gnucash/ /mhs2/opt/etc/gnucash/
 
 # .local/share
 ${RSYNC} --exclude-from='/home/marksa/dev/rsync.samsung.exclude' ${HOME_DLS}/ ${SAMSUNGT5}/.local/share/
