@@ -7,7 +7,7 @@
 
 RSYNC='rsync -aq'
 HOME=/home/marksa
-SAMSUNGT7=/media/marksa/T7/BACKUP
+SAMSUNGT7=/media/marksa/SamT7/BACKUP
 
 # log start
 echo "T7 start @ $(date)" >> /home/marksa/dev/logs/rsync.log
