@@ -74,6 +74,17 @@ git_div()
   fi
 }
 
+# check and add <depot_tools> to PATH
+DEPOT_TOOLS=$HOME/dev/git/clone/depot_tools
+if [[ -d $DEPOT_TOOLS ]]; then
+    if [[ ":$PATH:" == *":$DEPOT_TOOLS:"* ]]; then
+        echo "PATH already contains $DEPOT_TOOLS"
+    else
+        echo "$DEPOT_TOOLS added to PATH."
+        PATH=$DEPOT_TOOLS:$PATH
+    fi
+fi
+
 # check and add /opt/bin to PATH if exists and not yet present
 OPT_BIN=/opt/bin
 if [[ -d $OPT_BIN ]]; then
@@ -124,7 +135,7 @@ export GMOCK_ROOT=$GTEST_ROOT/googlemock
 
 # aliases
 test -s $HOME/.bashals && source $HOME/.bashals
-alias soba='source $HOME/.bashals'
+alias soba="source $HOME/.bashals"
 
 # functions
 test -s $HOME/.bashfxn && source $HOME/.bashfxn
@@ -134,7 +145,7 @@ alias sobf="source $HOME/.bashfxn"
 android_acl=$HOME/git/Other/bash-src/bash/android_acl.sh
 test -s $android_acl && source $android_acl
 
-alias sobx='source $HOME/.bashext'
+alias sobx="source $HOME/.bashext"
 
 ########################################
 # END OF SCRIPT
