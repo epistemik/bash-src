@@ -24,8 +24,8 @@ echo "$HOME/.bashrc PATH = $PATH"
 HISTCONTROL=ignoreboth
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=2000
-HISTFILESIZE=3000
+HISTSIZE=8000
+HISTFILESIZE=16000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
