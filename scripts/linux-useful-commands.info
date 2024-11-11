@@ -9,6 +9,10 @@
  for x in $(ls); do file $x; done
 
 
+  FIND files by filename extension
+------------------------------------
+ > find -maxdepth 9 -type f -name "*.csv" -print
+
   FIND files by date
 ----------------------
  1) Move all files older than 10 days from current folder to subfolder 'OLD'
@@ -23,11 +27,11 @@
 
   Find and DELETE Files Older Than x Days
 -------------------------------------------
- 1) Delete all files older than 90 days in <directory>
+ 1) Delete files older than 90 days in <directory>
    > find <directory> -type f -mtime +90 -delete
 
- 2) Delete files older than 30 Days with '.log' extension
-   > find <directory> -name "*.log" -type f -mtime +30 -delete
+ 2) Delete, INCLUDING sub-folders, all '.log' files older than 30 days
+   > find -maxdepth 9 -name "*.log" -type f -mtime +30 -delete
 
 
   get release info
