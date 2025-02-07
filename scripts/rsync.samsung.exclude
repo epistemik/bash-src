@@ -27,6 +27,7 @@
 - baloo/
 - ARES/
 - clone/
+- test/
 - LucasChessR/
 - Android*/
 - .android/
@@ -35,6 +36,9 @@
 - Videos/
 - VENV/
 - Steam/
+- Public/
+- Test/
+- TEST/
 - RELEASES/
 - ZIPS/
 - flatpak/
