@@ -22,8 +22,12 @@
 ----------------------
  1) List all files smaller than 10 bytes in current folder
    > find . -maxdepth 1 -type f -size -10c -print
- 1) DELETE all files smaller than 98 bytes in current folder
+   
+ 2) DELETE all files SMALLER than 98 bytes in current folder
    > find . -maxdepth 1 -type f -size -98c -delete
+   
+ 3) DELETE all files LARGER than 2 Mbytes in current folder
+   > find . -maxdepth 1 -type f -size +2M -delete
 
   Find and DELETE Files Older Than x Days
 -------------------------------------------
