@@ -1,0 +1,65 @@
+
+# Update firmware
+===============================
+$> fwupdmgr refresh
+
+$> fwupdmgr get-devices
+
+$> fwupdmgr get-updates
+
+/lib/x86_64-linux-gnu | Thu Nov 27 14:34:02 | marksa@DIOMEDES-XPS-8940 | bash 5.2.21
+16111 > sudo fwupdmgr update
+[sudo] password for marksa:
+Devices with no available firmware updates:
+ • Portable SSD T5
+ • TPM
+ • UEFI Device Firmware
+ • UEFI dbx
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ Upgrade CL1-3D512-Q11 NVMe SSSTC 512GB from 22321115 to 22321118?            ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ To correct the SMART Available Spare to actual correct value                 ║
+║                                                                              ║
+║ XPS 8940 must remain plugged into a power source for the duration of the     ║
+║ update to avoid damage.                                                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+Perform operation? [Y|n]: y
+Waiting…                 [***************************************] Less than one minute remaining…
+Successfully installed firmware
+╔══════════════════════════════════════════════════════════════════════════════╗
+║ Upgrade System Firmware from 2.1.1 to 2.4.0?                                 ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║ The vendor did not supply any release notes.                                 ║
+║                                                                              ║
+║ XPS 8940 must remain plugged into a power source for the duration of the     ║
+║ update to avoid damage.                                                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+Perform operation? [Y|n]: y
+Updating System Firmware…[ -                                     ]
+Waiting…                 [***************************************]
+Successfully installed firmware
+Do not turn off your computer or remove the AC adapter while the update is in progress.
+An update requires a reboot to complete. Restart now? [y|N]:
+
+
+
+# Check status of firmware update service
+=============================================
+/lib/x86_64-linux-gnu | Thu Nov 27 13:28:08 | marksa@DIOMEDES-XPS-8940 | bash 5.2.21
+16106 > systemctl status fwupd
+● fwupd.service - Firmware update daemon
+     Loaded: loaded (/usr/lib/systemd/system/fwupd.service; static)
+     Active: active (running) since Thu 2025-11-27 09:06:54 EST; 4h 22min ago
+       Docs: https://fwupd.org/
+   Main PID: 4059 (fwupd)
+      Tasks: 6 (limit: 38016)
+     Memory: 28.8M (peak: 186.7M)
+        CPU: 2.103s
+     CGroup: /system.slice/fwupd.service
+             └─4059 /usr/libexec/fwupd/fwupd
+
+Nov 27 09:06:51 DIOMEDES-XPS-8940 systemd[1]: Starting fwupd.service - Firmware update daemon...
+Nov 27 09:06:54 DIOMEDES-XPS-8940 fwupd[4059]: 14:06:54.224 FuMain               fwupd 1.9.31 ready for requests (locale en_CA.UTF-8)
+Nov 27 09:06:54 DIOMEDES-XPS-8940 systemd[1]: Started fwupd.service - Firmware update daemon.
+Nov 27 13:20:34 DIOMEDES-XPS-8940 systemd[1]: Started fwupd.service - Firmware update daemon.
+
