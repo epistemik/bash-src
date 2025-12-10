@@ -1,3 +1,5 @@
+- *.tmp
+- .*.tmp
 - *.tar
 - *.gz
 - *.gzip
@@ -31,6 +33,7 @@
 - LucasChessR/
 - Android*/
 - .android/
+- BraveSoftware/
 - TechInfo/
 - Music/
 - Videos/
