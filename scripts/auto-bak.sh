@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Copyright (c) 2025 Mark Sattolo <epistemik@gmail.com>
-# modified 2025-02-08
+# modified 2025-12-06
 
 # DAILY backups with rsync
-RSYNC='rsync -aq'
+RSYNC='rsync -aqh --delete --ignore-errors'
 
 #  rsync important information to backup locations
 HOME_GNC=/home/marksa/Documents/Financial/Gnucash
