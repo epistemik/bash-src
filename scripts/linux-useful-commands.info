@@ -1,12 +1,14 @@
 
-# Copyright (c) 2024 Mark Sattolo <epistemik@gmail.com>
-# modified 2024-10-05
+# Copyright (c) 2026 Mark Sattolo <epistemik@gmail.com>
+# modified 2026-04-23
+
 
   command line loops
 ----------------------
  for i in {16..35}; do popd +16; done
 
  for x in $(ls); do file $x; done
+
 
 
   FIND files by filename extension
@@ -22,10 +24,10 @@
 ----------------------
  1) List all files smaller than 10 bytes in current folder
    > find . -maxdepth 1 -type f -size -10c -print
-   
+
  2) DELETE all files SMALLER than 98 bytes in current folder
    > find . -maxdepth 1 -type f -size -98c -delete
-   
+
  3) DELETE all files LARGER than 2 Mbytes in current folder
    > find . -maxdepth 1 -type f -size +2M -delete
 
@@ -38,6 +40,16 @@
    > find -maxdepth 9 -name "*.log" -type f -mtime +30 -delete
 
 
+
+  pause a running command
+---------------------------
+Ctrl + Z: Suspends the foreground process. It stops the task and returns you to the prompt.
+Resume: Type 'fg' to bring it back to the foreground or 'bg' to let it run in the background.
+Ctrl + S: Pauses the output of the terminal. The process may keep running in the background until its output buffer is full.
+Resume Output: Type Ctrl + Q.
+
+
+
   get release info
 --------------------
 1. cat /etc/issue
@@ -48,6 +60,7 @@
 6. cat /etc/upstream-release/lsb-release
 
 
+
   get info for a package
 --------------------------------------------------
  apt show <package_name>
@@ -55,6 +68,7 @@
   install some/all the dependencies for a package
 --------------------------------------------------
  apt build-dep <package_name>
+
 
 
   list the packages matching a pattern
@@ -72,11 +86,14 @@
  lsmod |more
 
 
+
   add new or updated lib folders to system
 --------------------------------------------
  sudo /sbin/ldconfig -v
 
 
+
   in lib folder, find object reference
 ----------------------------------------
  nm lib*.so* |grep object
+
