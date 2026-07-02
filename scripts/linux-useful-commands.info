@@ -1,9 +1,15 @@
+################################################################################
+#
+# Copyright (c) 2026 Mark Sattolo
+#
+# <epistemik@gmail.com>
+#
+# modified 2026-07-01
+#
+################################################################################
 
-# Copyright (c) 2026 Mark Sattolo <epistemik@gmail.com>
-# modified 2026-04-23
 
-
-  command line loops
+  command line LOOPS
 ----------------------
  for i in {16..35}; do popd +16; done
 
@@ -41,7 +47,7 @@
 
 
 
-  pause a running command
+  PAUSE a running command
 ---------------------------
 Ctrl + Z: Suspends the foreground process. It stops the task and returns you to the prompt.
 Resume: Type 'fg' to bring it back to the foreground or 'bg' to let it run in the background.
@@ -50,7 +56,7 @@ Resume Output: Type Ctrl + Q.
 
 
 
-  get release info
+  get RELEASE info
 --------------------
 1. cat /etc/issue
 2. hostnamectl
@@ -61,39 +67,44 @@ Resume Output: Type Ctrl + Q.
 
 
 
-  get info for a package
+  get info for a PACKAGE
 --------------------------------------------------
  apt show <package_name>
 
-  install some/all the dependencies for a package
+  install some/all the dependencies for a PACKAGE
 --------------------------------------------------
  apt build-dep <package_name>
 
-
-
-  list the packages matching a pattern
+  list the PACKAGES matching a pattern
 ---------------------------------------
  dpkg -l |grep <pattern>
 
-  get the location of a package's files
+  get the location of a PACKAGE's files
 -----------------------------------------
  dpkg -L <package_name> |more
 
 
 
-  list current modules
+  find an installed EXECUTABLE or PACKAGE
+-------------------------------------------
+ whereis <item name>
+
+
+
+  list current MODULES
 ------------------------
  lsmod |more
 
 
 
-  add new or updated lib folders to system
---------------------------------------------
- sudo /sbin/ldconfig -v
+  add new or updated LIBRARIES to the system
+----------------------------------------------
+ sudo /sbin/ldconfig [-v]
 
 
 
-  in lib folder, find object reference
-----------------------------------------
- nm lib*.so* |grep object
+     info re .so/.lib file:
+--------------------------------
+ 1) find referenced libraries and their locations:  ldd <file name>
 
+ 2) find symbol names referenced:  nm <file name> |grep <symbol name>
