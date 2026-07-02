@@ -1,8 +1,10 @@
 ################################################################################
 #
-# mhsatto@cse-cst.gc.ca
+# Copyright (c) 2026 Mark Sattolo
 #
-# $Id: //depot/src/bash/dir_colors#3 $
+# <epistemik@gmail.com>
+#
+# modified 2026-06-30
 #
 ################################################################################
 
@@ -63,16 +65,16 @@ EIGHTBIT 0
 # Background color codes:
 # 40=black / 41=red / 42=green / 43=yellow / 44=blue / 45=magenta / 46=cyan / 47=white
 
-NORMAL 00       # global default, although everything should be something.
-FILE   00       # normal file
-DIR    01;34    # directory			            (bold blue)
-LINK   00;34    # symbolic link			        (blue)
-SOCK   41;36    # socket			            (cyan on red)
-DOOR   41;36    # door				            (cyan on red)
-FIFO   40;33    # pipe				            (yellow on black)
-BLK    40;33    # block device driver		    (yellow on black)
-CHR    40;33    # character device driver	    (yellow on black)
-ORPHAN 31;05    # symlink to nonexistent file   (blink red)
+NORMAL 00         # global default, although everything should be something.
+FILE   00         # normal file
+DIR    01;34      # directory			            (bold blue)
+LINK   00;34      # symbolic link			        (blue)
+SOCK   41;36      # socket			                (cyan on red)
+DOOR   41;36      # door				            (cyan on red)
+FIFO   40;33      # pipe				            (yellow on black)
+BLK    40;33      # block device driver		        (yellow on black)
+CHR    40;33      # character device driver	        (yellow on black)
+ORPHAN 05;31;43   # symlink to nonexistent file     (blink red on yellow)
 
 # This is for files with execute permission (bold green):
 EXEC 01;32
@@ -217,4 +219,3 @@ EXEC 01;32
 .voc    00;33
 .wav    00;33
 .webm   00;33
-
